@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* LIGHT MODE COLORS*/
+:root {
+  /* Essential colors for light mode - Neutral with green accents */
+  --background: 0 0% 99%;
+  --foreground: 0 0% 8%;
+  --border: 0 0% 88%;
+  
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 8%;
+  --card-border: 0 0% 90%;
+  
+  --primary: 142 52% 45%;
+  --primary-foreground: 0 0% 100%;
+  
+  --secondary: 0 0% 92%;
+  --secondary-foreground: 0 0% 15%;
+  
+  --muted: 0 0% 96%;
+  --muted-foreground: 0 0% 40%;
+
+  /* Font fallback system */
+  --font-sans: Inter, DM Sans, Open Sans, sans-serif;
+  
+  /* Custom shadows for hover effects */
+  --shadow-hover: 0 10px 25px -5px hsl(0 0% 15% / 0.15), 0 4px 6px -2px hsl(0 0% 15% / 0.05);
+  --shadow-hover-light: 0 10px 25px -5px hsl(0 0% 15% / 0.15), 0 4px 6px -2px hsl(0 0% 15% / 0.05);
+  --shadow-card-hover: 0 20px 40px -10px hsl(0 0% 15% / 0.20), 0 8px 16px -4px hsl(0 0% 15% / 0.10);
+  --shadow-card-hover-light: 0 20px 40px -10px hsl(0 0% 15% / 0.20), 0 8px 16px -4px hsl(0 0% 15% / 0.10);
+}
+
+/* DARK MODE */
+.dark {
+  /* Essential colors for dark mode - Light neutral gray (not dark, not green) */
+  --background: 0 0% 28%;
+  --foreground: 0 0% 95%;
+  --border: 0 0% 40%;
+  
+  --card: 0 0% 32%;
+  --card-foreground: 0 0% 95%;
+  --card-border: 0 0% 38%;
+  
+  --primary: 142 52% 45%;
+  --primary-foreground: 0 0% 100%;
+  
+  --secondary: 0 0% 36%;
+  --secondary-foreground: 0 0% 95%;
+  
+  --muted: 0 0% 30%;
+  --muted-foreground: 0 0% 70%;
+  
+  /* Enhanced shadows for dark mode */
+  --shadow-hover: 0 10px 25px -5px hsl(0 0% 5% / 0.40), 0 4px 6px -2px hsl(0 0% 5% / 0.30);
+  --shadow-hover-light: 0 10px 25px -5px hsl(0 0% 100% / 0.12), 0 4px 6px -2px hsl(0 0% 100% / 0.06);
+  --shadow-card-hover: 0 20px 40px -10px hsl(0 0% 5% / 0.50), 0 8px 16px -4px hsl(0 0% 5% / 0.40);
+  --shadow-card-hover-light: 0 20px 40px -10px hsl(0 0% 100% / 0.15), 0 8px 16px -4px hsl(0 0% 100% / 0.08);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  /* Modern button hover effects */
+  .btn-hover-modern {
+    @apply transition-all duration-200 ease-out;
+    @apply transform hover:scale-[1.02] hover:-translate-y-0.5;
+  }
+  
+  .btn-hover-modern:hover {
+    box-shadow: var(--shadow-hover);
+  }
+
+  /* Button hover effect for buttons on dark backgrounds */
+  .btn-hover-modern-light {
+    @apply transition-all duration-200 ease-out;
+    @apply transform hover:scale-[1.02] hover:-translate-y-0.5;
+  }
+  
+  .btn-hover-modern-light:hover {
+    box-shadow: var(--shadow-hover-light);
+  }
+
+  /* Navigation link hover effects */
+  .nav-hover-modern {
+    @apply transition-all duration-200 ease-out;
+    @apply relative;
+  }
+
+  .nav-hover-modern::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-primary;
+    @apply transition-all duration-200 ease-out;
+  }
+
+  .nav-hover-modern:hover::after {
+    @apply w-full;
+  }
+
+  /* Card hover effects */
+  .card-hover-modern {
+    @apply transition-all duration-300 ease-out;
+    @apply hover:-translate-y-1 hover:border-primary/20;
+  }
+  
+  .card-hover-modern:hover {
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  /* Card hover effect for cards on dark backgrounds */
+  .card-hover-modern-light {
+    @apply transition-all duration-300 ease-out;
+    @apply hover:-translate-y-1 hover:border-primary/20;
+  }
+  
+  .card-hover-modern-light:hover {
+    box-shadow: var(--shadow-card-hover-light);
+  }
+
+  /* Icon hover effects */
+  .icon-hover-modern {
+    @apply transition-all duration-200 ease-out;
+    @apply hover:scale-110 hover:text-primary;
+  }
+}
