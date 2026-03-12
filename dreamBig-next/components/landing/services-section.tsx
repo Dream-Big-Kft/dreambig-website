@@ -3,21 +3,25 @@ import { Code2, Server, Cloud, Settings } from "lucide-react";
 const services = [
   {
     icon: Code2,
+    color: "bg-sky-500/10 text-sky-600 dark:text-sky-400 border-sky-500/20",
     title: "Custom Web Applications",
     description: "Full-stack applications built with modern frameworks and scalable architecture.",
   },
   {
     icon: Server,
+    color: "bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20",
     title: "Backend & API Development",
     description: "High-performance REST and GraphQL APIs designed for reliability and scale.",
   },
   {
     icon: Cloud,
+    color: "bg-orange-500/10 text-orange-600 dark:text-orange-400 border-orange-500/20",
     title: "Cloud Architecture",
     description: "AWS infrastructure, serverless systems, and scalable deployments.",
   },
   {
     icon: Settings,
+    color: "bg-pink-500/10 text-pink-600 dark:text-pink-400 border-pink-500/20",
     title: "Engineering Consulting",
     description: "Architecture reviews, system redesign, and performance optimization.",
   },
@@ -39,8 +43,10 @@ export function ServicesSection() {
               key={service.title}
               className="group relative rounded-xl border border-border bg-card p-6 transition-all hover:border-muted-foreground/30 hover:bg-card/80"
             >
-              <div className="mb-4 inline-flex items-center justify-center w-12 h-12 rounded-lg bg-muted">
-                <service.icon className="w-6 h-6 text-foreground" />
+              <div
+                className={`mb-4 inline-flex items-center justify-center w-12 h-12 rounded-lg border ${service.color}`}
+              >
+                <service.icon className="w-6 h-6" />
               </div>
               <h3 className="text-lg font-semibold text-foreground mb-2">
                 {service.title}
