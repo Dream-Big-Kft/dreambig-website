@@ -27,4 +27,6 @@ jobs:
 
       - name: Run production build
         working-directory: dreamBig-next
+        env:
+          GITHUB_PAGES_REPO: ${{ github.event.repository.name }}
         run: npm run build
