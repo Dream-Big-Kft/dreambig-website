@@ -10,7 +10,7 @@ const nextConfig = {
     basePath: basePath, // basePath helps Next route the app under /repo-name
     assetPrefix: basePath || undefined, // assetPrefix helps Next serve static files from the correct path
     typescript: {
-        ignoreBuildErrors: true,
+        // ignoreBuildErrors: true,
     },
     images: {
         unoptimized: true,
