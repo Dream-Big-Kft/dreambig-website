@@ -7,6 +7,10 @@ import './globals.css'
 const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
+const basePath = process.env.GITHUB_PAGES_REPO // basePath helps Next route the app under /repo-name
+  ? `/${process.env.GITHUB_PAGES_REPO}`
+  : "";
+
 export const metadata: Metadata = {
   title: 'DreamBig Software | Custom Software Development & Consulting',
   description: 'We design and build scalable web applications, cloud systems, and APIs for startups and growing companies.',
@@ -14,18 +18,18 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: '/favicon.ico',
+        url: `${basePath}/favicon.ico`,
       },
       {
-        url: '/dreambig-logo.png',
+        url: `${basePath}/dreambig-logo.png`,
         type: 'image/png',
       },
       {
-        url: '/dreambig-logo.svg',
+        url: `${basePath}/dreambig-logo.svg`,
         type: 'image/svg+xml',
       },
     ],
-    apple: '/dreambig-logo.png',
+    apple: `${basePath}/dreambig-logo.png`,
   },
 }
 

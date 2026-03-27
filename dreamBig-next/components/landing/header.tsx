@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { useState } from "react";
 import { useTheme } from "next-themes";
+import Link from "next/link";
 
 const navLinks = [
   { label: "Services", href: "#services" },
@@ -27,14 +28,14 @@ export function Header() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <a href="/" className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-lg bg-foreground flex items-center justify-center">
               <span className="text-background font-bold text-sm">DB</span>
             </div>
             <span className="font-semibold text-foreground hidden sm:block">
               DreamBig Software
             </span>
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
