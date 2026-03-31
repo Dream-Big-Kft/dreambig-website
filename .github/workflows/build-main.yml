@@ -1,61 +1,90 @@
+# Workflow name shown in the GitHub Actions UI.
 name: Build and deploy to GitHub Pages
 
+# Run automatically when code lands on main, and allow manual runs from the UI.
 on:
   push:
     branches:
       - main
   workflow_dispatch:
 
+# Minimum permissions needed to read the repo and publish to GitHub Pages.
 permissions:
   contents: read
   pages: write
   id-token: write
 
+# Prevent overlapping Pages deploys and keep only the newest run active.
 concurrency:
   group: pages
   cancel-in-progress: true
 
 jobs:
+  # Build the static site and upload it as a Pages artifact.
   build:
+    # Use GitHub's Ubuntu runner for the CI job.
     runs-on: ubuntu-latest
 
     steps:
+      # Pull the repository code into the runner.
       - name: Check out repository
         uses: actions/checkout@v5
 
+      # Install Node.js and enable pnpm dependency caching.
       - name: Set up Node.js
         uses: actions/setup-node@v5
         with:
-          node-version: 20
-          cache: npm
-          cache-dependency-path: dreamBig-next/package-lock.json
+          # Match the Node version we want CI to build with.
+          node-version: 24
+          # Reuse downloaded pnpm packages between workflow runs.
+          cache: pnpm
+          # Point cache lookup to the app's lockfile inside the monorepo-style structure.
+          cache-dependency-path: dreamBig-next/pnpm-lock.yaml
 
+      # Install the pnpm CLI so the runner can use the same package manager as local development.
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      # Install exact dependencies from pnpm-lock.yaml using the same package manager as local development.
       - name: Install dependencies
         working-directory: dreamBig-next
-        run: npm ci
+        env:
+          NODE_ENV: production
+        run: pnpm install --frozen-lockfile
 
+      # Build the Next.js app and pass the final site path prefix used on GitHub Pages.
       - name: Run production build
         working-directory: dreamBig-next
         env:
-          GITHUB_PAGES_REPO: ${{ github.event.repository.name }}
-        run: npm run build
+          NODE_ENV: production
+          SITE_BASE_PATH: /${{ github.event.repository.name }}
+        run: pnpm build
 
+      # Prepare the runner for a GitHub Pages deployment.
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
 
+      # Upload the generated static site from Next's export output folder.
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: dreamBig-next/out
 
+  # Deploy the uploaded artifact to the GitHub Pages environment.
   deploy:
+    # Wait for the build job to finish successfully before deploying.
     needs: build
     runs-on: ubuntu-latest
     environment:
+      # Attach this job to the special GitHub Pages environment.
       name: github-pages
+      # Show the deployed site URL in the workflow UI.
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
+      # Publish the uploaded artifact to GitHub Pages.
       - name: Deploy to GitHub Pages
+        # Give this step an id so we can read its outputs, like page_url.
         id: deployment
         uses: actions/deploy-pages@v4

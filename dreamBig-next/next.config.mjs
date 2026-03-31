@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 
-const repoName = process.env.GITHUB_PAGES_REPO || "";
-const basePath = repoName ? `/${repoName}` : "";
+const basePath = process.env.SITE_BASE_PATH || "";
 
 const nextConfig = {
     // GitHub Pages can host static files, but not a running Next server.

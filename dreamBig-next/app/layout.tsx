@@ -7,9 +7,8 @@ import './globals.css'
 const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
-const basePath = process.env.GITHUB_PAGES_REPO // basePath helps Next route the app under /repo-name
-  ? `/${process.env.GITHUB_PAGES_REPO}`
-  : "";
+// Reuse the same deploy path prefix for metadata assets when the site is hosted under a subpath.
+const basePath = process.env.SITE_BASE_PATH || "";
 
 export const metadata: Metadata = {
   title: 'DreamBig Software | Custom Software Development & Consulting',
