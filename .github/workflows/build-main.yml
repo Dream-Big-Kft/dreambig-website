@@ -49,8 +49,6 @@ jobs:
       # Install exact dependencies from pnpm-lock.yaml using the same package manager as local development.
       - name: Install dependencies
         working-directory: dreamBig-next
-        env:
-          NODE_ENV: production
         run: pnpm install --frozen-lockfile
 
       # Build the Next.js app and pass the final site path prefix used on GitHub Pages.
