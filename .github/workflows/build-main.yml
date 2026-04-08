@@ -34,8 +34,8 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v5
         with:
-          # Match the Node version we want CI to build with.
-          node-version: 24
+          # Match the Node version declared for local development.
+          node-version-file: .node-version
           # Reuse downloaded pnpm packages between workflow runs.
           cache: pnpm
           # Point cache lookup to the app's lockfile inside the monorepo-style structure.
@@ -45,7 +45,7 @@ jobs:
       - name: Set up pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 10
+          package_json_file: dreamBig-next/package.json
       # Install exact dependencies from pnpm-lock.yaml using the same package manager as local development.
       - name: Install dependencies
         working-directory: dreamBig-next
