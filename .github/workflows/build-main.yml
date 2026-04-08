@@ -30,6 +30,12 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v5
 
+      # Install the pnpm CLI so the runner can use the same package manager as local development.
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          package_json_file: dreamBig-next/package.json
+
       # Install Node.js and enable pnpm dependency caching.
       - name: Set up Node.js
         uses: actions/setup-node@v5
@@ -41,11 +47,6 @@ jobs:
           # Point cache lookup to the app's lockfile inside the monorepo-style structure.
           cache-dependency-path: dreamBig-next/pnpm-lock.yaml
 
-      # Install the pnpm CLI so the runner can use the same package manager as local development.
-      - name: Set up pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          package_json_file: dreamBig-next/package.json
       # Install exact dependencies from pnpm-lock.yaml using the same package manager as local development.
       - name: Install dependencies
         working-directory: dreamBig-next
