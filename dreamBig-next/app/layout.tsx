@@ -15,19 +15,10 @@ export const metadata: Metadata = {
   description: 'We design and build scalable web applications, cloud systems, and APIs for startups and growing companies.',
   generator: 'v0.app',
   icons: {
-    icon: [
-      {
-        url: `${basePath}/favicon.ico`,
-      },
-      {
-        url: `${basePath}/dreambig-logo.png`,
-        type: 'image/png',
-      },
-      {
-        url: `${basePath}/dreambig-logo.svg`,
-        type: 'image/svg+xml',
-      },
-    ],
+    icon: {
+      url: `${basePath}/icon.svg`,
+      type: 'image/svg+xml',
+    },
     apple: `${basePath}/dreambig-logo.png`,
   },
 }
