@@ -1,14 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 
-const techStack = [
-  { name: "React", color: "bg-sky-500/10 text-sky-600 dark:text-sky-400 border-sky-500/20" },
-  { name: "TypeScript", color: "bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20" },
-  { name: "Node.js", color: "bg-green-500/10 text-green-600 dark:text-green-400 border-green-500/20" },
-  { name: "AWS", color: "bg-orange-500/10 text-orange-600 dark:text-orange-400 border-orange-500/20" },
-  { name: "GraphQL", color: "bg-pink-500/10 text-pink-600 dark:text-pink-400 border-pink-500/20" },
-];
-
 const valueProps = [
   "Senior engineers embedded in your team",
   "Modern web & cloud architecture",
@@ -57,19 +49,6 @@ export function Hero() {
               </Button>
             </div>
 
-            {/* Tech stack badges */}
-            <div className="mt-10">
-              <div className="flex flex-wrap gap-2">
-                {techStack.map((tech) => (
-                  <span
-                    key={tech.name}
-                    className={`px-3 py-1.5 text-sm font-medium rounded-full border ${tech.color}`}
-                  >
-                    {tech.name}
-                  </span>
-                ))}
-              </div>
-            </div>
           </div>
 
           {/* Right side - Code/Dashboard Visual */}
