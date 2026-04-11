@@ -77,9 +77,9 @@ const services = [
 
 export function ServicesSection() {
   return (
-    <section className="py-24 lg:py-32">
+    <section className="border-y border-border/75 bg-muted/75 py-24 lg:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl mx-auto text-center mb-16">
+        <div className="mx-auto mb-16 max-w-2xl text-center">
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground text-balance">
             How We Help Teams Ship Faster
           </h2>

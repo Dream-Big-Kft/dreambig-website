@@ -9,7 +9,7 @@ const valueProps = [
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden pt-32 pb-20 lg:pt-40 lg:pb-32">
+    <section className="relative overflow-hidden pt-40 pb-24 lg:pt-40 lg:pb-24">
       {/* Background gradient effects */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-muted/40 to-transparent blur-3xl" />
@@ -17,21 +17,21 @@ export function Hero() {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid items-center gap-16 lg:grid-cols-2 lg:gap-16">
           {/* Left side - Content */}
           <div className="max-w-xl">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground text-balance leading-[1.1]">
               Custom Software That Moves Your Business Forward
             </h1>
-            <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
+            <p className="mt-8 text-lg leading-relaxed text-muted-foreground">
               We design and build scalable web applications, cloud systems, and APIs for startups and growing companies.
             </p>
 
             {/* Value propositions */}
-            <ul className="mt-8 space-y-3">
+            <ul className="mt-8 space-y-4">
               {valueProps.map((prop) => (
                 <li key={prop} className="flex items-center gap-3 text-foreground">
-                  <span className="flex-shrink-0 flex items-center justify-center w-5 h-5 rounded-full bg-foreground">
+                  <span className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary">
                     <Check className="w-3 h-3 text-background" />
                   </span>
                   {prop}
@@ -40,12 +40,9 @@ export function Hero() {
             </ul>
 
             {/* CTAs */}
-            <div className="mt-10 flex flex-wrap gap-4">
+            <div className="mt-12 flex flex-wrap gap-4">
               <Button size="lg" className="px-8 font-medium">
                 Book a Consultation
-              </Button>
-              <Button size="lg" variant="outline" className="px-8 font-medium">
-                See Our Work
               </Button>
             </div>
 
@@ -138,7 +135,7 @@ export function Hero() {
             </div>
 
             {/* Floating stats card */}
-            <div className="absolute -bottom-6 -left-6 rounded-lg border border-border bg-card p-4 shadow-xl">
+            <div className="absolute -bottom-8 -left-8 rounded-lg border border-border bg-card p-4 shadow-xl">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center">
                   <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
