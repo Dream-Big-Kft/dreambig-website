@@ -19,18 +19,22 @@ export function Hero() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid items-center gap-16 lg:grid-cols-2 lg:gap-16">
           {/* Left side - Content */}
-          <div className="max-w-xl">
+          <div className="lg:max-w-xl text-center lg:text-left">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground text-balance leading-[1.1]">
               Custom Software That Moves Your Business Forward
             </h1>
             <p className="mt-8 text-lg leading-relaxed text-muted-foreground">
-              We design and build scalable web applications, cloud systems, and APIs for startups and growing companies.
+              We design and build scalable web applications, cloud systems, and
+              APIs for startups and growing companies.
             </p>
 
             {/* Value propositions */}
-            <ul className="mt-8 space-y-4">
+            <ul className="mt-8 space-y-4 flex flex-col items-center lg:items-start">
               {valueProps.map((prop) => (
-                <li key={prop} className="flex items-center gap-3 text-foreground">
+                <li
+                  key={prop}
+                  className="flex items-center gap-3 text-lg text-foreground"
+                >
                   <span className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary">
                     <Check className="w-3 h-3 text-background" />
                   </span>
@@ -40,12 +44,11 @@ export function Hero() {
             </ul>
 
             {/* CTAs */}
-            <div className="mt-12 flex flex-wrap gap-4">
+            <div className="mt-12 flex flex-wrap justify-center lg:justify-start gap-4">
               <Button size="lg" className="px-8 font-medium">
                 Book a Consultation
               </Button>
             </div>
-
           </div>
 
           {/* Right side - Code/Dashboard Visual */}
@@ -59,7 +62,9 @@ export function Hero() {
                   <div className="w-3 h-3 rounded-full bg-green-500/70" />
                 </div>
                 <div className="flex-1 text-center">
-                  <span className="text-xs text-slate-400 font-mono">api-service.ts</span>
+                  <span className="text-xs text-slate-400 font-mono">
+                    api-service.ts
+                  </span>
                 </div>
               </div>
 
@@ -71,8 +76,7 @@ export function Hero() {
                     {" { "}
                     <span className="text-sky-400">createServer</span>
                     {" } "}
-                    <span className="text-pink-400">from</span>
-                    {" "}
+                    <span className="text-pink-400">from</span>{" "}
                     <span className="text-green-400">{`'@api/core'`}</span>
                     {"\n"}
                     <span className="text-pink-400">import</span>
@@ -81,12 +85,10 @@ export function Hero() {
                     {", "}
                     <span className="text-sky-400">rateLimit</span>
                     {" } "}
-                    <span className="text-pink-400">from</span>
-                    {" "}
+                    <span className="text-pink-400">from</span>{" "}
                     <span className="text-green-400">{`'@middleware'`}</span>
                     {"\n\n"}
-                    <span className="text-pink-400">const</span>
-                    {" "}
+                    <span className="text-pink-400">const</span>{" "}
                     <span className="text-sky-400">app</span>
                     {" = "}
                     <span className="text-yellow-400">createServer</span>
@@ -128,7 +130,9 @@ export function Hero() {
                     <span className="text-yellow-400">uptime</span>
                     {"()\n"}
                     {"}))\n\n"}
-                    <span className="text-slate-500">{"// Production ready"}</span>
+                    <span className="text-slate-500">
+                      {"// Production ready"}
+                    </span>
                   </code>
                 </pre>
               </div>
@@ -141,8 +145,12 @@ export function Hero() {
                   <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-foreground">99.9% Uptime</p>
-                  <p className="text-xs text-muted-foreground">Production Systems</p>
+                  <p className="text-sm font-medium text-foreground">
+                    99.9% Uptime
+                  </p>
+                  <p className="text-xs text-muted-foreground">
+                    Production Systems
+                  </p>
                 </div>
               </div>
             </div>
