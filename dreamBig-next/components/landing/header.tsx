@@ -32,7 +32,7 @@ export function Header() {
             : <Moon className="w-5 h-5 text-foreground" />;
 
     return (
-        <header className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
+        <header className="fixed top-0 left-0 right-0 z-50 border-b border-border/80 bg-background/92 shadow-[0_8px_24px_rgba(15,23,42,0.06)] backdrop-blur-xl dark:shadow-[0_8px_24px_rgba(0,0,0,0.28)]">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
                     {/* Logo */}
@@ -45,7 +45,7 @@ export function Header() {
                             className="h-8 w-8 object-contain dark:invert"
                             priority
                         />
-                        <span className="font-semibold text-foreground hidden sm:block">
+                        <span className="hidden text-foreground/90 sm:block sm:font-medium">
                             DreamBig Software
                         </span>
                     </Link>
@@ -57,7 +57,7 @@ export function Header() {
                                 <a
                                     key={link.label}
                                     href={link.href}
-                                    className="rounded-md px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                                    className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
                                 >
                                     {link.label}
                                 </a>

@@ -15,7 +15,7 @@ export function Footer() {
               height={32}
               className="h-8 w-8 object-contain dark:invert"
             />
-            <span className="font-semibold text-foreground">DreamBig Software</span>
+            <span className="font-medium text-foreground/90">DreamBig Software</span>
           </div>
 
           {/* Contact and Social */}

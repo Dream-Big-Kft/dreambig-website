@@ -1,6 +1,5 @@
 import { Header } from "@/components/landing/header";
 import { Hero } from "@/components/landing/hero";
-import { TrustSection } from "@/components/landing/trust-section";
 import { ServicesSection } from "@/components/landing/services-section";
 import { ProcessSection } from "@/components/landing/process-section";
 import { TechStackSection } from "@/components/landing/tech-stack-section";
@@ -13,7 +12,6 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <TrustSection />
         <section id="services">
           <ServicesSection />
         </section>

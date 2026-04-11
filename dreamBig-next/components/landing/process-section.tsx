@@ -23,9 +23,9 @@ const steps = [
 
 export function ProcessSection() {
   return (
-    <section className="py-24 lg:py-32 bg-card/30">
+    <section className="bg-background py-24 lg:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl mx-auto text-center mb-16">
+        <div className="mx-auto mb-16 max-w-2xl text-center">
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground text-balance">
             Our Development Approach
           </h2>
@@ -37,7 +37,7 @@ export function ProcessSection() {
             <div className="absolute left-8 top-0 bottom-0 w-px bg-border lg:hidden" />
             <div className="hidden lg:block absolute top-8 left-0 right-0 h-px bg-border" />
 
-            <div className="grid lg:grid-cols-4 gap-8 lg:gap-4">
+            <div className="grid gap-8 lg:grid-cols-4 lg:gap-8">
               {steps.map((step, index) => (
                 <div key={step.number} className="relative pl-20 lg:pl-0 lg:text-center">
                   {/* Mobile timeline dot */}
@@ -53,10 +53,10 @@ export function ProcessSection() {
                     Step {step.number}
                   </span>
 
-                  <h3 className="text-xl font-semibold text-foreground mb-2">
+                  <h3 className="mb-4 text-xl font-semibold text-foreground">
                     {step.title}
                   </h3>
-                  <p className="text-muted-foreground text-sm">
+                  <p className="text-sm text-muted-foreground">
                     {step.description}
                   </p>
 

@@ -11,22 +11,22 @@ const technologies = [
 
 export function TechStackSection() {
   return (
-    <section className="py-24 lg:py-32">
+    <section className="border-y border-border/75 bg-muted/70 py-24 lg:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl mx-auto text-center mb-16">
+        <div className="mx-auto mb-16 max-w-2xl text-center">
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground text-balance">
             Technology Stack
           </h2>
-          <p className="mt-4 text-muted-foreground">
+          <p className="mt-8 text-muted-foreground">
             We use modern, battle-tested technologies to build reliable systems
           </p>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4 max-w-4xl mx-auto">
+        <div className="mx-auto grid max-w-4xl grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-8">
           {technologies.map((tech) => (
             <div
               key={tech.name}
-              className="flex flex-col items-center justify-center p-6 rounded-xl border border-border bg-card hover:border-muted-foreground/30 transition-colors"
+              className="flex flex-col items-center justify-center rounded-xl border border-border bg-card p-6 transition-colors hover:border-muted-foreground/30"
             >
               <span className="text-2xl mb-2 font-mono">{tech.icon}</span>
               <span className="text-sm font-medium text-foreground">{tech.name}</span>
