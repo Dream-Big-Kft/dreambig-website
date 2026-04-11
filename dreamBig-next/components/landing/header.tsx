@@ -32,7 +32,7 @@ export function Header() {
             : <Moon className="w-5 h-5 text-foreground" />;
 
     return (
-        <header className="fixed top-0 left-0 right-0 z-50 border-b border-border/80 bg-background/92 shadow-[0_8px_24px_rgba(15,23,42,0.06)] backdrop-blur-xl dark:shadow-[0_8px_24px_rgba(0,0,0,0.28)]">
+        <header className="fixed top-0 left-0 right-0 z-50 border-b border-border/80 bg-background/92 shadow-[0_8px_24px_rgba(15,23,42,0.06)] backdrop-blur-xl dark:border-white/10 dark:bg-card/88 dark:shadow-[0_10px_30px_rgba(0,0,0,0.34)]">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
                     {/* Logo */}
@@ -45,7 +45,7 @@ export function Header() {
                             className="h-8 w-8 object-contain dark:invert"
                             priority
                         />
-                        <span className="hidden text-foreground/90 sm:block sm:font-medium">
+                        <span className="hidden text-foreground/90 sm:block sm:font-medium dark:text-foreground/88">
                             DreamBig Software
                         </span>
                     </Link>
@@ -57,7 +57,7 @@ export function Header() {
                                 <a
                                     key={link.label}
                                     href={link.href}
-                                    className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                                    className="rounded-md border border-transparent px-3 py-2 text-sm font-medium text-muted-foreground transition-all hover:border-border hover:bg-muted hover:text-foreground dark:text-foreground/78 dark:hover:border-white/10 dark:hover:bg-white/8 dark:hover:text-foreground/92"
                                 >
                                     {link.label}
                                 </a>
@@ -66,7 +66,7 @@ export function Header() {
 
                         <button
                             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                            className="rounded-md p-2 transition-colors hover:bg-muted"
+                            className="rounded-md p-2 text-foreground transition-colors hover:bg-muted dark:text-foreground/82 dark:hover:bg-white/6 dark:hover:text-foreground/92"
                             aria-label="Toggle theme"
                         >
                             {themeIcon}
@@ -90,7 +90,7 @@ export function Header() {
                                 <a
                                     key={link.label}
                                     href={link.href}
-                                    className="rounded-md px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                                    className="rounded-md border border-transparent px-3 py-2 text-sm font-medium text-muted-foreground transition-all hover:border-border hover:bg-muted hover:text-foreground dark:text-foreground/78 dark:hover:border-white/10 dark:hover:bg-white/8 dark:hover:text-foreground/92"
                                     onClick={() => setMobileMenuOpen(false)}
                                 >
                                     {link.label}

@@ -3,9 +3,9 @@ import Image from "next/image";
 
 export function Footer() {
   return (
-    <footer className="border-t border-border py-12">
+    <footer className="border-t border-border/80 bg-background/92 py-8 dark:border-white/10 dark:bg-card/88">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
           {/* Logo and Company */}
           <div className="flex items-center gap-3">
             <Image
@@ -15,14 +15,14 @@ export function Footer() {
               height={32}
               className="h-8 w-8 object-contain dark:invert"
             />
-            <span className="font-medium text-foreground/90">DreamBig Software</span>
+            <span className="font-medium text-foreground/90 dark:text-foreground/88">DreamBig Software</span>
           </div>
 
           {/* Contact and Social */}
-          <div className="flex items-center gap-6 text-sm text-muted-foreground">
+          <div className="flex items-center gap-5 text-sm text-muted-foreground dark:text-foreground/78">
             <a
               href="mailto:hello@dreambig.software"
-              className="hover:text-foreground transition-colors"
+              className="transition-colors hover:text-foreground dark:hover:text-foreground/92"
             >
               hello@dreambig.software
             </a>
@@ -30,7 +30,7 @@ export function Footer() {
               href="https://linkedin.com/company/dreambig"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-foreground transition-colors"
+              className="transition-colors hover:text-foreground dark:hover:text-foreground/92"
               aria-label="LinkedIn"
             >
               <Linkedin className="w-5 h-5" />
@@ -38,7 +38,7 @@ export function Footer() {
           </div>
 
           {/* Copyright */}
-          <p className="text-sm text-muted-foreground">
+          <p className="text-sm text-muted-foreground dark:text-foreground/72">
             © {new Date().getFullYear()} DreamBig Software. All rights reserved.
           </p>
         </div>
