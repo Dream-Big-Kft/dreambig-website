@@ -77,7 +77,7 @@ const services = [
 
 export function ServicesSection() {
   return (
-    <section className="border-y border-border/75 bg-muted/75 py-24 lg:py-24">
+    <section className="border-y border-border/75 bg-muted/75 py-24 dark:border-white/8 dark:bg-card/55 lg:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mx-auto mb-16 max-w-2xl text-center">
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground text-balance">
@@ -89,7 +89,7 @@ export function ServicesSection() {
           {services.map((service) => (
             <div
               key={service.title}
-              className="group relative isolate rounded-2xl border border-border bg-card p-8"
+              className="card-hover-modern-light group relative isolate rounded-2xl border border-border bg-card p-8 hover:border-primary/20"
             >
               <div
                 className={`mb-8 inline-flex h-12 w-12 items-center justify-center rounded-lg border ${service.color}`}
