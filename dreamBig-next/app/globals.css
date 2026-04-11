@@ -111,6 +111,10 @@ html.dark, .dark {
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   * {
     @apply border-border outline-ring/50;
   }
@@ -191,6 +195,10 @@ html.dark, .dark {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   .trust-reveal-left {
     animation: none;
   }

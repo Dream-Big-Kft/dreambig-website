@@ -3,7 +3,6 @@
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
-import Link from "next/link";
 import Image from "next/image";
 
 const navLinks = [
@@ -36,7 +35,7 @@ export function Header() {
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
                     {/* Logo */}
-                    <Link href="/" className="flex items-center gap-2">
+                    <a href="#top" className="flex items-center gap-2">
                         <Image
                             src="/dreambig-logo.svg"
                             alt="DreamBig Software logo"
@@ -48,7 +47,7 @@ export function Header() {
                         <span className="hidden text-foreground/90 sm:block sm:font-medium dark:text-foreground/88">
                             DreamBig Software
                         </span>
-                    </Link>
+                    </a>
 
                     {/* Header Controls */}
                     <div className="flex items-center gap-2 sm:gap-3">

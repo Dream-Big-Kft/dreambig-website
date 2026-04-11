@@ -7,7 +7,7 @@ export function Footer() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
           {/* Logo and Company */}
-          <div className="flex items-center gap-3">
+          <a href="#top" className="flex items-center gap-3">
             <Image
               src="/dreambig-logo.svg"
               alt="DreamBig Software logo"
@@ -16,7 +16,7 @@ export function Footer() {
               className="h-8 w-8 object-contain dark:invert"
             />
             <span className="font-medium text-foreground/90 dark:text-foreground/88">DreamBig Software</span>
-          </div>
+          </a>
 
           {/* Contact and Social */}
           <div className="flex items-center gap-5 text-sm text-muted-foreground dark:text-foreground/78">
