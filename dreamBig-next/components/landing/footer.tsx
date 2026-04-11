@@ -1,4 +1,5 @@
 import { Linkedin } from "lucide-react";
+import Image from "next/image";
 
 export function Footer() {
   return (
@@ -7,9 +8,13 @@ export function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Logo and Company */}
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-foreground flex items-center justify-center">
-              <span className="text-background font-bold text-sm">DB</span>
-            </div>
+            <Image
+              src="/dreambig-logo.svg"
+              alt="DreamBig Software logo"
+              width={32}
+              height={32}
+              className="h-8 w-8 object-contain dark:invert"
+            />
             <span className="font-semibold text-foreground">DreamBig Software</span>
           </div>
 
