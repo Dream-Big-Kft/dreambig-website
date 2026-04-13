@@ -33,8 +33,8 @@ describe("RootLayout", () => {
     expect(mockNextThemesProvider).toHaveBeenCalled();
     expect(mockNextThemesProvider.mock.calls[0]?.[0]).toMatchObject({
       attribute: "class",
-      defaultTheme: "light",
-      enableSystem: false,
+      defaultTheme: "system",
+      enableSystem: true,
     });
   });
 
