@@ -9,7 +9,7 @@ export function Footer() {
           {/* Logo and Company */}
           <a href="#top" className="flex items-center gap-3">
             <Image
-              src="/dreambig-logo.svg"
+              src="dreambig-logo.svg"
               alt="DreamBig Software logo"
               width={32}
               height={32}
