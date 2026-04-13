@@ -89,7 +89,7 @@ export function ServicesSection() {
           {services.map((service) => (
             <div
               key={service.title}
-              className="card-hover-modern-light group relative isolate rounded-2xl border border-border bg-card p-8 hover:border-primary/20"
+              className="relative isolate rounded-2xl border border-border bg-card p-8"
             >
               <div
                 className={`mb-8 inline-flex h-12 w-12 items-center justify-center rounded-lg border ${service.color}`}
