@@ -7,8 +7,7 @@ import './globals.css'
 const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
-// Reuse the same deploy path prefix for metadata assets when the site is hosted under a subpath.
-const basePath = process.env.SITE_BASE_PATH || "";
+const enableVercelAnalytics = process.env.VERCEL === "1";
 
 export const metadata: Metadata = {
   title: 'DreamBig Software | Custom Software Development & Consulting',
@@ -16,10 +15,10 @@ export const metadata: Metadata = {
   generator: 'v0.app',
   icons: {
     icon: {
-      url: `${basePath}/icon.svg`,
+      url: 'icon.svg',
       type: 'image/svg+xml',
     },
-    apple: `${basePath}/dreambig-logo.png`,
+    apple: 'dreambig-logo.png',
   },
 }
 
@@ -34,7 +33,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
           {children}
         </ThemeProvider>
-        <Analytics />
+        {enableVercelAnalytics ? <Analytics /> : null}
       </body>
     </html>
   )

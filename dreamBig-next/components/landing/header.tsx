@@ -37,7 +37,7 @@ export function Header() {
                     {/* Logo */}
                     <a href="#top" className="flex items-center gap-2">
                         <Image
-                            src="/dreambig-logo.svg"
+                            src="dreambig-logo.svg"
                             alt="DreamBig Software logo"
                             width={32}
                             height={32}
