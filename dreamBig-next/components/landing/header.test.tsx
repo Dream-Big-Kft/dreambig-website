@@ -58,9 +58,35 @@ describe("Header", () => {
     expect(mockSetTheme).toHaveBeenCalledWith("light");
   });
 
+  it("toggles from system-dark to light using the resolved theme", () => {
+    mockUseTheme.mockReturnValue({
+      theme: "system",
+      resolvedTheme: "dark",
+      setTheme: mockSetTheme,
+    });
+
+    render(<Header />);
+
+    fireEvent.click(screen.getByRole("button", { name: "Toggle theme" }));
+
+    expect(mockSetTheme).toHaveBeenCalledWith("light");
+  });
+
   it("renders the mounted dark theme state", () => {
     mockUseTheme.mockReturnValue({
       theme: "dark",
+      resolvedTheme: "dark",
+      setTheme: mockSetTheme,
+    });
+
+    const { container } = render(<Header />);
+
+    expect(container.querySelector("svg.lucide-sun")).toBeInTheDocument();
+  });
+
+  it("renders the dark-mode icon when the system theme resolves to dark", () => {
+    mockUseTheme.mockReturnValue({
+      theme: "system",
       resolvedTheme: "dark",
       setTheme: mockSetTheme,
     });

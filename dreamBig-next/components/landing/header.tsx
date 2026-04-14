@@ -14,7 +14,7 @@ const navLinks = [
 
 export function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-    const { theme, setTheme } = useTheme();
+    const { theme, resolvedTheme, setTheme } = useTheme();
     const [mounted, setMounted] = useState(false);
 
     // next-themes resolves the user's actual theme only on the client, so we wait
@@ -23,10 +23,12 @@ export function Header() {
         setMounted(true);
     }, []);
 
+    const activeTheme = resolvedTheme ?? theme;
+
     const themeIcon = !mounted
         // Keep the toggle footprint stable until the real icon is known, so nearby links do not shift.
         ? <span className="block h-5 w-5" aria-hidden="true" />
-        : theme === "dark"
+        : activeTheme === "dark"
             ? <Sun className="w-5 h-5 text-foreground" />
             : <Moon className="w-5 h-5 text-foreground" />;
 
@@ -64,7 +66,7 @@ export function Header() {
                         </nav>
 
                         <button
-                            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                            onClick={() => setTheme(activeTheme === "dark" ? "light" : "dark")}
                             className="rounded-md p-2 text-foreground transition-colors hover:bg-muted dark:text-foreground/82 dark:hover:bg-white/6 dark:hover:text-foreground/92"
                             aria-label="Toggle theme"
                         >
