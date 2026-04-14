@@ -52,6 +52,24 @@ jobs:
         working-directory: dreamBig-next
         run: pnpm install --frozen-lockfile
 
+      # Generate a machine-readable dependency vulnerability report for this lockfile.
+      - name: Run dependency audit
+        working-directory: dreamBig-next
+        run: pnpm audit --json > audit-report.json
+        continue-on-error: true
+
+      # Turn the raw audit JSON into a readable summary and fail only on critical findings.
+      - name: Process audit report
+        working-directory: dreamBig-next
+        run: node scripts/process-audit.js
+
+      # Upload the short audit summary so the workflow artifact contains only the package list.
+      - name: Upload audit summary
+        uses: actions/upload-artifact@v4
+        with:
+          name: dependency-audit-summary
+          path: dreamBig-next/audit-summary.txt
+
       # Build the Next.js app and pass the final site path prefix used on GitHub Pages.
       - name: Run production build
         working-directory: dreamBig-next
