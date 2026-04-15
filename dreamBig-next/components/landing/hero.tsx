@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
+import { HeroCodePanel } from "./hero-code-panel";
 
 const valueProps = [
   "Senior engineers embedded in your team",
@@ -19,11 +20,11 @@ export function Hero() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid items-center gap-16 lg:grid-cols-2 lg:gap-16">
           {/* Left side - Content */}
-          <div className="lg:max-w-xl text-center lg:text-left">
+          <div className="mx-auto w-full max-w-2xl text-center lg:mx-0 lg:max-w-xl lg:text-left">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground text-balance leading-[1.1]">
               Custom Software That Moves Your Business Forward
             </h1>
-            <p className="mt-8 text-lg leading-relaxed text-muted-foreground">
+            <p className="mx-auto mt-8 max-w-xl text-lg leading-relaxed text-muted-foreground lg:mx-0">
               We design and build scalable web applications, cloud systems, and
               APIs for startups and growing companies.
             </p>
@@ -52,109 +53,7 @@ export function Hero() {
           </div>
 
           {/* Right side - Code/Dashboard Visual */}
-          <div className="relative lg:ml-auto">
-            <div className="relative rounded-xl border border-border bg-slate-900 p-1 shadow-2xl">
-              {/* Window chrome */}
-              <div className="flex items-center gap-2 px-4 py-3 border-b border-slate-700">
-                <div className="flex gap-1.5">
-                  <div className="w-3 h-3 rounded-full bg-red-500/70" />
-                  <div className="w-3 h-3 rounded-full bg-yellow-500/70" />
-                  <div className="w-3 h-3 rounded-full bg-green-500/70" />
-                </div>
-                <div className="flex-1 text-center">
-                  <span className="text-xs text-slate-400 font-mono">
-                    api-service.ts
-                  </span>
-                </div>
-              </div>
-
-              {/* Code content */}
-              <div className="p-4 font-mono text-sm overflow-hidden">
-                <pre className="text-slate-300">
-                  <code>
-                    <span className="text-pink-400">import</span>
-                    {" { "}
-                    <span className="text-sky-400">createServer</span>
-                    {" } "}
-                    <span className="text-pink-400">from</span>{" "}
-                    <span className="text-green-400">{`'@api/core'`}</span>
-                    {"\n"}
-                    <span className="text-pink-400">import</span>
-                    {" { "}
-                    <span className="text-sky-400">auth</span>
-                    {", "}
-                    <span className="text-sky-400">rateLimit</span>
-                    {" } "}
-                    <span className="text-pink-400">from</span>{" "}
-                    <span className="text-green-400">{`'@middleware'`}</span>
-                    {"\n\n"}
-                    <span className="text-pink-400">const</span>{" "}
-                    <span className="text-sky-400">app</span>
-                    {" = "}
-                    <span className="text-yellow-400">createServer</span>
-                    {"({\n"}
-                    {"  "}
-                    <span className="text-slate-100">port</span>
-                    {": "}
-                    <span className="text-orange-400">3000</span>
-                    {",\n"}
-                    {"  "}
-                    <span className="text-slate-100">middleware</span>
-                    {": ["}
-                    <span className="text-sky-400">auth</span>
-                    {", "}
-                    <span className="text-sky-400">rateLimit</span>
-                    {"],\n"}
-                    {"  "}
-                    <span className="text-slate-100">cors</span>
-                    {": "}
-                    <span className="text-orange-400">true</span>
-                    {",\n"}
-                    {"})\n\n"}
-                    <span className="text-sky-400">app</span>
-                    {"."}
-                    <span className="text-yellow-400">get</span>
-                    {"("}
-                    <span className="text-green-400">{`'/api/health'`}</span>
-                    {", () => ({\n"}
-                    {"  "}
-                    <span className="text-slate-100">status</span>
-                    {": "}
-                    <span className="text-green-400">{`'healthy'`}</span>
-                    {",\n"}
-                    {"  "}
-                    <span className="text-slate-100">uptime</span>
-                    {": "}
-                    <span className="text-sky-400">process</span>
-                    {"."}
-                    <span className="text-yellow-400">uptime</span>
-                    {"()\n"}
-                    {"}))\n\n"}
-                    <span className="text-slate-500">
-                      {"// Production ready"}
-                    </span>
-                  </code>
-                </pre>
-              </div>
-            </div>
-
-            {/* Floating stats card */}
-            <div className="absolute -bottom-8 -left-8 rounded-lg border border-border bg-card p-4 shadow-xl">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center">
-                  <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                </div>
-                <div>
-                  <p className="text-sm font-medium text-foreground">
-                    99.9% Uptime
-                  </p>
-                  <p className="text-xs text-muted-foreground">
-                    Production Systems
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <HeroCodePanel />
         </div>
       </div>
     </section>

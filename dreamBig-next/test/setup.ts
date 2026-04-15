@@ -1,6 +1,7 @@
 import React from "react";
 import "@testing-library/jest-dom/vitest";
 import { cleanup } from "@testing-library/react";
+import type { UseThemeProps } from "next-themes";
 import { afterEach, vi } from "vitest";
 
 // This repo currently stays on jsdom 26 because jsdom 29 pulled a dependency
@@ -11,11 +12,19 @@ const renderChildren = ({ children }: { children: React.ReactNode }) =>
 const analyticsStub = () => null;
 
 export const mockSetTheme = vi.fn();
-export const mockUseTheme = vi.fn(() => ({
+export const createMockThemeState = (
+  overrides: Partial<UseThemeProps> = {},
+): UseThemeProps => ({
+  themes: ["light", "dark", "system"],
+  forcedTheme: undefined,
   theme: "light",
   resolvedTheme: "light",
+  systemTheme: "light",
   setTheme: mockSetTheme,
-}));
+  ...overrides,
+});
+
+export const mockUseTheme = vi.fn(() => createMockThemeState());
 // Keep the provider mock transparent by default so tests only see their own UI.
 export const mockNextThemesProvider = vi.fn(renderChildren);
 export const mockAnalytics = vi.fn(analyticsStub);
@@ -26,11 +35,7 @@ afterEach(() => {
   mockUseTheme.mockClear();
   mockNextThemesProvider.mockClear();
   mockAnalytics.mockClear();
-  mockUseTheme.mockReturnValue({
-    theme: "light",
-    resolvedTheme: "light",
-    setTheme: mockSetTheme,
-  });
+  mockUseTheme.mockReturnValue(createMockThemeState());
   // Restore shared mocks in case a test overrides their behavior.
   mockNextThemesProvider.mockImplementation(renderChildren);
   mockAnalytics.mockImplementation(analyticsStub);

@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import { Header } from "./header";
-import { mockSetTheme, mockUseTheme } from "@/test/setup";
+import { createMockThemeState, mockSetTheme, mockUseTheme } from "@/test/setup";
 
 describe("Header", () => {
   it("renders the logo and navigation links", () => {
@@ -31,11 +31,10 @@ describe("Header", () => {
   });
 
   it("toggles the theme from light to dark", () => {
-    mockUseTheme.mockReturnValue({
+    mockUseTheme.mockReturnValue(createMockThemeState({
       theme: "light",
       resolvedTheme: "light",
-      setTheme: mockSetTheme,
-    });
+    }));
 
     render(<Header />);
 
@@ -45,11 +44,10 @@ describe("Header", () => {
   });
 
   it("toggles the theme from dark to light", () => {
-    mockUseTheme.mockReturnValue({
+    mockUseTheme.mockReturnValue(createMockThemeState({
       theme: "dark",
       resolvedTheme: "dark",
-      setTheme: mockSetTheme,
-    });
+    }));
 
     render(<Header />);
 
@@ -59,11 +57,10 @@ describe("Header", () => {
   });
 
   it("toggles from system-dark to light using the resolved theme", () => {
-    mockUseTheme.mockReturnValue({
+    mockUseTheme.mockReturnValue(createMockThemeState({
       theme: "system",
       resolvedTheme: "dark",
-      setTheme: mockSetTheme,
-    });
+    }));
 
     render(<Header />);
 
@@ -73,11 +70,10 @@ describe("Header", () => {
   });
 
   it("renders the mounted dark theme state", () => {
-    mockUseTheme.mockReturnValue({
+    mockUseTheme.mockReturnValue(createMockThemeState({
       theme: "dark",
       resolvedTheme: "dark",
-      setTheme: mockSetTheme,
-    });
+    }));
 
     const { container } = render(<Header />);
 
@@ -85,14 +81,27 @@ describe("Header", () => {
   });
 
   it("renders the dark-mode icon when the system theme resolves to dark", () => {
-    mockUseTheme.mockReturnValue({
+    mockUseTheme.mockReturnValue(createMockThemeState({
       theme: "system",
       resolvedTheme: "dark",
-      setTheme: mockSetTheme,
-    });
+    }));
 
     const { container } = render(<Header />);
 
     expect(container.querySelector("svg.lucide-sun")).toBeInTheDocument();
+  });
+
+  it("falls back to theme when resolvedTheme is unavailable", () => {
+    mockUseTheme.mockReturnValue(createMockThemeState({
+      theme: "dark",
+      resolvedTheme: undefined,
+    }));
+
+    const { container } = render(<Header />);
+
+    fireEvent.click(screen.getByRole("button", { name: "Toggle theme" }));
+
+    expect(container.querySelector("svg.lucide-sun")).toBeInTheDocument();
+    expect(mockSetTheme).toHaveBeenCalledWith("light");
   });
 });
