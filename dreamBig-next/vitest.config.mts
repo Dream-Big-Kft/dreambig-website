@@ -28,7 +28,6 @@ export default defineConfig({
         "test/**",
         "**/*.d.ts",
         "**/*.test.*",
-        "components/ui/**",
       ],
     },
   },
