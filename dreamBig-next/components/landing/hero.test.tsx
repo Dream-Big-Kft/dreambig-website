@@ -20,4 +20,10 @@ describe("Hero", () => {
     expect(screen.getByRole("button", { name: "Book a Consultation" })).toBeInTheDocument();
     expect(screen.getByText("99.9% Uptime")).toBeInTheDocument();
   });
+
+  it("matches the snapshot", () => {
+    const { asFragment } = render(<Hero />);
+
+    expect(asFragment()).toMatchSnapshot();
+  });
 });

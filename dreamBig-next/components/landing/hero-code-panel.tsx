@@ -2,8 +2,8 @@ export function HeroCodePanel() {
   return (
     <div className="relative mx-auto mt-8 w-full max-w-sm lg:mt-0 lg:ml-auto lg:mr-0 lg:max-w-xl">
       <div className="relative mx-auto rounded-xl border border-border bg-slate-900 p-1 shadow-2xl">
-        {/* Window chrome */}
-        <div className="flex items-center gap-2 border-b border-slate-700 px-3 py-2 lg:px-4 lg:py-3">
+        {/* Top bar */}
+        <div className="hidden items-center gap-2 border-b border-slate-700 px-3 py-2 lg:flex lg:px-4 lg:py-3">
           <div className="flex gap-1.5">
             <div className="w-3 h-3 rounded-full bg-red-500/70" />
             <div className="w-3 h-3 rounded-full bg-yellow-500/70" />

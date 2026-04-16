@@ -13,4 +13,10 @@ describe("ProcessSection", () => {
     expect(screen.getByText("Build")).toBeInTheDocument();
     expect(screen.getByText("Deliver")).toBeInTheDocument();
   });
+
+  it("matches the snapshot", () => {
+    const { asFragment } = render(<ProcessSection />);
+
+    expect(asFragment()).toMatchSnapshot();
+  });
 });

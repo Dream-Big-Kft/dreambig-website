@@ -16,4 +16,10 @@ describe("CTASection", () => {
 
     expect(screen.getByRole("button", { name: /Start a Project/i })).toBeInTheDocument();
   });
+
+  it("matches the snapshot", () => {
+    const { asFragment } = render(<CTASection />);
+
+    expect(asFragment()).toMatchSnapshot();
+  });
 });

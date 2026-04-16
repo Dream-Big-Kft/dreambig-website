@@ -13,8 +13,8 @@ describe("Footer", () => {
     expect(screen.getByText("DreamBig Software")).toBeInTheDocument();
 
     expect(
-      screen.getByRole("link", { name: "hello@dreambig.software" }),
-    ).toHaveAttribute("href", "mailto:hello@dreambig.software");
+      screen.getByRole("link", { name: "info@dreambig.hu" }),
+    ).toHaveAttribute("href", "mailto:info@dreambig.hu");
 
     expect(screen.getByRole("link", { name: "LinkedIn" })).toHaveAttribute(
       "href",
@@ -22,5 +22,11 @@ describe("Footer", () => {
     );
 
     expect(screen.getByText(/DreamBig Software\. All rights reserved\./)).toBeInTheDocument();
+  });
+
+  it("matches the snapshot", () => {
+    const { asFragment } = render(<Footer />);
+
+    expect(asFragment()).toMatchSnapshot();
   });
 });

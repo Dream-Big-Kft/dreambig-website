@@ -19,4 +19,14 @@ describe("ThemeProvider", () => {
       enableSystem: false,
     });
   });
+
+  it("matches the snapshot", () => {
+    const { asFragment } = render(
+      <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
+        <div>Theme content</div>
+      </ThemeProvider>,
+    );
+
+    expect(asFragment()).toMatchSnapshot();
+  });
 });

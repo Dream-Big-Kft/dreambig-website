@@ -17,4 +17,10 @@ describe("ServicesSection", () => {
     expect(screen.getByText("Cloud Architecture")).toBeInTheDocument();
     expect(screen.getByText("Engineering Consulting")).toBeInTheDocument();
   });
+
+  it("matches the snapshot", () => {
+    const { asFragment } = render(<ServicesSection />);
+
+    expect(asFragment()).toMatchSnapshot();
+  });
 });

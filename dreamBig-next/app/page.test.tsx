@@ -12,4 +12,10 @@ describe("Home page", () => {
     expect(screen.getByRole("heading", { name: "Technology Stack" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "Need a Software Partner?" })).toBeInTheDocument();
   });
+
+  it("matches the snapshot", () => {
+    const { asFragment } = render(<Home />);
+
+    expect(asFragment()).toMatchSnapshot();
+  });
 });

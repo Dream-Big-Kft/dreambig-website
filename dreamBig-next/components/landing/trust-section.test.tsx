@@ -11,4 +11,10 @@ describe("TrustSection", () => {
     expect(screen.getAllByText("Tech Startups").length).toBeGreaterThan(0);
     expect(screen.getAllByText("Enterprise Teams").length).toBeGreaterThan(0);
   });
+
+  it("matches the snapshot", () => {
+    const { asFragment } = render(<TrustSection />);
+
+    expect(asFragment()).toMatchSnapshot();
+  });
 });

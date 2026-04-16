@@ -12,4 +12,10 @@ describe("HeroCodePanel", () => {
     expect(screen.getByText("99.9% Uptime")).toBeInTheDocument();
     expect(screen.getByText("Production Systems")).toBeInTheDocument();
   });
+
+  it("matches the snapshot", () => {
+    const { asFragment } = render(<HeroCodePanel />);
+
+    expect(asFragment()).toMatchSnapshot();
+  });
 });
