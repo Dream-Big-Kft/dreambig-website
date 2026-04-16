@@ -1,28 +1,29 @@
-import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
-import { ThemeProvider } from '@/components/theme-provider'
-import './globals.css'
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import { ThemeProvider } from "next-themes";
+import "./globals.css";
 
 const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'DreamBig Software | Custom Software Development & Consulting',
-  description: 'We design and build scalable web applications, cloud systems, and APIs for startups and growing companies.',
-  generator: 'v0.app',
+  title: "DreamBig Software | Custom Software Development & Consulting",
+  description:
+    "We design and build scalable web applications, cloud systems, and APIs for startups and growing companies.",
+  generator: "v0.app",
   icons: {
     icon: {
-      url: 'icon.svg',
-      type: 'image/svg+xml',
+      url: "icon.svg",
+      type: "image/svg+xml",
     },
-    apple: 'dreambig-logo.png',
+    apple: "dreambig-logo.png",
   },
-}
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
@@ -32,5 +33,5 @@ export default function RootLayout({
         </ThemeProvider>
       </body>
     </html>
-  )
+  );
 }
