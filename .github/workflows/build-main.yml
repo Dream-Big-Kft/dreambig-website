@@ -52,18 +52,13 @@ jobs:
         working-directory: dreamBig-next
         run: pnpm install --frozen-lockfile
 
-      # Generate a machine-readable dependency vulnerability report for this lockfile.
+      # Audit dependencies and fail the build only on critical vulnerabilities.
       - name: Run dependency audit
+        id: dependency_audit
         working-directory: dreamBig-next
-        run: pnpm audit --json > audit-report.json
-        continue-on-error: true
+        run: pnpm dlx audit-ci@^7 --config ./audit-ci.jsonc | tee audit-summary.txt
 
-      # Turn the raw audit JSON into a readable summary and fail only on critical findings.
-      - name: Process audit report
-        working-directory: dreamBig-next
-        run: node scripts/process-audit.js
-
-      # Upload the short audit summary so the workflow artifact contains only the package list.
+      # Upload the short audit summary when the audit command completed successfully.
       - name: Upload audit summary
         uses: actions/upload-artifact@v4
         with:
