@@ -6,13 +6,13 @@ exports[`TrustSection > matches the snapshot 1`] = `
     class="border-y border-border bg-card/50"
   >
     <div
-      class="container mx-auto px-4 sm:px-6 lg:px-8 py-12"
+      class="container mx-auto px-4 py-12 sm:px-6 lg:px-8"
     >
       <div
-        class="flex flex-col lg:flex-row items-center lg:items-center lg:justify-start gap-8 lg:gap-10"
+        class="flex flex-col items-center gap-8 lg:flex-row lg:items-center lg:justify-start lg:gap-10"
       >
         <p
-          class="trust-reveal-left text-muted-foreground font-medium text-center lg:text-left"
+          class="trust-reveal-left text-center font-medium text-muted-foreground lg:text-left"
         >
           Trusted Engineering Partner
         </p>
@@ -31,7 +31,7 @@ exports[`TrustSection > matches the snapshot 1`] = `
                 🏢
               </span>
               <span
-                class="font-medium whitespace-nowrap"
+                class="whitespace-nowrap font-medium"
               >
                 SaaS Companies
               </span>
@@ -45,7 +45,7 @@ exports[`TrustSection > matches the snapshot 1`] = `
                 🚀
               </span>
               <span
-                class="font-medium whitespace-nowrap"
+                class="whitespace-nowrap font-medium"
               >
                 Tech Startups
               </span>
@@ -59,7 +59,7 @@ exports[`TrustSection > matches the snapshot 1`] = `
                 🏛️
               </span>
               <span
-                class="font-medium whitespace-nowrap"
+                class="whitespace-nowrap font-medium"
               >
                 Enterprise Teams
               </span>
@@ -73,7 +73,7 @@ exports[`TrustSection > matches the snapshot 1`] = `
                 🏢
               </span>
               <span
-                class="font-medium whitespace-nowrap"
+                class="whitespace-nowrap font-medium"
               >
                 SaaS Companies
               </span>
@@ -87,7 +87,7 @@ exports[`TrustSection > matches the snapshot 1`] = `
                 🚀
               </span>
               <span
-                class="font-medium whitespace-nowrap"
+                class="whitespace-nowrap font-medium"
               >
                 Tech Startups
               </span>
@@ -101,7 +101,7 @@ exports[`TrustSection > matches the snapshot 1`] = `
                 🏛️
               </span>
               <span
-                class="font-medium whitespace-nowrap"
+                class="whitespace-nowrap font-medium"
               >
                 Enterprise Teams
               </span>
@@ -115,7 +115,7 @@ exports[`TrustSection > matches the snapshot 1`] = `
                 🏢
               </span>
               <span
-                class="font-medium whitespace-nowrap"
+                class="whitespace-nowrap font-medium"
               >
                 SaaS Companies
               </span>
@@ -129,7 +129,7 @@ exports[`TrustSection > matches the snapshot 1`] = `
                 🚀
               </span>
               <span
-                class="font-medium whitespace-nowrap"
+                class="whitespace-nowrap font-medium"
               >
                 Tech Startups
               </span>
@@ -143,7 +143,7 @@ exports[`TrustSection > matches the snapshot 1`] = `
                 🏛️
               </span>
               <span
-                class="font-medium whitespace-nowrap"
+                class="whitespace-nowrap font-medium"
               >
                 Enterprise Teams
               </span>
@@ -157,7 +157,7 @@ exports[`TrustSection > matches the snapshot 1`] = `
                 🏢
               </span>
               <span
-                class="font-medium whitespace-nowrap"
+                class="whitespace-nowrap font-medium"
               >
                 SaaS Companies
               </span>
@@ -171,7 +171,7 @@ exports[`TrustSection > matches the snapshot 1`] = `
                 🚀
               </span>
               <span
-                class="font-medium whitespace-nowrap"
+                class="whitespace-nowrap font-medium"
               >
                 Tech Startups
               </span>
@@ -185,7 +185,7 @@ exports[`TrustSection > matches the snapshot 1`] = `
                 🏛️
               </span>
               <span
-                class="font-medium whitespace-nowrap"
+                class="whitespace-nowrap font-medium"
               >
                 Enterprise Teams
               </span>
