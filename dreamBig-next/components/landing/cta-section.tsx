@@ -10,8 +10,8 @@ export function CTASection() {
             Need a Software Partner?
           </h2>
           <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            Whether you are building a new product or scaling an existing platform, 
-            we help teams design and deliver reliable software.
+            Whether you are building a new product or scaling an existing
+            platform, we help teams design and deliver reliable software.
           </p>
           <div className="mt-12">
             <Button size="lg" className="px-8 font-medium group">
