@@ -1,0 +1,9 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`RootLayout > matches the snapshot 1`] = `
+<DocumentFragment>
+  <div>
+    Layout child
+  </div>
+</DocumentFragment>
+`;

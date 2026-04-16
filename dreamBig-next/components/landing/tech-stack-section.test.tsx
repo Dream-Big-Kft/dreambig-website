@@ -17,4 +17,10 @@ describe("TechStackSection", () => {
     expect(screen.getByText("GraphQL")).toBeInTheDocument();
     expect(screen.getByText("PostgreSQL")).toBeInTheDocument();
   });
+
+  it("matches the snapshot", () => {
+    const { asFragment } = render(<TechStackSection />);
+
+    expect(asFragment()).toMatchSnapshot();
+  });
 });

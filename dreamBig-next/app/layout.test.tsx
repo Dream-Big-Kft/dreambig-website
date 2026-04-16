@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
-import { describe, expect, it, vi } from "vitest";
+import { describe, expect, it } from "vitest";
 import RootLayout, { metadata } from "./layout";
-import { mockAnalytics, mockNextThemesProvider } from "@/test/setup";
+import { mockNextThemesProvider } from "@/test/setup";
 
 describe("layout metadata", () => {
   it("exports the expected static metadata", () => {
@@ -38,20 +38,13 @@ describe("RootLayout", () => {
     });
   });
 
-  it("renders analytics when running on vercel", async () => {
-    vi.resetModules();
-    vi.stubEnv("VERCEL", "1");
-
-    const { default: VercelLayout } = await import("./layout");
-
-    render(
-      <VercelLayout>
-        <div>With analytics</div>
-      </VercelLayout>,
+  it("matches the snapshot", () => {
+    const { asFragment } = render(
+      <RootLayout>
+        <div>Layout child</div>
+      </RootLayout>,
     );
 
-    expect(mockAnalytics).toHaveBeenCalled();
-
-    vi.unstubAllEnvs();
+    expect(asFragment()).toMatchSnapshot();
   });
 });

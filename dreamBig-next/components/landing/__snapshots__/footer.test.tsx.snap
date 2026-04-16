@@ -1,0 +1,86 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Footer > matches the snapshot 1`] = `
+<DocumentFragment>
+  <footer
+    class="border-t border-border/80 bg-background/92 py-8 dark:border-white/10 dark:bg-card/88"
+  >
+    <div
+      class="container mx-auto px-4 sm:px-6 lg:px-8"
+    >
+      <div
+        class="flex flex-col items-center justify-between gap-4 md:flex-row"
+      >
+        <a
+          class="flex items-center gap-3"
+          href="#top"
+        >
+          <img
+            alt="DreamBig Software logo"
+            class="h-8 w-8 object-contain dark:invert"
+            height="32"
+            src="dreambig-logo.svg"
+            width="32"
+          />
+          <span
+            class="font-medium text-foreground/90 dark:text-foreground/88"
+          >
+            DreamBig Software
+          </span>
+        </a>
+        <div
+          class="flex items-center gap-5 text-sm text-muted-foreground dark:text-foreground/78"
+        >
+          <a
+            class="transition-colors hover:text-foreground dark:hover:text-foreground/92"
+            href="mailto:info@dreambig.hu"
+          >
+            info@dreambig.hu
+          </a>
+          <a
+            aria-label="LinkedIn"
+            class="transition-colors hover:text-foreground dark:hover:text-foreground/92"
+            href="https://linkedin.com/company/dreambig"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-linkedin w-5 h-5"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+              />
+              <rect
+                height="12"
+                width="4"
+                x="2"
+                y="9"
+              />
+              <circle
+                cx="4"
+                cy="4"
+                r="2"
+              />
+            </svg>
+          </a>
+        </div>
+        <p
+          class="text-sm text-muted-foreground dark:text-foreground/72"
+        >
+          © 2026 DreamBig Software. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+</DocumentFragment>
+`;

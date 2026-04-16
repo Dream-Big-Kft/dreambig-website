@@ -104,4 +104,10 @@ describe("Header", () => {
     expect(container.querySelector("svg.lucide-sun")).toBeInTheDocument();
     expect(mockSetTheme).toHaveBeenCalledWith("light");
   });
+
+  it("matches the snapshot", () => {
+    const { asFragment } = render(<Header />);
+
+    expect(asFragment()).toMatchSnapshot();
+  });
 });

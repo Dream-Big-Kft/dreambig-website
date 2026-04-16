@@ -1,0 +1,180 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ProcessSection > matches the snapshot 1`] = `
+<DocumentFragment>
+  <section
+    class="bg-background py-24 dark:bg-background lg:py-24"
+  >
+    <div
+      class="container mx-auto px-4 sm:px-6 lg:px-8"
+    >
+      <div
+        class="mx-auto mb-16 max-w-2xl text-center"
+      >
+        <h2
+          class="text-3xl sm:text-4xl font-bold tracking-tight text-foreground text-balance"
+        >
+          Our Development Approach
+        </h2>
+      </div>
+      <div
+        class="max-w-4xl mx-auto"
+      >
+        <div
+          class="relative"
+        >
+          <div
+            class="absolute left-8 top-0 bottom-0 w-px bg-border lg:hidden"
+          />
+          <div
+            class="hidden lg:block absolute top-8 left-0 right-0 h-px bg-border"
+          />
+          <div
+            class="grid gap-8 lg:grid-cols-4 lg:gap-8"
+          >
+            <div
+              class="relative pl-20 lg:pl-0 lg:text-center"
+            >
+              <div
+                class="absolute left-6 top-1 w-4 h-4 rounded-full bg-background border-2 border-foreground lg:hidden"
+              />
+              <div
+                class="hidden lg:flex items-center justify-center w-16 h-16 mx-auto mb-6 rounded-full bg-background border-2 border-foreground"
+              >
+                <span
+                  class="text-lg font-bold text-foreground"
+                >
+                  01
+                </span>
+              </div>
+              <span
+                class="lg:hidden text-sm font-mono text-muted-foreground mb-1 block"
+              >
+                Step 01
+              </span>
+              <h3
+                class="mb-4 text-xl font-semibold text-foreground"
+              >
+                Understand
+              </h3>
+              <p
+                class="text-sm text-muted-foreground"
+              >
+                Understand your product and business goals
+              </p>
+              <div
+                class="hidden lg:block absolute top-8 -right-2 w-4 text-muted-foreground"
+              >
+                →
+              </div>
+            </div>
+            <div
+              class="relative pl-20 lg:pl-0 lg:text-center"
+            >
+              <div
+                class="absolute left-6 top-1 w-4 h-4 rounded-full bg-background border-2 border-foreground lg:hidden"
+              />
+              <div
+                class="hidden lg:flex items-center justify-center w-16 h-16 mx-auto mb-6 rounded-full bg-background border-2 border-foreground"
+              >
+                <span
+                  class="text-lg font-bold text-foreground"
+                >
+                  02
+                </span>
+              </div>
+              <span
+                class="lg:hidden text-sm font-mono text-muted-foreground mb-1 block"
+              >
+                Step 02
+              </span>
+              <h3
+                class="mb-4 text-xl font-semibold text-foreground"
+              >
+                Design
+              </h3>
+              <p
+                class="text-sm text-muted-foreground"
+              >
+                Design scalable architecture
+              </p>
+              <div
+                class="hidden lg:block absolute top-8 -right-2 w-4 text-muted-foreground"
+              >
+                →
+              </div>
+            </div>
+            <div
+              class="relative pl-20 lg:pl-0 lg:text-center"
+            >
+              <div
+                class="absolute left-6 top-1 w-4 h-4 rounded-full bg-background border-2 border-foreground lg:hidden"
+              />
+              <div
+                class="hidden lg:flex items-center justify-center w-16 h-16 mx-auto mb-6 rounded-full bg-background border-2 border-foreground"
+              >
+                <span
+                  class="text-lg font-bold text-foreground"
+                >
+                  03
+                </span>
+              </div>
+              <span
+                class="lg:hidden text-sm font-mono text-muted-foreground mb-1 block"
+              >
+                Step 03
+              </span>
+              <h3
+                class="mb-4 text-xl font-semibold text-foreground"
+              >
+                Build
+              </h3>
+              <p
+                class="text-sm text-muted-foreground"
+              >
+                Build and iterate quickly
+              </p>
+              <div
+                class="hidden lg:block absolute top-8 -right-2 w-4 text-muted-foreground"
+              >
+                →
+              </div>
+            </div>
+            <div
+              class="relative pl-20 lg:pl-0 lg:text-center"
+            >
+              <div
+                class="absolute left-6 top-1 w-4 h-4 rounded-full bg-background border-2 border-foreground lg:hidden"
+              />
+              <div
+                class="hidden lg:flex items-center justify-center w-16 h-16 mx-auto mb-6 rounded-full bg-background border-2 border-foreground"
+              >
+                <span
+                  class="text-lg font-bold text-foreground"
+                >
+                  04
+                </span>
+              </div>
+              <span
+                class="lg:hidden text-sm font-mono text-muted-foreground mb-1 block"
+              >
+                Step 04
+              </span>
+              <h3
+                class="mb-4 text-xl font-semibold text-foreground"
+              >
+                Deliver
+              </h3>
+              <p
+                class="text-sm text-muted-foreground"
+              >
+                Deliver production-ready systems
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</DocumentFragment>
+`;

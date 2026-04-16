@@ -21,10 +21,10 @@ export function Footer() {
           {/* Contact and Social */}
           <div className="flex items-center gap-5 text-sm text-muted-foreground dark:text-foreground/78">
             <a
-              href="mailto:hello@dreambig.software"
+              href="mailto:info@dreambig.hu"
               className="transition-colors hover:text-foreground dark:hover:text-foreground/92"
             >
-              hello@dreambig.software
+              info@dreambig.hu
             </a>
             <a
               href="https://linkedin.com/company/dreambig"
