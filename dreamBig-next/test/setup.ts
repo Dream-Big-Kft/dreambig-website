@@ -2,14 +2,10 @@ import React from "react";
 import "@testing-library/jest-dom/vitest";
 import { cleanup } from "@testing-library/react";
 import type { UseThemeProps } from "next-themes";
-import { afterEach, vi } from "vitest";
+import { afterEach, beforeEach, vi } from "vitest";
 
-// This repo currently stays on jsdom 26 because jsdom 29 pulled a dependency
-// chain that crashed Vitest workers here with an ESM/CJS compatibility error.
 const renderChildren = ({ children }: { children: React.ReactNode }) =>
   React.createElement(React.Fragment, null, children);
-
-const analyticsStub = () => null;
 
 export const mockSetTheme = vi.fn();
 export const createMockThemeState = (
@@ -27,22 +23,20 @@ export const createMockThemeState = (
 export const mockUseTheme = vi.fn(() => createMockThemeState());
 // Keep the provider mock transparent by default so tests only see their own UI.
 export const mockNextThemesProvider = vi.fn(renderChildren);
-export const mockAnalytics = vi.fn(analyticsStub);
 
-afterEach(() => {
-  cleanup();
-  mockSetTheme.mockClear();
-  mockUseTheme.mockClear();
-  mockNextThemesProvider.mockClear();
-  mockAnalytics.mockClear();
+beforeEach(() => {
+  vi.clearAllMocks();
   mockUseTheme.mockReturnValue(createMockThemeState());
   // Restore shared mocks in case a test overrides their behavior.
   mockNextThemesProvider.mockImplementation(renderChildren);
-  mockAnalytics.mockImplementation(analyticsStub);
 });
 
-// jsdom is not a full browser, so we provide matchMedia for components/hooks
-// that expect responsive browser APIs to exist.
+afterEach(() => {
+  cleanup();
+});
+
+// happy-dom does not implement every browser API we touch in tests, so we
+// provide matchMedia for components/hooks that expect responsive APIs to exist.
 Object.defineProperty(window, "matchMedia", {
   writable: true,
   value: vi.fn().mockImplementation((query: string) => ({
@@ -82,8 +76,4 @@ vi.mock("next/font/google", () => ({
 vi.mock("next-themes", () => ({
   ThemeProvider: mockNextThemesProvider,
   useTheme: mockUseTheme,
-}));
-
-vi.mock("@vercel/analytics/next", () => ({
-  Analytics: mockAnalytics,
 }));

@@ -1,13 +1,10 @@
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
-import { Analytics } from '@vercel/analytics/next'
 import { ThemeProvider } from '@/components/theme-provider'
 import './globals.css'
 
 const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
-
-const enableVercelAnalytics = process.env.VERCEL === "1";
 
 export const metadata: Metadata = {
   title: 'DreamBig Software | Custom Software Development & Consulting',
@@ -33,7 +30,6 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
         </ThemeProvider>
-        {enableVercelAnalytics ? <Analytics /> : null}
       </body>
     </html>
   )
