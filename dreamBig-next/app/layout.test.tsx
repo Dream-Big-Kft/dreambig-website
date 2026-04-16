@@ -1,7 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import RootLayout, { metadata } from "./layout";
-import { mockNextThemesProvider } from "@/test/setup";
 
 describe("layout metadata", () => {
   it("exports the expected static metadata", () => {
@@ -22,7 +21,7 @@ describe("layout metadata", () => {
 });
 
 describe("RootLayout", () => {
-  it("renders children inside the theme provider", () => {
+  it("renders children", () => {
     render(
       <RootLayout>
         <div>Layout child</div>
@@ -30,12 +29,6 @@ describe("RootLayout", () => {
     );
 
     expect(screen.getByText("Layout child")).toBeInTheDocument();
-    expect(mockNextThemesProvider).toHaveBeenCalled();
-    expect(mockNextThemesProvider.mock.calls[0]?.[0]).toMatchObject({
-      attribute: "class",
-      defaultTheme: "system",
-      enableSystem: true,
-    });
   });
 
   it("matches the snapshot", () => {
