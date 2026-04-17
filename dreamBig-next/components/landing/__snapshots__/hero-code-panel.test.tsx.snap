@@ -241,12 +241,12 @@ exports[`HeroCodePanel > matches the snapshot 1`] = `
         </div>
         <div>
           <p
-            class="text-xs font-medium text-foreground lg:text-sm"
+            class="font-medium text-foreground text-sm lg:text-base"
           >
             99.9% Uptime
           </p>
           <p
-            class="text-[11px] text-muted-foreground lg:text-xs"
+            class="text-muted-foreground text-sm text-sm lg:text-base"
           >
             Production Systems
           </p>

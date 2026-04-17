@@ -39,13 +39,18 @@ export function ProcessSection() {
 
             <div className="grid gap-8 lg:grid-cols-4 lg:gap-8">
               {steps.map((step, index) => (
-                <div key={step.number} className="relative pl-20 lg:pl-0 lg:text-center">
+                <div
+                  key={step.number}
+                  className="relative pl-20 lg:pl-0 lg:text-center"
+                >
                   {/* Mobile timeline dot */}
                   <div className="absolute left-6 top-1 w-4 h-4 rounded-full bg-background border-2 border-foreground lg:hidden" />
 
                   {/* Desktop timeline dot */}
                   <div className="hidden lg:flex items-center justify-center w-16 h-16 mx-auto mb-6 rounded-full bg-background border-2 border-foreground">
-                    <span className="text-lg font-bold text-foreground">{step.number}</span>
+                    <span className="text-lg font-bold text-foreground">
+                      {step.number}
+                    </span>
                   </div>
 
                   {/* Mobile number */}
@@ -56,7 +61,7 @@ export function ProcessSection() {
                   <h3 className="mb-4 text-xl font-semibold text-foreground">
                     {step.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-md text-muted-foreground">
                     {step.description}
                   </p>
 

@@ -91,10 +91,10 @@ export function HeroCodePanel() {
             <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
           </div>
           <div>
-            <p className="text-xs font-medium text-foreground lg:text-sm">
+            <p className="font-medium text-foreground text-sm lg:text-base">
               99.9% Uptime
             </p>
-            <p className="text-[11px] text-muted-foreground lg:text-xs">
+            <p className="text-muted-foreground text-sm text-sm lg:text-base">
               Production Systems
             </p>
           </div>
