@@ -128,7 +128,7 @@ exports[`Hero > matches the snapshot 1`] = `
           </div>
         </div>
         <div
-          class="relative mx-auto w-full max-w-sm lg:ml-auto lg:mr-0 lg:max-w-xl"
+          class="relative mx-auto hidden w-full max-w-sm lg:ml-auto lg:mr-0 lg:block lg:max-w-xl"
         >
           <div
             class="relative mx-auto rounded-xl border border-border bg-slate-900 p-1 shadow-2xl"

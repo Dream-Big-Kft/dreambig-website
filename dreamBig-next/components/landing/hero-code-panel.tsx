@@ -1,6 +1,6 @@
 export function HeroCodePanel() {
   return (
-    <div className="relative mx-auto w-full max-w-sm lg:ml-auto lg:mr-0 lg:max-w-xl">
+    <div className="relative mx-auto hidden w-full max-w-sm lg:ml-auto lg:mr-0 lg:block lg:max-w-xl">
       <div className="relative mx-auto rounded-xl border border-border bg-slate-900 p-1 shadow-2xl">
         {/* Top bar */}
         <div className="hidden items-center gap-2 border-b border-slate-700 px-3 py-2 lg:flex lg:px-4 lg:py-3">
