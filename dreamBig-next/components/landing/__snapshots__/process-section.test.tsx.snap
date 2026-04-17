@@ -58,7 +58,7 @@ exports[`ProcessSection > matches the snapshot 1`] = `
                 Understand
               </h3>
               <p
-                class="text-sm text-muted-foreground"
+                class="text-md text-muted-foreground"
               >
                 Understand your product and business goals
               </p>
@@ -94,7 +94,7 @@ exports[`ProcessSection > matches the snapshot 1`] = `
                 Design
               </h3>
               <p
-                class="text-sm text-muted-foreground"
+                class="text-md text-muted-foreground"
               >
                 Design scalable architecture
               </p>
@@ -130,7 +130,7 @@ exports[`ProcessSection > matches the snapshot 1`] = `
                 Build
               </h3>
               <p
-                class="text-sm text-muted-foreground"
+                class="text-md text-muted-foreground"
               >
                 Build and iterate quickly
               </p>
@@ -166,7 +166,7 @@ exports[`ProcessSection > matches the snapshot 1`] = `
                 Deliver
               </h3>
               <p
-                class="text-sm text-muted-foreground"
+                class="text-md text-muted-foreground"
               >
                 Deliver production-ready systems
               </p>
