@@ -1,5 +1,5 @@
-@import 'tailwindcss';
-@import 'tw-animate-css';
+@import "tailwindcss";
+@import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark, .dark *));
 
@@ -39,7 +39,8 @@
   --sidebar-ring: oklch(0.65 0 0);
 }
 
-html.dark, .dark {
+html.dark,
+.dark {
   --background: oklch(0.16 0 0);
   --foreground: oklch(0.98 0 0);
   --card: oklch(0.19 0 0);
@@ -70,8 +71,8 @@ html.dark, .dark {
 }
 
 @theme inline {
-  --font-sans: 'Geist', 'Geist Fallback';
-  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --font-sans: "Geist", "Geist Fallback";
+  --font-mono: "Geist Mono", "Geist Mono Fallback";
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -91,6 +92,10 @@ html.dark, .dark {
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  --focus-ring-width: 2.5px;
+  --focus-ring-color: rgba(59, 130, 246, 0.85);
+  --focus-ring-offset: 2.5px;
+  --focus-ring-offset-color: var(--background);
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
@@ -121,20 +126,31 @@ html.dark, .dark {
   body {
     @apply bg-background text-foreground;
   }
+  :focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
 }
 
 :root {
-  --shadow-card-hover: 0 8px 18px rgba(15, 23, 42, 0.06), 0 3px 8px rgba(15, 23, 42, 0.05);
-  --shadow-card-hover-light: 0 10px 22px rgba(15, 23, 42, 0.1), 0 4px 10px rgba(15, 23, 42, 0.06);
+  --shadow-card-hover:
+    0 8px 18px rgba(15, 23, 42, 0.06), 0 3px 8px rgba(15, 23, 42, 0.05);
+  --shadow-card-hover-light:
+    0 10px 22px rgba(15, 23, 42, 0.1), 0 4px 10px rgba(15, 23, 42, 0.06);
 }
 
 .dark {
-  --shadow-card-hover: 0 10px 24px rgba(255, 255, 255, 0.08), 0 4px 10px rgba(255, 255, 255, 0.04);
-  --shadow-card-hover-light: 0 12px 28px rgba(255, 255, 255, 0.1), 0 5px 12px rgba(255, 255, 255, 0.05);
+  --shadow-card-hover:
+    0 10px 24px rgba(255, 255, 255, 0.08), 0 4px 10px rgba(255, 255, 255, 0.04);
+  --shadow-card-hover-light:
+    0 12px 28px rgba(255, 255, 255, 0.1), 0 5px 12px rgba(255, 255, 255, 0.05);
 }
 
 .card-hover-modern {
-  transition: transform 300ms ease-out, border-color 300ms ease-out, box-shadow 300ms ease-out;
+  transition:
+    transform 300ms ease-out,
+    border-color 300ms ease-out,
+    box-shadow 300ms ease-out;
 }
 
 .card-hover-modern:hover {
@@ -143,7 +159,10 @@ html.dark, .dark {
 }
 
 .card-hover-modern-light {
-  transition: transform 300ms ease-out, border-color 300ms ease-out, box-shadow 300ms ease-out;
+  transition:
+    transform 300ms ease-out,
+    border-color 300ms ease-out,
+    box-shadow 300ms ease-out;
 }
 
 .card-hover-modern-light:hover {
@@ -169,7 +188,13 @@ html.dark, .dark {
 .trust-marquee {
   overflow: hidden;
   width: min(100%, 44rem);
-  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 8%,
+    black 92%,
+    transparent
+  );
 }
 
 .trust-marquee-track {
