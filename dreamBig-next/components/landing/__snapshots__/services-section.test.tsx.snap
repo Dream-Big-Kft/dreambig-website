@@ -3,7 +3,7 @@
 exports[`ServicesSection > matches the snapshot 1`] = `
 <DocumentFragment>
   <section
-    class="border-y border-border/75 bg-muted/75 py-24 dark:border-white/8 dark:bg-card/55 lg:py-24"
+    class="border-y border-border/75 bg-muted/75 py-20 dark:border-white/8 dark:bg-card/55 lg:py-24"
   >
     <div
       class="container mx-auto px-4 sm:px-6 lg:px-8"

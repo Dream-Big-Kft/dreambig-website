@@ -11,7 +11,7 @@ const technologies = [
 
 export function TechStackSection() {
   return (
-    <section className="border-y border-border/75 bg-muted/70 py-24 dark:border-white/8 dark:bg-card/55 lg:py-24">
+    <section className="border-y border-border/75 bg-muted/70 py-20 dark:border-white/8 dark:bg-card/55 lg:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mx-auto mb-16 max-w-2xl text-center">
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground text-balance">
@@ -29,7 +29,9 @@ export function TechStackSection() {
               className="card-hover-modern-light flex flex-col items-center justify-center rounded-xl border border-border bg-card p-6 hover:border-primary/20"
             >
               <span className="text-2xl mb-2 font-mono">{tech.icon}</span>
-              <span className="text-sm font-medium text-foreground">{tech.name}</span>
+              <span className="text-sm font-medium text-foreground">
+                {tech.name}
+              </span>
             </div>
           ))}
         </div>

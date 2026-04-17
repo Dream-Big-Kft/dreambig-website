@@ -3,7 +3,7 @@
 exports[`ProcessSection > matches the snapshot 1`] = `
 <DocumentFragment>
   <section
-    class="bg-background py-24 dark:bg-background lg:py-24"
+    class="bg-background py-20 dark:bg-background lg:py-24"
   >
     <div
       class="container mx-auto px-4 sm:px-6 lg:px-8"

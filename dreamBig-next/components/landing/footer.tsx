@@ -10,12 +10,14 @@ export function Footer() {
           <a href="#top" className="flex items-center gap-3">
             <Image
               src="dreambig-logo.svg"
-              alt="DreamBig Software logo"
+              alt="Dream Big Software Solutions logo"
               width={32}
               height={32}
               className="h-8 w-8 object-contain dark:invert"
             />
-            <span className="font-medium text-foreground/90 dark:text-foreground/88">DreamBig Software</span>
+            <span className="font-medium text-foreground/90 dark:text-foreground/88">
+              Dream Big Software Solutions
+            </span>
           </a>
 
           {/* Contact and Social */}
@@ -39,7 +41,7 @@ export function Footer() {
 
           {/* Copyright */}
           <p className="text-sm text-muted-foreground dark:text-foreground/72">
-            © {new Date().getFullYear()} DreamBig Software. All rights reserved.
+            © {new Date().getFullYear()} Dream Big Kft. All rights reserved.
           </p>
         </div>
       </div>
