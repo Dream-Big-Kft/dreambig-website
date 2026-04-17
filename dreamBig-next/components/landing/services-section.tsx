@@ -26,28 +26,32 @@ const services = [
   },
   {
     icon: Database,
-    color: "bg-violet-500/10 text-violet-600 dark:text-violet-400 border-violet-500/20",
+    color:
+      "bg-violet-500/10 text-violet-600 dark:text-violet-400 border-violet-500/20",
     title: "Database Solutions",
     description:
       "Design, implement, and optimize database systems for performance and scalability. We ensure your data infrastructure supports business growth.",
   },
   {
     icon: Settings,
-    color: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20",
+    color:
+      "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20",
     title: "Maintenance & Support",
     description:
       "Ongoing maintenance, updates, and support to keep your software running smoothly. We provide continuous improvement and bug fixes.",
   },
   {
     icon: GraduationCap,
-    color: "bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20",
+    color:
+      "bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20",
     title: "Team Training",
     description:
       "Comprehensive training programs to upskill your development team. Learn modern practices, frameworks, and best practices from experienced professionals.",
   },
   {
     icon: Smartphone,
-    color: "bg-purple-500/10 text-purple-600 dark:text-purple-400 border-purple-500/20",
+    color:
+      "bg-purple-500/10 text-purple-600 dark:text-purple-400 border-purple-500/20",
     title: "Mobile Development",
     description:
       "Native and cross-platform mobile applications for iOS and Android. We create responsive, feature-rich mobile solutions that engage users.",
@@ -61,7 +65,8 @@ const services = [
   },
   {
     icon: Cloud,
-    color: "bg-orange-500/10 text-orange-600 dark:text-orange-400 border-orange-500/20",
+    color:
+      "bg-orange-500/10 text-orange-600 dark:text-orange-400 border-orange-500/20",
     title: "Cloud Architecture",
     description:
       "AWS infrastructure, deployment pipelines, and scalable cloud systems built for performance, resilience, and operational clarity.",
@@ -77,7 +82,7 @@ const services = [
 
 export function ServicesSection() {
   return (
-    <section className="border-y border-border/75 bg-muted/75 py-24 dark:border-white/8 dark:bg-card/55 lg:py-24">
+    <section className="border-y border-border/75 bg-muted/75 py-20 dark:border-white/8 dark:bg-card/55 lg:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mx-auto mb-16 max-w-2xl text-center">
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground text-balance">

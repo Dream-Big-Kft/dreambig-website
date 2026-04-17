@@ -29,7 +29,7 @@ exports[`Home page > matches the snapshot 1`] = `
             <span
               class="hidden text-foreground/90 sm:block sm:font-medium dark:text-foreground/88"
             >
-              DreamBig Software
+              Dream Big Software Solutions
             </span>
           </a>
           <div
@@ -502,7 +502,7 @@ exports[`Home page > matches the snapshot 1`] = `
         id="services"
       >
         <section
-          class="border-y border-border/75 bg-muted/75 py-24 dark:border-white/8 dark:bg-card/55 lg:py-24"
+          class="border-y border-border/75 bg-muted/75 py-20 dark:border-white/8 dark:bg-card/55 lg:py-24"
         >
           <div
             class="container mx-auto px-4 sm:px-6 lg:px-8"
@@ -922,7 +922,7 @@ exports[`Home page > matches the snapshot 1`] = `
         id="process"
       >
         <section
-          class="bg-background py-24 dark:bg-background lg:py-24"
+          class="bg-background py-20 dark:bg-background lg:py-24"
         >
           <div
             class="container mx-auto px-4 sm:px-6 lg:px-8"
@@ -1100,7 +1100,7 @@ exports[`Home page > matches the snapshot 1`] = `
         id="tech"
       >
         <section
-          class="border-y border-border/75 bg-muted/70 py-24 dark:border-white/8 dark:bg-card/55 lg:py-24"
+          class="border-y border-border/75 bg-muted/70 py-20 dark:border-white/8 dark:bg-card/55 lg:py-24"
         >
           <div
             class="container mx-auto px-4 sm:px-6 lg:px-8"
@@ -1242,7 +1242,7 @@ exports[`Home page > matches the snapshot 1`] = `
         id="contact"
       >
         <section
-          class="border-t border-border/70 bg-card/80 py-24 dark:border-white/8 dark:bg-background lg:py-24"
+          class="border-t border-border/70 bg-card/80 py-20 dark:border-white/8 dark:bg-background lg:py-24"
         >
           <div
             class="container mx-auto px-4 sm:px-6 lg:px-8"
@@ -1309,7 +1309,7 @@ exports[`Home page > matches the snapshot 1`] = `
             href="#top"
           >
             <img
-              alt="DreamBig Software logo"
+              alt="Dream Big Software Solutions logo"
               class="h-8 w-8 object-contain dark:invert"
               height="32"
               src="dreambig-logo.svg"
@@ -1318,7 +1318,7 @@ exports[`Home page > matches the snapshot 1`] = `
             <span
               class="font-medium text-foreground/90 dark:text-foreground/88"
             >
-              DreamBig Software
+              Dream Big Software Solutions
             </span>
           </a>
           <div
@@ -1370,7 +1370,7 @@ exports[`Home page > matches the snapshot 1`] = `
           <p
             class="text-sm text-muted-foreground dark:text-foreground/72"
           >
-            © 2026 DreamBig Software. All rights reserved.
+            © 2026 Dream Big Kft. All rights reserved.
           </p>
         </div>
       </div>

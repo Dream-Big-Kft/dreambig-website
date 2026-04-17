@@ -7,10 +7,12 @@ describe("Footer", () => {
     render(<Footer />);
 
     expect(
-      screen.getByRole("img", { name: "DreamBig Software logo" }),
+      screen.getByRole("img", { name: "Dream Big Software Solutions logo" }),
     ).toHaveAttribute("src", "dreambig-logo.svg");
 
-    expect(screen.getByText("DreamBig Software")).toBeInTheDocument();
+    expect(
+      screen.getByText("Dream Big Software Solutions"),
+    ).toBeInTheDocument();
 
     expect(
       screen.getByRole("link", { name: "info@dreambig.hu" }),
@@ -21,7 +23,9 @@ describe("Footer", () => {
       "https://linkedin.com/company/dreambig",
     );
 
-    expect(screen.getByText(/DreamBig Software\. All rights reserved\./)).toBeInTheDocument();
+    expect(
+      screen.getByText(/Dream Big Kft\. All rights reserved\./),
+    ).toBeInTheDocument();
   });
 
   it("matches the snapshot", () => {
