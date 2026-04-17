@@ -3,7 +3,7 @@
 exports[`Hero > matches the snapshot 1`] = `
 <DocumentFragment>
   <section
-    class="relative overflow-hidden pt-40 pb-24 lg:pt-40 lg:pb-24"
+    class="relative overflow-hidden pt-35 pb-24 lg:pt-40 lg:pb-24"
   >
     <div
       class="absolute inset-0 -z-10"
@@ -22,7 +22,7 @@ exports[`Hero > matches the snapshot 1`] = `
         class="grid items-center gap-16 lg:grid-cols-2 lg:gap-16"
       >
         <div
-          class="mx-auto w-full max-w-2xl text-center lg:mx-0 lg:max-w-xl lg:text-left"
+          class="mx-auto w-full max-w-2xl text-left lg:mx-0 lg:max-w-xl"
         >
           <h1
             class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground text-balance leading-[1.1]"
@@ -30,18 +30,18 @@ exports[`Hero > matches the snapshot 1`] = `
             Custom Software That Moves Your Business Forward
           </h1>
           <p
-            class="mx-auto mt-8 max-w-xl text-lg leading-relaxed text-muted-foreground lg:mx-0"
+            class="mt-8 max-w-xl text-lg leading-relaxed text-muted-foreground lg:mx-0"
           >
             We design and build scalable web applications, cloud systems, and APIs for startups and growing companies.
           </p>
           <ul
-            class="mt-8 space-y-4 flex flex-col items-center lg:items-start"
+            class="mt-8 space-y-4 flex flex-col items-start"
           >
             <li
-              class="flex items-center gap-3 text-lg text-foreground"
+              class="flex items-start gap-3 text-lg text-foreground"
             >
               <span
-                class="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary"
+                class="flex h-5 w-5 mt-1 flex-shrink-0 items-center justify-center rounded-full bg-primary"
               >
                 <svg
                   aria-hidden="true"
@@ -64,10 +64,10 @@ exports[`Hero > matches the snapshot 1`] = `
               Senior engineers embedded in your team
             </li>
             <li
-              class="flex items-center gap-3 text-lg text-foreground"
+              class="flex items-start gap-3 text-lg text-foreground"
             >
               <span
-                class="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary"
+                class="flex h-5 w-5 mt-1 flex-shrink-0 items-center justify-center rounded-full bg-primary"
               >
                 <svg
                   aria-hidden="true"
@@ -90,10 +90,10 @@ exports[`Hero > matches the snapshot 1`] = `
               Modern web & cloud architecture
             </li>
             <li
-              class="flex items-center gap-3 text-lg text-foreground"
+              class="flex items-start gap-3 text-lg text-foreground"
             >
               <span
-                class="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary"
+                class="flex h-5 w-5 mt-1 flex-shrink-0 items-center justify-center rounded-full bg-primary"
               >
                 <svg
                   aria-hidden="true"
@@ -117,7 +117,7 @@ exports[`Hero > matches the snapshot 1`] = `
             </li>
           </ul>
           <div
-            class="mt-12 flex flex-wrap justify-center lg:justify-start gap-4"
+            class="mt-12 flex justify-end lg:justify-start flex-wrap gap-4"
           >
             <button
               class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-md transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive cursor-pointer bg-primary text-primary-foreground shadow-sm hover:bg-primary hover:shadow-[0_10px_24px_rgba(15,23,42,0.16)] active:shadow-sm h-10 rounded-md has-[>svg]:px-4 px-8 font-medium"
@@ -128,7 +128,7 @@ exports[`Hero > matches the snapshot 1`] = `
           </div>
         </div>
         <div
-          class="relative mx-auto mt-8 w-full max-w-sm lg:mt-0 lg:ml-auto lg:mr-0 lg:max-w-xl"
+          class="relative mx-auto w-full max-w-sm lg:ml-auto lg:mr-0 lg:max-w-xl"
         >
           <div
             class="relative mx-auto rounded-xl border border-border bg-slate-900 p-1 shadow-2xl"
