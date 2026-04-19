@@ -6,5 +6,6 @@ coverage/
 out/
 audit-report.json
 audit-summary.txt
-.env*.local
+.env*
+.local
 NEXTJS_LEARNING_LOG.md
