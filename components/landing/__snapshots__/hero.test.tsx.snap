@@ -372,7 +372,7 @@ exports[`Hero > matches the snapshot 1`] = `
                   99.9% Uptime
                 </p>
                 <p
-                  class="text-muted-foreground text-sm text-sm lg:text-base"
+                  class="text-muted-foreground text-sm lg:text-base"
                 >
                   Production Systems
                 </p>
