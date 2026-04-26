@@ -39,25 +39,25 @@ exports[`Home page > matches the snapshot 1`] = `
               class="hidden md:flex items-center gap-8 pr-2"
             >
               <a
-                class="rounded-md border border-transparent px-3 py-2 text-sm font-medium text-muted-foreground transition-all hover:border-border hover:bg-muted hover:text-foreground dark:text-foreground/78 dark:hover:border-white/10 dark:hover:bg-white/8 dark:hover:text-foreground/92"
+                class="rounded-md border border-transparent px-3 py-2 text-base font-medium text-muted-foreground transition-all hover:border-border hover:bg-muted hover:text-foreground dark:text-foreground/78 dark:hover:border-white/10 dark:hover:bg-white/8 dark:hover:text-foreground/92"
                 href="#services"
               >
                 Services
               </a>
               <a
-                class="rounded-md border border-transparent px-3 py-2 text-sm font-medium text-muted-foreground transition-all hover:border-border hover:bg-muted hover:text-foreground dark:text-foreground/78 dark:hover:border-white/10 dark:hover:bg-white/8 dark:hover:text-foreground/92"
+                class="rounded-md border border-transparent px-3 py-2 text-base font-medium text-muted-foreground transition-all hover:border-border hover:bg-muted hover:text-foreground dark:text-foreground/78 dark:hover:border-white/10 dark:hover:bg-white/8 dark:hover:text-foreground/92"
                 href="#process"
               >
                 Process
               </a>
               <a
-                class="rounded-md border border-transparent px-3 py-2 text-sm font-medium text-muted-foreground transition-all hover:border-border hover:bg-muted hover:text-foreground dark:text-foreground/78 dark:hover:border-white/10 dark:hover:bg-white/8 dark:hover:text-foreground/92"
+                class="rounded-md border border-transparent px-3 py-2 text-base font-medium text-muted-foreground transition-all hover:border-border hover:bg-muted hover:text-foreground dark:text-foreground/78 dark:hover:border-white/10 dark:hover:bg-white/8 dark:hover:text-foreground/92"
                 href="#tech"
               >
                 Technology
               </a>
               <a
-                class="rounded-md border border-transparent px-3 py-2 text-sm font-medium text-muted-foreground transition-all hover:border-border hover:bg-muted hover:text-foreground dark:text-foreground/78 dark:hover:border-white/10 dark:hover:bg-white/8 dark:hover:text-foreground/92"
+                class="rounded-md border border-transparent px-3 py-2 text-base font-medium text-muted-foreground transition-all hover:border-border hover:bg-muted hover:text-foreground dark:text-foreground/78 dark:hover:border-white/10 dark:hover:bg-white/8 dark:hover:text-foreground/92"
                 href="#contact"
               >
                 Contact
@@ -236,7 +236,7 @@ exports[`Home page > matches the snapshot 1`] = `
                 class="mt-12 flex justify-end lg:justify-start flex-wrap gap-4"
               >
                 <button
-                  class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-md transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive cursor-pointer bg-primary text-primary-foreground shadow-sm hover:bg-primary hover:shadow-[0_10px_24px_rgba(15,23,42,0.16)] active:shadow-sm h-10 rounded-md has-[>svg]:px-4 px-8 font-medium"
+                  class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-base transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive cursor-pointer bg-primary text-primary-foreground shadow-sm hover:bg-primary hover:shadow-[0_10px_24px_rgba(15,23,42,0.16)] active:shadow-sm h-10 rounded-md has-[>svg]:px-4 px-8 font-medium"
                   data-slot="button"
                 >
                   Book a Consultation
@@ -977,7 +977,7 @@ exports[`Home page > matches the snapshot 1`] = `
                       Understand
                     </h3>
                     <p
-                      class="text-md text-muted-foreground"
+                      class="text-base text-muted-foreground"
                     >
                       Understand your product and business goals
                     </p>
@@ -1013,7 +1013,7 @@ exports[`Home page > matches the snapshot 1`] = `
                       Design
                     </h3>
                     <p
-                      class="text-md text-muted-foreground"
+                      class="text-base text-muted-foreground"
                     >
                       Design scalable architecture
                     </p>
@@ -1049,7 +1049,7 @@ exports[`Home page > matches the snapshot 1`] = `
                       Build
                     </h3>
                     <p
-                      class="text-md text-muted-foreground"
+                      class="text-base text-muted-foreground"
                     >
                       Build and iterate quickly
                     </p>
@@ -1085,7 +1085,7 @@ exports[`Home page > matches the snapshot 1`] = `
                       Deliver
                     </h3>
                     <p
-                      class="text-md text-muted-foreground"
+                      class="text-base text-muted-foreground"
                     >
                       Deliver production-ready systems
                     </p>
@@ -1264,7 +1264,7 @@ exports[`Home page > matches the snapshot 1`] = `
                 class="mt-12"
               >
                 <button
-                  class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-md transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive cursor-pointer bg-primary text-primary-foreground shadow-sm hover:bg-primary hover:shadow-[0_10px_24px_rgba(15,23,42,0.16)] active:shadow-sm h-10 rounded-md has-[>svg]:px-4 px-8 font-medium group"
+                  class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-base transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive cursor-pointer bg-primary text-primary-foreground shadow-sm hover:bg-primary hover:shadow-[0_10px_24px_rgba(15,23,42,0.16)] active:shadow-sm h-10 rounded-md has-[>svg]:px-4 px-8 font-medium group"
                   data-slot="button"
                 >
                   Start a Project

@@ -60,7 +60,7 @@ export function Header() {
                 <a
                   key={link.label}
                   href={link.href}
-                  className="rounded-md border border-transparent px-3 py-2 text-sm font-medium text-muted-foreground transition-all hover:border-border hover:bg-muted hover:text-foreground dark:text-foreground/78 dark:hover:border-white/10 dark:hover:bg-white/8 dark:hover:text-foreground/92"
+                  className="rounded-md border border-transparent px-3 py-2 text-base font-medium text-muted-foreground transition-all hover:border-border hover:bg-muted hover:text-foreground dark:text-foreground/78 dark:hover:border-white/10 dark:hover:bg-white/8 dark:hover:text-foreground/92"
                 >
                   {link.label}
                 </a>
@@ -99,7 +99,7 @@ export function Header() {
                 <a
                   key={link.label}
                   href={link.href}
-                  className="rounded-md border border-transparent px-3 py-2 text-sm font-medium text-muted-foreground transition-all hover:border-border hover:bg-muted hover:text-foreground dark:text-foreground/78 dark:hover:border-white/10 dark:hover:bg-white/8 dark:hover:text-foreground/92"
+                  className="rounded-md border border-transparent px-3 py-2 text-base font-medium text-muted-foreground transition-all hover:border-border hover:bg-muted hover:text-foreground dark:text-foreground/78 dark:hover:border-white/10 dark:hover:bg-white/8 dark:hover:text-foreground/92"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {link.label}
