@@ -120,7 +120,7 @@ exports[`CTASection > matches the snapshot 1`] = `
             class="flex flex-col items-start gap-3 sm:flex-row sm:items-center"
           >
             <button
-              class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-md transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive cursor-pointer bg-primary text-primary-foreground shadow-sm hover:bg-primary hover:shadow-[0_10px_24px_rgba(15,23,42,0.16)] active:shadow-sm h-10 rounded-md has-[>svg]:px-4 group px-8 font-medium"
+              class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-base transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive cursor-pointer bg-primary text-primary-foreground shadow-sm hover:bg-primary hover:shadow-[0_10px_24px_rgba(15,23,42,0.16)] active:shadow-sm h-10 rounded-md has-[>svg]:px-4 group px-8 font-medium"
               data-slot="button"
               type="submit"
             >
