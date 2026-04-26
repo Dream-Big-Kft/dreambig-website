@@ -61,7 +61,7 @@ export function ProcessSection() {
                   <h3 className="mb-4 text-xl font-semibold text-foreground">
                     {step.title}
                   </h3>
-                  <p className="text-md text-muted-foreground">
+                  <p className="text-base text-muted-foreground">
                     {step.description}
                   </p>
 
