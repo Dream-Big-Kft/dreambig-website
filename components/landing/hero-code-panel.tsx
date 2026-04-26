@@ -94,7 +94,7 @@ export function HeroCodePanel() {
             <p className="font-medium text-foreground text-sm lg:text-base">
               99.9% Uptime
             </p>
-            <p className="text-muted-foreground text-sm text-sm lg:text-base">
+            <p className="text-muted-foreground text-sm lg:text-base">
               Production Systems
             </p>
           </div>

@@ -29,7 +29,7 @@ export function TechStackSection() {
               className="card-hover-modern-light flex flex-col items-center justify-center rounded-xl border border-border bg-card p-6 hover:border-primary/20"
             >
               <span className="text-2xl mb-2 font-mono">{tech.icon}</span>
-              <span className="text-sm font-medium text-foreground">
+              <span className="text-base font-medium text-foreground">
                 {tech.name}
               </span>
             </div>

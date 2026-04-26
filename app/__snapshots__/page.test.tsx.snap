@@ -487,7 +487,7 @@ exports[`Home page > matches the snapshot 1`] = `
                       99.9% Uptime
                     </p>
                     <p
-                      class="text-muted-foreground text-sm text-sm lg:text-base"
+                      class="text-muted-foreground text-sm lg:text-base"
                     >
                       Production Systems
                     </p>
@@ -1131,7 +1131,7 @@ exports[`Home page > matches the snapshot 1`] = `
                   ⚛️
                 </span>
                 <span
-                  class="text-sm font-medium text-foreground"
+                  class="text-base font-medium text-foreground"
                 >
                   React
                 </span>
@@ -1145,7 +1145,7 @@ exports[`Home page > matches the snapshot 1`] = `
                   ▲
                 </span>
                 <span
-                  class="text-sm font-medium text-foreground"
+                  class="text-base font-medium text-foreground"
                 >
                   Next.js
                 </span>
@@ -1159,7 +1159,7 @@ exports[`Home page > matches the snapshot 1`] = `
                   TS
                 </span>
                 <span
-                  class="text-sm font-medium text-foreground"
+                  class="text-base font-medium text-foreground"
                 >
                   TypeScript
                 </span>
@@ -1173,7 +1173,7 @@ exports[`Home page > matches the snapshot 1`] = `
                   🟢
                 </span>
                 <span
-                  class="text-sm font-medium text-foreground"
+                  class="text-base font-medium text-foreground"
                 >
                   Node.js
                 </span>
@@ -1187,7 +1187,7 @@ exports[`Home page > matches the snapshot 1`] = `
                   ☁️
                 </span>
                 <span
-                  class="text-sm font-medium text-foreground"
+                  class="text-base font-medium text-foreground"
                 >
                   AWS
                 </span>
@@ -1201,7 +1201,7 @@ exports[`Home page > matches the snapshot 1`] = `
                   🐳
                 </span>
                 <span
-                  class="text-sm font-medium text-foreground"
+                  class="text-base font-medium text-foreground"
                 >
                   Docker
                 </span>
@@ -1215,7 +1215,7 @@ exports[`Home page > matches the snapshot 1`] = `
                   ◈
                 </span>
                 <span
-                  class="text-sm font-medium text-foreground"
+                  class="text-base font-medium text-foreground"
                 >
                   GraphQL
                 </span>
@@ -1229,7 +1229,7 @@ exports[`Home page > matches the snapshot 1`] = `
                   🐘
                 </span>
                 <span
-                  class="text-sm font-medium text-foreground"
+                  class="text-base font-medium text-foreground"
                 >
                   PostgreSQL
                 </span>
