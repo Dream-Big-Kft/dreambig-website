@@ -7,6 +7,15 @@ export const metadata: Metadata = {
   description:
     "We design and build scalable web applications, cloud systems, and APIs for startups and growing companies.",
   generator: "v0.app",
+  robots: {
+    index: false,
+    follow: false,
+    googleBot: {
+      index: false,
+      follow: false,
+      noimageindex: true,
+    },
+  },
   icons: {
     icon: {
       url: "icon.svg",

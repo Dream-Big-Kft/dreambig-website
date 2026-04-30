@@ -10,6 +10,15 @@ describe("layout metadata", () => {
     expect(metadata.description).toBe(
       "We design and build scalable web applications, cloud systems, and APIs for startups and growing companies.",
     );
+    expect(metadata.robots).toMatchObject({
+      index: false,
+      follow: false,
+      googleBot: {
+        index: false,
+        follow: false,
+        noimageindex: true,
+      },
+    });
     expect(metadata.icons).toMatchObject({
       icon: {
         url: "icon.svg",
