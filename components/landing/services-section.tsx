@@ -1,12 +1,10 @@
 import {
-    Cloud,
     Code2,
     Database,
     GraduationCap,
     Monitor,
     Server,
-    Settings,
-    Smartphone,
+    Smartphone
 } from "lucide-react";
 
 const services = [
