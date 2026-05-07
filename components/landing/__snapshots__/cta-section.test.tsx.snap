@@ -14,43 +14,142 @@ exports[`CTASection > matches the snapshot 1`] = `
         <h2
           class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground text-balance"
         >
-          Need a Software Partner?
+          Let's Build Something Exceptional Together
         </h2>
         <p
           class="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground"
         >
-          Whether you are building a new product or scaling an existing platform, we help teams design and deliver reliable software.
+          Whether you're launching a new React application, scaling your development team, or optimizing an existing codebase, we're ready to help. Tell us about your goals, and we'll map out a clear, actionable strategy for your project.
         </p>
-        <div
-          class="mt-12"
+        <form
+          action="https://formspree.io/f/test"
+          class="mx-auto mt-12 grid max-w-2xl gap-6 rounded-lg border border-border bg-card p-6 text-left shadow-sm dark:border-white/10 dark:bg-card/70 sm:p-8"
+          method="POST"
         >
-          <button
-            class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-md transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive cursor-pointer bg-primary text-primary-foreground shadow-sm hover:bg-primary hover:shadow-[0_10px_24px_rgba(15,23,42,0.16)] active:shadow-sm h-10 rounded-md has-[>svg]:px-4 px-8 font-medium group"
-            data-slot="button"
+          <input
+            name="_subject"
+            type="hidden"
+            value="New DreamBig website inquiry"
+          />
+          <input
+            aria-hidden="true"
+            autocomplete="off"
+            class="hidden"
+            name="_gotcha"
+            tabindex="-1"
+            type="text"
+          />
+          <div
+            class="grid gap-6 sm:grid-cols-2"
           >
-            Start a Project
-            <svg
-              aria-hidden="true"
-              class="lucide lucide-arrow-right ml-2 w-4 h-4 transition-transform group-hover:translate-x-1"
-              fill="none"
-              height="24"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
+            <div>
+              <label
+                class="text-sm font-medium text-foreground"
+                for="contact-name"
+              >
+                Name
+              </label>
+              <input
+                autocomplete="name"
+                class="mt-2 w-full rounded-md border border-border bg-background px-4 py-3 text-base text-foreground shadow-sm transition-colors placeholder:text-muted-foreground/75 focus:border-ring focus:outline-none focus:ring-2 focus:ring-ring/25 dark:bg-card/80"
+                id="contact-name"
+                name="name"
+                placeholder="Your name"
+                required=""
+                type="text"
+              />
+            </div>
+            <div>
+              <label
+                class="text-sm font-medium text-foreground"
+                for="contact-email"
+              >
+                Email
+              </label>
+              <input
+                autocomplete="email"
+                class="mt-2 w-full rounded-md border border-border bg-background px-4 py-3 text-base text-foreground shadow-sm transition-colors placeholder:text-muted-foreground/75 focus:border-ring focus:outline-none focus:ring-2 focus:ring-ring/25 dark:bg-card/80"
+                id="contact-email"
+                name="email"
+                placeholder="you@example.com"
+                required=""
+                type="email"
+              />
+            </div>
+          </div>
+          <div>
+            <label
+              class="text-sm font-medium text-foreground"
+              for="contact-phone"
             >
-              <path
-                d="M5 12h14"
-              />
-              <path
-                d="m12 5 7 7-7 7"
-              />
-            </svg>
-          </button>
-        </div>
+              Phone number 
+              <span
+                class="text-muted-foreground"
+              >
+                (optional)
+              </span>
+            </label>
+            <input
+              autocomplete="tel"
+              class="mt-2 w-full rounded-md border border-border bg-background px-4 py-3 text-base text-foreground shadow-sm transition-colors placeholder:text-muted-foreground/75 focus:border-ring focus:outline-none focus:ring-2 focus:ring-ring/25 dark:bg-card/80"
+              id="contact-phone"
+              name="phone"
+              placeholder="+36 30 123 4567"
+              type="tel"
+            />
+          </div>
+          <div>
+            <label
+              class="text-sm font-medium text-foreground"
+              for="contact-message"
+            >
+              Message
+            </label>
+            <textarea
+              class="mt-2 w-full rounded-md border border-border bg-background px-4 py-3 text-base text-foreground shadow-sm transition-colors placeholder:text-muted-foreground/75 focus:border-ring focus:outline-none focus:ring-2 focus:ring-ring/25 dark:bg-card/80 resize-y"
+              id="contact-message"
+              name="message"
+              placeholder="What are you building, improving, or trying to solve?"
+              required=""
+              rows="6"
+            />
+          </div>
+          <div
+            class="flex justify-start"
+          >
+            <button
+              class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-md transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive cursor-pointer bg-primary text-primary-foreground shadow-sm hover:bg-primary hover:shadow-[0_10px_24px_rgba(15,23,42,0.16)] active:shadow-sm h-10 rounded-md has-[>svg]:px-4 group px-8 font-medium"
+              data-slot="button"
+              type="submit"
+            >
+              Send Message
+              <svg
+                aria-hidden="true"
+                class="lucide lucide-send ml-2 h-4 w-4 transition-transform group-hover:translate-x-1"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"
+                />
+                <path
+                  d="m21.854 2.147-10.94 10.939"
+                />
+              </svg>
+            </button>
+          </div>
+          <div
+            aria-live="polite"
+            class="min-h-6"
+          />
+        </form>
       </div>
     </div>
   </section>

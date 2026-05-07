@@ -46,8 +46,8 @@ export function Hero() {
 
             {/* CTAs */}
             <div className="mt-12 flex justify-end lg:justify-start flex-wrap gap-4">
-              <Button size="lg" className="px-8 font-medium">
-                Book a Consultation
+              <Button asChild size="lg" className="px-8 font-medium">
+                <a href="#contact">Start a Project</a>
               </Button>
             </div>
           </div>

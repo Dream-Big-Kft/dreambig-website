@@ -17,7 +17,10 @@ describe("Hero", () => {
     expect(screen.getByText("Senior engineers embedded in your team")).toBeInTheDocument();
     expect(screen.getByText("Modern web & cloud architecture")).toBeInTheDocument();
     expect(screen.getByText("Fast delivery without technical debt")).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "Book a Consultation" })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Start a Project" })).toHaveAttribute(
+      "href",
+      "#contact",
+    );
     expect(screen.getByText("99.9% Uptime")).toBeInTheDocument();
   });
 

@@ -1,29 +1,29 @@
 import {
-    Code2,
-    Database,
-    GraduationCap,
-    Monitor,
-    Server,
-    Smartphone
+    CodeXml,
+    FileSearch,
+    MonitorSmartphone,
+    Route,
+    Smartphone,
+    UsersRound
 } from "lucide-react";
 
 const services = [
     {
-        icon: Code2,
+        icon: CodeXml,
         color: "bg-sky-500/10 text-sky-600 dark:text-sky-400 border-sky-500/20",
         title: "Custom Web Development",
         description:
             "Build scalable, high-performing web applications tailored to your business goals. Powered by React, we deliver secure, modern, and highly interactive web solutions—from complex enterprise platforms to dynamic web portals.",
     },
     {
-        icon: Monitor,
+        icon: Smartphone,
         color: "bg-pink-500/10 text-pink-600 dark:text-pink-400 border-pink-500/20",
         title: "Mobile Development",
         description:
             "Create engaging, feature-rich mobile experiences for iOS and Android. Leveraging React Native, we design and build intuitive applications that deliver top-tier performance and keep your users connected on the go.",
     },
     {
-        icon: Database,
+        icon: MonitorSmartphone,
         color:
             "bg-violet-500/10 text-violet-600 dark:text-violet-400 border-violet-500/20",
         title: "Hybrid & Cross-Platform",
@@ -31,7 +31,7 @@ const services = [
             "Get the best of both worlds with seamless applications that span web and mobile. By utilizing the React ecosystem across all devices, we build versatile, code-sharing solutions that maximize your reach while streamlining development timelines.",
     },
     {
-        icon: GraduationCap,
+        icon: Route,
         color:
             "bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20",
         title: "Technology Consulting",
@@ -39,7 +39,7 @@ const services = [
             "Navigate complex technical decisions with confidence. We provide expert guidance on architecture design, tech stack selection, and digital strategy to ensure your project's success.",
     },
     {
-        icon: Smartphone,
+        icon: UsersRound,
         color:
             "bg-purple-500/10 text-purple-600 dark:text-purple-400 border-purple-500/20",
         title: "Team Augmentation",
@@ -47,7 +47,7 @@ const services = [
             "Accelerate your roadmap by integrating our experts into your existing team. Whether you need specialized skills or extra hands for a critical project, we seamlessly plug in to help you deliver.",
     },
     {
-        icon: Server,
+        icon: FileSearch,
         color: "bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20",
         title: "Code Audits & Optimization",
         description:
