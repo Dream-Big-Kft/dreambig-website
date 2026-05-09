@@ -14,16 +14,18 @@ exports[`CTASection > matches the snapshot 1`] = `
         <h2
           class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground text-balance"
         >
-          Let's Build Something Exceptional Together
+          Get in touch
         </h2>
         <p
           class="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground"
         >
-          Whether you're launching a new React application, scaling your development team, or optimizing an existing codebase, we're ready to help. Tell us about your goals, and we'll map out a clear, actionable strategy for your project.
+          Every great product begins with a simple discussion.
+          <br />
+          Tell us a bit about the vision you're looking to bring to life, and we'll help you figure out the best technical path to get there.
         </p>
         <form
           action="https://formspree.io/f/test"
-          class="mx-auto mt-12 grid max-w-2xl gap-6 rounded-lg border border-border bg-card p-6 text-left shadow-sm dark:border-white/10 dark:bg-card/70 sm:p-8"
+          class="mx-auto mt-12 grid max-w-2xl gap-6 rounded-lg  text-left"
           method="POST"
         >
           <input
@@ -51,7 +53,7 @@ exports[`CTASection > matches the snapshot 1`] = `
               </label>
               <input
                 autocomplete="name"
-                class="mt-2 w-full rounded-md border border-border bg-background px-4 py-3 text-base text-foreground shadow-sm transition-colors placeholder:text-muted-foreground/75 focus:border-ring focus:outline-none focus:ring-2 focus:ring-ring/25 dark:bg-card/80"
+                class="mt-2 w-full rounded-md border border-border bg-background px-4 py-3 text-base text-foreground shadow-sm transition-colors placeholder:text-muted-foreground/75 focus:border-ring focus:outline-none focus:ring-2 focus:ring-ring/25 dark:bg-card"
                 id="contact-name"
                 name="name"
                 placeholder="Your name"
@@ -68,7 +70,7 @@ exports[`CTASection > matches the snapshot 1`] = `
               </label>
               <input
                 autocomplete="email"
-                class="mt-2 w-full rounded-md border border-border bg-background px-4 py-3 text-base text-foreground shadow-sm transition-colors placeholder:text-muted-foreground/75 focus:border-ring focus:outline-none focus:ring-2 focus:ring-ring/25 dark:bg-card/80"
+                class="mt-2 w-full rounded-md border border-border bg-background px-4 py-3 text-base text-foreground shadow-sm transition-colors placeholder:text-muted-foreground/75 focus:border-ring focus:outline-none focus:ring-2 focus:ring-ring/25 dark:bg-card"
                 id="contact-email"
                 name="email"
                 placeholder="you@example.com"
@@ -91,7 +93,7 @@ exports[`CTASection > matches the snapshot 1`] = `
             </label>
             <input
               autocomplete="tel"
-              class="mt-2 w-full rounded-md border border-border bg-background px-4 py-3 text-base text-foreground shadow-sm transition-colors placeholder:text-muted-foreground/75 focus:border-ring focus:outline-none focus:ring-2 focus:ring-ring/25 dark:bg-card/80"
+              class="mt-2 w-full rounded-md border border-border bg-background px-4 py-3 text-base text-foreground shadow-sm transition-colors placeholder:text-muted-foreground/75 focus:border-ring focus:outline-none focus:ring-2 focus:ring-ring/25 dark:bg-card"
               id="contact-phone"
               name="phone"
               placeholder="+36 30 123 4567"
@@ -106,7 +108,7 @@ exports[`CTASection > matches the snapshot 1`] = `
               Message
             </label>
             <textarea
-              class="mt-2 w-full rounded-md border border-border bg-background px-4 py-3 text-base text-foreground shadow-sm transition-colors placeholder:text-muted-foreground/75 focus:border-ring focus:outline-none focus:ring-2 focus:ring-ring/25 dark:bg-card/80 min-h-36 resize-y"
+              class="mt-2 w-full rounded-md border border-border bg-background px-4 py-3 text-base text-foreground shadow-sm transition-colors placeholder:text-muted-foreground/75 focus:border-ring focus:outline-none focus:ring-2 focus:ring-ring/25 dark:bg-card min-h-36 resize-y"
               id="contact-message"
               name="message"
               placeholder="What are you building, improving, or trying to solve?"
