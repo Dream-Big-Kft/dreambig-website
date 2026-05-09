@@ -18,13 +18,13 @@ describe("CTASection", () => {
 
     expect(
       screen.getByRole("heading", {
-        name: "Let's Build Something Exceptional Together",
+        name: "Get in touch",
       }),
     ).toBeInTheDocument();
 
     expect(
       screen.getByText(
-        /Whether you're launching a new React application/i,
+        /Every great product begins with a simple discussion/i,
       ),
     ).toBeInTheDocument();
 
