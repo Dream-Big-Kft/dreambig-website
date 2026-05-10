@@ -1,63 +1,37 @@
-import { icons as logos } from "@iconify-json/logos";
-import { icons as simpleIcons } from "@iconify-json/simple-icons";
+import { Icon } from "@iconify/react";
+import reactIcon from "@iconify-icons/logos/react";
+import nextIcon from "@iconify-icons/logos/nextjs-icon";
+import typescriptIcon from "@iconify-icons/logos/typescript-icon";
+import nodeIcon from "@iconify-icons/logos/nodejs-icon";
+import awsIcon from "@iconify-icons/logos/aws";
+import gcpIcon from "@iconify-icons/logos/google-cloud";
+import postgresqlIcon from "@iconify-icons/logos/postgresql";
+import dynamodbIcon from "@iconify-icons/logos/aws-dynamodb";
+import figmaIcon from "@iconify-icons/logos/figma";
+import openaiIcon from "@iconify-icons/logos/openai-icon";
+import {
+  SiClaude as ClaudeIcon,
+  SiClaudeHex as claudeColor,
+  SiTanstack as TanstackIcon,
+} from "@icons-pack/react-simple-icons";
 
-type IconCollection = "logos" | "simple";
+const iconClassName = "mb-3 h-8 w-8";
 
-type Technology = {
-  name: string;
-  icon: string;
-  collection?: IconCollection;
-};
-
-type BrandIconData = {
-  body: string;
-  width?: number;
-  height?: number;
-};
-
-const technologies: Technology[] = [
-  { name: "React", icon: "react" },
-  { name: "React Native", icon: "react" },
-  { name: "Next.js", icon: "nextjs-icon" },
-  { name: "TanStack", icon: "tanstack", collection: "simple" },
-  { name: "TypeScript", icon: "typescript-icon" },
-  { name: "Node.js", icon: "nodejs-icon" },
-  { name: "AWS", icon: "aws" },
-  { name: "GCP", icon: "google-cloud" },
-  { name: "PostgreSQL", icon: "postgresql" },
-  { name: "DynamoDB", icon: "aws-dynamodb" },
-  { name: "Figma", icon: "figma" },
-  { name: "Claude Code", icon: "claude-icon" },
-  { name: "ChatGPT", icon: "openai-icon" },
+const technologies = [
+  { name: "React", icon: <Icon aria-hidden className={iconClassName} icon={reactIcon} /> },
+  { name: "React Native", icon: <Icon aria-hidden className={iconClassName} icon={reactIcon} /> },
+  { name: "Next.js", icon: <Icon aria-hidden className={iconClassName} icon={nextIcon} /> },
+  { name: "TanStack", icon: <TanstackIcon aria-hidden className={iconClassName} title="" /> },
+  { name: "TypeScript", icon: <Icon aria-hidden className={iconClassName} icon={typescriptIcon} /> },
+  { name: "Node.js", icon: <Icon aria-hidden className={iconClassName} icon={nodeIcon} /> },
+  { name: "AWS", icon: <Icon aria-hidden className={iconClassName} icon={awsIcon} /> },
+  { name: "GCP", icon: <Icon aria-hidden className={iconClassName} icon={gcpIcon} /> },
+  { name: "PostgreSQL", icon: <Icon aria-hidden className={iconClassName} icon={postgresqlIcon} /> },
+  { name: "DynamoDB", icon: <Icon aria-hidden className={iconClassName} icon={dynamodbIcon} /> },
+  { name: "Figma", icon: <Icon aria-hidden className={iconClassName} icon={figmaIcon} /> },
+  { name: "Claude Code", icon: <ClaudeIcon aria-hidden className={iconClassName} color={claudeColor} title="" /> },
+  { name: "ChatGPT", icon: <Icon aria-hidden className={iconClassName} icon={openaiIcon} /> },
 ];
-
-const getIcon = ({ collection = "logos", icon }: Technology) => {
-  const iconSet = collection === "simple" ? simpleIcons : logos;
-  const iconData = iconSet.icons[icon];
-
-  if (!iconData) {
-    throw new Error(`Missing technology icon: ${icon}`);
-  }
-
-  return {
-    ...iconData,
-    width: iconData.width ?? iconSet.width,
-    height: iconData.height ?? iconSet.height,
-  } as BrandIconData;
-};
-
-const BrandIcon = ({ technology }: { technology: Technology }) => {
-  const icon = getIcon(technology);
-
-  return (
-    <svg
-      aria-hidden="true"
-      className="mb-3 h-8 w-8"
-      viewBox={`0 0 ${icon.width ?? 24} ${icon.height ?? 24}`}
-      dangerouslySetInnerHTML={{ __html: icon.body }}
-    />
-  );
-};
 
 export function TechStackSection() {
   return (
@@ -75,14 +49,14 @@ export function TechStackSection() {
         </div>
 
         <div className="mx-auto grid max-w-5xl grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-7">
-          {technologies.map((tech) => (
+          {technologies.map((technology) => (
             <div
-              key={tech.name}
+              key={technology.name}
               className="card-hover-modern-light flex min-h-32 flex-col items-center justify-center rounded-xl border border-border bg-card p-5 text-center hover:border-primary/20"
             >
-              <BrandIcon technology={tech} />
+              {technology.icon}
               <span className="text-sm font-medium text-foreground">
-                {tech.name}
+                {technology.name}
               </span>
             </div>
           ))}
