@@ -71,14 +71,16 @@ export function ServicesSection() {
                             key={service.title}
                             className="relative isolate rounded-2xl border border-border bg-card p-8"
                         >
-                            <div
-                                className={`mb-8 inline-flex h-12 w-12 items-center justify-center rounded-lg border ${service.color}`}
-                            >
-                                <service.icon className="h-6 w-6" />
+                            <div className="mb-6 flex items-center gap-4">
+                                <div
+                                    className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border ${service.color}`}
+                                >
+                                    <service.icon className="h-6 w-6" />
+                                </div>
+                                <h3 className="text-2xl font-semibold tracking-tight text-foreground">
+                                    {service.title}
+                                </h3>
                             </div>
-                            <h3 className="mb-5 text-2xl font-semibold tracking-tight text-foreground">
-                                {service.title}
-                            </h3>
                             <p className="text-lg leading-relaxed text-muted-foreground">
                                 {service.description}
                             </p>
