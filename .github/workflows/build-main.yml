@@ -70,6 +70,10 @@ jobs:
           NEXT_PUBLIC_FORMSPREE_ENDPOINT: https://formspree.io/f/mvzlabpp
         run: pnpm build
 
+      # Run the test suite after the production build; any failing test stops deployment.
+      - name: Run tests
+        run: pnpm test
+
       # Prepare the runner for a GitHub Pages deployment.
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
