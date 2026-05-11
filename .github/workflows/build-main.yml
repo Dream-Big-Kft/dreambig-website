@@ -63,12 +63,11 @@ jobs:
           name: dependency-audit-summary
           path: audit-summary.txt
 
-      # Build the Next.js app and pass the final site path prefix used on GitHub Pages.
+      # Build the Next.js app for the custom domain root.
       - name: Run production build
         env:
           NODE_ENV: production
           NEXT_PUBLIC_FORMSPREE_ENDPOINT: https://formspree.io/f/mvzlabpp
-          SITE_BASE_PATH: /${{ github.event.repository.name }}
         run: pnpm build
 
       # Prepare the runner for a GitHub Pages deployment.

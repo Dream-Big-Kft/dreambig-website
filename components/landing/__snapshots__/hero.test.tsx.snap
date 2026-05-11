@@ -27,12 +27,12 @@ exports[`Hero > matches the snapshot 1`] = `
           <h1
             class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground text-balance leading-[1.1]"
           >
-            Custom Software That Moves Your Business Forward
+            Big Dreams Require Exceptional Engineering.
           </h1>
           <p
             class="mt-8 max-w-xl text-lg leading-relaxed text-muted-foreground lg:mx-0"
           >
-            We design and build scalable web applications, cloud systems, and APIs for startups and growing companies.
+            Focus on your core business while we handle the technology. We design, build, and manage custom web and mobile solutions that solve complex business challenges and drive long-term growth.
           </p>
           <ul
             class="mt-8 space-y-4 flex flex-col items-start"
@@ -61,7 +61,7 @@ exports[`Hero > matches the snapshot 1`] = `
                   />
                 </svg>
               </span>
-              Senior engineers embedded in your team
+              End-to-end custom software delivery
             </li>
             <li
               class="flex items-start gap-3 text-lg text-foreground"
@@ -87,7 +87,7 @@ exports[`Hero > matches the snapshot 1`] = `
                   />
                 </svg>
               </span>
-              Modern web & cloud architecture
+              Robust architecture designed for scale
             </li>
             <li
               class="flex items-start gap-3 text-lg text-foreground"
@@ -113,7 +113,7 @@ exports[`Hero > matches the snapshot 1`] = `
                   />
                 </svg>
               </span>
-              Fast delivery without technical debt
+              Long-term technical partnership and support
             </li>
           </ul>
           <div
