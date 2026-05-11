@@ -2,7 +2,7 @@
   "name": "dreambig-website",
   "version": "0.1.0",
   "private": true,
-  "packageManager": "pnpm@10",
+  "packageManager": "pnpm@10.15.0",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -11,7 +11,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
-    "analyze": "ANALYZE=true next build --webpack"
+    "analyze": "ANALYZE=true next build --webpack",
+    "prepare": "husky"
   },
   "dependencies": {
     "@iconify-icons/logos": "^1.2.36",
@@ -30,6 +31,7 @@
     "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@next/bundle-analyzer": "^16.2.4",
     "@rolldown/binding-darwin-arm64": "1.0.0-rc.15",
     "@tailwindcss/postcss": "^4.2.0",
@@ -41,12 +43,16 @@
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
     "@vitest/coverage-v8": "^4.1.4",
+    "eslint": "^10.3.0",
+    "globals": "^17.6.0",
     "happy-dom": "^20.9.0",
+    "husky": "^9.1.7",
     "postcss": "^8.5",
     "serve": "^14.2.6",
     "tailwindcss": "^4.2.0",
     "tw-animate-css": "1.3.3",
     "typescript": "5.7.3",
+    "typescript-eslint": "^8.59.2",
     "vitest": "^4.1.4"
   }
 }
