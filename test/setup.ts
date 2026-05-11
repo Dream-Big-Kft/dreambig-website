@@ -26,6 +26,7 @@ export const mockNextThemesProvider = vi.fn(renderChildren);
 
 beforeEach(() => {
   vi.clearAllMocks();
+  process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT = "https://example.com/formspree";
   mockUseTheme.mockReturnValue(createMockThemeState());
   // Restore shared mocks in case a test overrides their behavior.
   mockNextThemesProvider.mockImplementation(renderChildren);
@@ -54,9 +55,13 @@ Object.defineProperty(window, "matchMedia", {
 vi.mock("next/image", () => ({
   default: ({
     alt,
+    priority: _priority,
     src,
     ...props
-  }: React.ImgHTMLAttributes<HTMLImageElement> & { src: string }) =>
+  }: React.ImgHTMLAttributes<HTMLImageElement> & {
+    priority?: boolean;
+    src: string;
+  }) =>
     React.createElement("img", { alt, src, ...props }),
 }));
 

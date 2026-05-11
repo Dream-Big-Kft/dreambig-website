@@ -6,11 +6,15 @@ describe("Home page", () => {
   it("renders the main landing sections", () => {
     render(<Home />);
 
-    expect(screen.getByRole("heading", { name: "Custom Software That Moves Your Business Forward" })).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", {
+        name: "Big Dreams Require Exceptional Engineering.",
+      }),
+    ).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "How We Help Teams Ship Faster" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "Our Development Approach" })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: "Technology Stack" })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: "Need a Software Partner?" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Tools We Trust" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Get in touch" })).toBeInTheDocument();
   });
 
   it("matches the snapshot", () => {

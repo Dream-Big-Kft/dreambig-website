@@ -6,17 +6,21 @@ describe("Hero", () => {
   it("renders the headline, supporting copy, value props, and primary CTA", () => {
     render(<Hero />);
 
-    expect(screen.getByRole("heading", { name: "Custom Software That Moves Your Business Forward" })).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", {
+        name: "Big Dreams Require Exceptional Engineering.",
+      }),
+    ).toBeInTheDocument();
 
     expect(
       screen.getByText(
-        /We design and build scalable web applications, cloud systems, and APIs/i,
+        /Focus on your core business while we handle the technology/i,
       ),
     ).toBeInTheDocument();
 
-    expect(screen.getByText("Senior engineers embedded in your team")).toBeInTheDocument();
-    expect(screen.getByText("Modern web & cloud architecture")).toBeInTheDocument();
-    expect(screen.getByText("Fast delivery without technical debt")).toBeInTheDocument();
+    expect(screen.getByText("End-to-end custom software delivery")).toBeInTheDocument();
+    expect(screen.getByText("Robust architecture designed for scale")).toBeInTheDocument();
+    expect(screen.getByText("Long-term technical partnership and support")).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Start a Project" })).toHaveAttribute(
       "href",
       "#contact",
