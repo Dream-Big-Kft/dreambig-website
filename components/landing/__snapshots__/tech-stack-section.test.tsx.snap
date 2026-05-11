@@ -240,7 +240,7 @@ exports[`TechStackSection > matches the snapshot 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="mb-3 h-8 w-8"
+            class="mb-3 h-8 w-8 dark:invert dark:hue-rotate-180 dark:saturate-150 dark:brightness-125"
             height="1em"
             role="img"
             viewBox="0 0 256 153"
@@ -440,7 +440,7 @@ exports[`TechStackSection > matches the snapshot 1`] = `
           <span
             class="text-sm font-medium text-foreground"
           >
-            Claude Code
+            Claude
           </span>
         </div>
         <div
@@ -448,7 +448,7 @@ exports[`TechStackSection > matches the snapshot 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="mb-3 h-8 w-8"
+            class="mb-3 h-8 w-8 dark:invert"
             height="1em"
             role="img"
             viewBox="0 0 256 260"
@@ -471,12 +471,12 @@ exports[`TechStackSection > matches the snapshot 1`] = `
         >
           <span
             aria-hidden="true"
-            class="mb-3 text-3xl font-semibold leading-none text-muted-foreground"
+            class="mb-3 flex h-8 w-8 items-center justify-center text-3xl font-semibold leading-none text-foreground/70 dark:text-foreground/75"
           >
             ...
           </span>
           <span
-            class="text-sm font-medium text-muted-foreground"
+            class="text-sm font-medium text-foreground"
           >
             and more
           </span>

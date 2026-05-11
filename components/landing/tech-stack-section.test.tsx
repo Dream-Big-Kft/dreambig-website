@@ -19,7 +19,7 @@ describe("TechStackSection", () => {
     expect(screen.getByText("PostgreSQL")).toBeInTheDocument();
     expect(screen.getByText("DynamoDB")).toBeInTheDocument();
     expect(screen.getByText("Figma")).toBeInTheDocument();
-    expect(screen.getByText("Claude Code")).toBeInTheDocument();
+    expect(screen.getByText("Claude")).toBeInTheDocument();
     expect(screen.getByText("ChatGPT")).toBeInTheDocument();
     expect(screen.getByText("and more")).toBeInTheDocument();
   });
