@@ -60,7 +60,7 @@ export function Header() {
                 <a
                   key={link.label}
                   href={link.href}
-                  className="rounded-md border border-transparent px-3 py-2 text-base font-medium text-muted-foreground transition-all hover:border-border hover:bg-muted hover:text-foreground dark:text-foreground/78 dark:hover:border-white/10 dark:hover:bg-white/8 dark:hover:text-foreground/92"
+                  className="rounded-md border-none background-none px-3 py-2 text-base font-medium text-muted-foreground transition-all hover:text-shadow-[0_0_5px_rgba(0,0,0,0.2)] hover:text-foreground dark:text-foreground/78 dark:hover:text-shadow-[0_0_5px_rgba(255,255,255,0.8)] dark:hover:text-foreground/92"
                 >
                   {link.label}
                 </a>
@@ -71,7 +71,7 @@ export function Header() {
               onClick={() =>
                 setTheme(activeTheme === "dark" ? "light" : "dark")
               }
-              className="rounded-md p-2 text-foreground transition-colors hover:bg-muted dark:text-foreground/82 dark:hover:bg-white/6 dark:hover:text-foreground/92"
+              className="rounded-md cursor-pointer p-2 text-foreground transition-colors hover:text-shadow-[0_0_5px_rgba(0,0,0,0.2)] hover:text-foreground dark:text-foreground/78 dark:hover:text-shadow-[0_0_5px_rgba(255,255,255,0.8)] dark:hover:text-foreground/92"
               aria-label="Toggle theme"
             >
               {themeIcon}
@@ -99,7 +99,7 @@ export function Header() {
                 <a
                   key={link.label}
                   href={link.href}
-                  className="rounded-md border border-transparent px-3 py-2 text-base font-medium text-muted-foreground transition-all hover:border-border hover:bg-muted hover:text-foreground dark:text-foreground/78 dark:hover:border-white/10 dark:hover:bg-white/8 dark:hover:text-foreground/92"
+                  className="rounded-md border-none px-3 py-2 text-base font-medium text-muted-foreground transition-all hover:text-shadow-[0_0_5px_rgba(0,0,0,0.2)] hover:text-foreground dark:text-foreground/78 dark:hover:text-shadow-[0_0_5px_rgba(255,255,255,0.8)] dark:hover:text-foreground/92"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {link.label}
