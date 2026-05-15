@@ -6,22 +6,44 @@ describe("TechStackSection", () => {
   it("renders the technology stack heading and technologies", () => {
     render(<TechStackSection />);
 
-    expect(screen.getByRole("heading", { name: "Tools We Trust" })).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: "Tools We Trust" }),
+    ).toBeInTheDocument();
 
-    expect(screen.getByText("React")).toBeInTheDocument();
-    expect(screen.getByText("React Native")).toBeInTheDocument();
-    expect(screen.getByText("Next.js")).toBeInTheDocument();
-    expect(screen.getByText("TanStack")).toBeInTheDocument();
-    expect(screen.getByText("TypeScript")).toBeInTheDocument();
-    expect(screen.getByText("Node.js")).toBeInTheDocument();
-    expect(screen.getByText("AWS")).toBeInTheDocument();
-    expect(screen.getByText("GCP")).toBeInTheDocument();
-    expect(screen.getByText("PostgreSQL")).toBeInTheDocument();
-    expect(screen.getByText("DynamoDB")).toBeInTheDocument();
-    expect(screen.getByText("Figma")).toBeInTheDocument();
-    expect(screen.getByText("Claude")).toBeInTheDocument();
-    expect(screen.getByText("ChatGPT")).toBeInTheDocument();
-    expect(screen.getByText("and more")).toBeInTheDocument();
+    expect(screen.getByText("React", { selector: "span" })).toBeInTheDocument();
+    expect(
+      screen.getByText("React Native", { selector: "span" }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText("Next.js", { selector: "span" }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText("TanStack", { selector: "span" }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText("TypeScript", { selector: "span" }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText("Node.js", { selector: "span" }),
+    ).toBeInTheDocument();
+    expect(screen.getByText("AWS", { selector: "span" })).toBeInTheDocument();
+    expect(screen.getByText("GCP", { selector: "span" })).toBeInTheDocument();
+    expect(
+      screen.getByText("PostgreSQL", { selector: "span" }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText("DynamoDB", { selector: "span" }),
+    ).toBeInTheDocument();
+    expect(screen.getByText("Figma", { selector: "span" })).toBeInTheDocument();
+    expect(
+      screen.getByText("Claude", { selector: "span" }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText("ChatGPT", { selector: "span" }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText("and more", { selector: "span" }),
+    ).toBeInTheDocument();
   });
 
   it("matches the snapshot", () => {

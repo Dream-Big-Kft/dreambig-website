@@ -71,9 +71,9 @@ export function ServicesSection() {
               key={service.title}
               className="relative isolate rounded-2xl border border-border bg-card p-8"
             >
-              <div className="flex sm:flex-col gap-3 sm:gap-0 items-center sm:items-start">
+              <div className="mb-6 flex items-center gap-4">
                 <div
-                  className={`inline-flex sm:mb-8 h-12 w-12 items-center justify-center rounded-lg border flex-shrink-0 ${service.color}`}
+                  className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border ${service.color}`}
                 >
                   <service.icon className="h-6 w-6" />
                 </div>

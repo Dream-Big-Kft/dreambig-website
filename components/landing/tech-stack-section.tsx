@@ -71,12 +71,7 @@ const technologies = [
   {
     name: "Claude",
     icon: (
-      <ClaudeIcon
-        aria-hidden
-        className={iconClassName}
-        color={claudeColor}
-        title=""
-      />
+      <ClaudeIcon aria-hidden className={iconClassName} color={claudeColor} />
     ),
   },
   {

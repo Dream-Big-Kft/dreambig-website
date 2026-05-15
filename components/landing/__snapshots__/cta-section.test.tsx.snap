@@ -127,7 +127,7 @@ exports[`CTASection > matches the snapshot 1`] = `
               Send Message
               <svg
                 aria-hidden="true"
-                class="lucide lucide-send ml-2 h-4 w-4 transition-transform group-hover:translate-x-1"
+                class="lucide lucide-send h-4 w-4 transition-transform"
                 fill="none"
                 height="24"
                 stroke="currentColor"
