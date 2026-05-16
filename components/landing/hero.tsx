@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 import { HeroCodePanel } from "./hero-code-panel";
+import { trackCtaClick } from "@/lib/analytics";
 
 const valueProps = [
     "End-to-end custom software delivery",
@@ -50,7 +51,7 @@ export function Hero() {
                         {/* CTAs */}
                         <div className="mt-12 flex justify-end lg:justify-start flex-wrap gap-4">
                             <Button asChild size="lg" className="px-8 font-medium">
-                                <a href="#contact">Start a Project</a>
+                                <a href="#contact" onClick={() => trackCtaClick("Start a Project", "hero")}>Start a Project</a>
                             </Button>
                         </div>
                     </div>
