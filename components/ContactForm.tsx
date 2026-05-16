@@ -3,6 +3,11 @@
 import { useRef, useState, type ComponentProps } from "react";
 import { Button } from "@/components/ui/button";
 import { Send } from "lucide-react";
+import {
+  trackContactFormError,
+  trackContactFormStart,
+  trackContactFormSubmit,
+} from "@/lib/analytics";
 
 const getFormspreeEndpoint = () => {
   const endpoint = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT;
@@ -41,6 +46,7 @@ const ContactForm = () => {
   const formspreeEndpoint = getFormspreeEndpoint();
   const [status, setStatus] = useState<FormStatus>("idle");
   const isSubmittingRef = useRef(false);
+  const formStartTrackedRef = useRef(false);
 
   const handleSubmit: NonNullable<ComponentProps<"form">["onSubmit"]> = async (
     event,
@@ -68,20 +74,27 @@ const ContactForm = () => {
 
       if (!response.ok) {
         setStatus("error");
+        trackContactFormError("server_error");
         isSubmittingRef.current = false;
         return;
       }
 
       form.reset();
       setStatus("success");
+      trackContactFormSubmit();
     } catch {
       setStatus("error");
+      trackContactFormError("network_error");
     } finally {
       isSubmittingRef.current = false;
     }
   };
 
   const handleChange = () => {
+    if (!formStartTrackedRef.current) {
+      formStartTrackedRef.current = true;
+      trackContactFormStart();
+    }
     if (status === "success" || status === "error") {
       setStatus("idle");
     }
@@ -94,6 +107,7 @@ const ContactForm = () => {
       action={formspreeEndpoint}
       method="POST"
       className="mx-auto mt-12 grid max-w-2xl gap-6 rounded-lg  text-left"
+      data-hj-suppress
     >
       <input
         type="hidden"
@@ -123,6 +137,7 @@ const ContactForm = () => {
             required
             className={inputClassName}
             placeholder="Your name"
+            data-hj-suppress
           />
         </div>
 
@@ -138,6 +153,7 @@ const ContactForm = () => {
             required
             className={inputClassName}
             placeholder="you@example.com"
+            data-hj-suppress
           />
         </div>
       </div>
@@ -153,6 +169,7 @@ const ContactForm = () => {
           autoComplete="tel"
           className={inputClassName}
           placeholder="+36 30 123 4567"
+          data-hj-suppress
         />
       </div>
 
@@ -167,6 +184,7 @@ const ContactForm = () => {
           rows={4}
           className={`${inputClassName} min-h-36 resize-y`}
           placeholder="What are you building, improving, or trying to solve?"
+          data-hj-suppress
         />
       </div>
 
