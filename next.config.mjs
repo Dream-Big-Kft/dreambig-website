@@ -1,8 +1,20 @@
 import bundleAnalyzer from "@next/bundle-analyzer";
 
 const withBundleAnalyzer = bundleAnalyzer({
-  enabled: process.env.ANALYZE === "true",
+    enabled: process.env.ANALYZE === "true",
 });
+
+if (process.env.NODE_ENV === "production") {
+    const requiredEnv = [
+        "NEXT_PUBLIC_SEGMENT_WRITE_KEY",
+        "NEXT_PUBLIC_COOKIEBOT_ID",
+    ];
+    for (const key of requiredEnv) {
+        if (!process.env[key]) {
+            throw new Error(`${key} is required for production builds.`);
+        }
+    }
+}
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
