@@ -1,4 +1,8 @@
+import { Icon } from "@iconify/react";
+import linkedinIcon from "@iconify-icons/simple-icons/linkedin";
 import Image from "next/image";
+import Link from "next/link";
+import { CookieSettingsButton } from "@/components/CookieSettingsButton";
 
 export function Footer() {
     return (
@@ -20,28 +24,32 @@ export function Footer() {
                     </a>
 
                     {/* Contact and Social */}
-                    {/* <div className="flex items-center gap-5 text-sm text-muted-foreground dark:text-foreground/78">
-            <a
-              href="mailto:info@dreambig.hu"
-              className="transition-colors hover:text-foreground dark:hover:text-foreground/92"
-            >
-              info@dreambig.hu
-            </a>
-            <a
-              href="https://linkedin.com/company/dreambig"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-colors hover:text-foreground dark:hover:text-foreground/92"
-              aria-label="LinkedIn"
-            >
-              <Linkedin className="w-5 h-5" />
-            </a>
-          </div> */}
+                    <div className="flex items-center gap-5 text-sm text-muted-foreground dark:text-foreground/78">
+                        <a
+                            href="https://linkedin.com/company/dreambig"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="transition-colors hover:text-foreground dark:hover:text-foreground/92"
+                            aria-label="LinkedIn"
+                        >
+                            <Icon aria-hidden className="h-5 w-5" icon={linkedinIcon} />
+                        </a>
+                    </div>
 
-                    {/* Copyright */}
-                    <p className="text-sm text-muted-foreground dark:text-foreground/72">
-                        © {new Date().getFullYear()} Dream Big Kft. All rights reserved.
-                    </p>
+                    {/* Copyright + Cookie settings + Privacy */}
+                    <div className="flex items-center gap-4 text-sm text-muted-foreground dark:text-foreground/72">
+                        <p>© {new Date().getFullYear()} Dream Big Kft. All rights reserved.</p>
+                        <Link
+                            href="/privacy"
+                            className="underline underline-offset-4 hover:text-foreground transition-colors dark:hover:text-foreground/92"
+                        >
+                            Privacy Policy
+                        </Link>
+                        <CookieSettingsButton
+                            variant="link"
+                            className="h-auto p-0 text-sm font-normal text-muted-foreground underline underline-offset-4 hover:text-foreground dark:text-foreground/72 dark:hover:text-foreground/92"
+                        />
+                    </div>
                 </div>
             </div>
         </footer>
