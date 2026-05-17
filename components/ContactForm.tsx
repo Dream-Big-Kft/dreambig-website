@@ -1,8 +1,9 @@
 "use client";
 
-import { useRef, useState, type ComponentProps } from "react";
 import { Button } from "@/components/ui/button";
 import { Send } from "lucide-react";
+import Link from "next/link";
+import { useRef, useState, type ComponentProps } from "react";
 import {
   trackContactFormError,
   trackContactFormStart,
@@ -201,6 +202,14 @@ const ContactForm = () => {
 
         <FormStatusMessage status={status} />
       </div>
+      <p className="text-xs leading-relaxed text-muted-foreground">
+        We use your details only to respond to your inquiry. The form is
+        processed by Formspree on our behalf. See our{" "}
+        <Link href="/privacy" className="underline underline-offset-4">
+          Privacy Policy
+        </Link>{" "}
+        for retention, recipients, and your GDPR rights.
+      </p>
     </form>
   );
 };
