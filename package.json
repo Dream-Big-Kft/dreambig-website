@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@iconify-icons/logos": "^1.2.36",
+    "@iconify-icons/simple-icons": "^1.2.74",
     "@iconify/react": "^6.0.2",
     "@icons-pack/react-simple-icons": "^13.13.0",
     "@radix-ui/react-slot": "1.2.4",
