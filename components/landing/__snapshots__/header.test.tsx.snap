@@ -9,11 +9,11 @@ exports[`Header > matches the snapshot 1`] = `
       class="container mx-auto px-4 sm:px-6 lg:px-8"
     >
       <div
-        class="flex items-center justify-between h-16"
+        class="flex h-16 items-center justify-between"
       >
         <a
           class="flex items-center gap-2"
-          href="#top"
+          href="/#top"
         >
           <img
             alt="DreamBig Software logo"
@@ -32,40 +32,40 @@ exports[`Header > matches the snapshot 1`] = `
           class="flex items-center gap-2 sm:gap-3"
         >
           <nav
-            class="hidden md:flex items-center gap-8 pr-2"
+            class="hidden items-center gap-8 pr-2 md:flex"
           >
             <a
               class="rounded-md border-none background-none px-3 py-2 text-base font-medium text-muted-foreground transition-all hover:text-shadow-[0_0_5px_rgba(0,0,0,0.2)] hover:text-foreground dark:text-foreground/78 dark:hover:text-shadow-[0_0_5px_rgba(255,255,255,0.8)] dark:hover:text-foreground/92"
-              href="#services"
+              href="/#services"
             >
               Services
             </a>
             <a
               class="rounded-md border-none background-none px-3 py-2 text-base font-medium text-muted-foreground transition-all hover:text-shadow-[0_0_5px_rgba(0,0,0,0.2)] hover:text-foreground dark:text-foreground/78 dark:hover:text-shadow-[0_0_5px_rgba(255,255,255,0.8)] dark:hover:text-foreground/92"
-              href="#process"
+              href="/#process"
             >
               Process
             </a>
             <a
               class="rounded-md border-none background-none px-3 py-2 text-base font-medium text-muted-foreground transition-all hover:text-shadow-[0_0_5px_rgba(0,0,0,0.2)] hover:text-foreground dark:text-foreground/78 dark:hover:text-shadow-[0_0_5px_rgba(255,255,255,0.8)] dark:hover:text-foreground/92"
-              href="#tech"
+              href="/#tech"
             >
               Technology
             </a>
             <a
               class="rounded-md border-none background-none px-3 py-2 text-base font-medium text-muted-foreground transition-all hover:text-shadow-[0_0_5px_rgba(0,0,0,0.2)] hover:text-foreground dark:text-foreground/78 dark:hover:text-shadow-[0_0_5px_rgba(255,255,255,0.8)] dark:hover:text-foreground/92"
-              href="#contact"
+              href="/#contact"
             >
               Contact
             </a>
           </nav>
           <button
             aria-label="Toggle theme"
-            class="rounded-md cursor-pointer p-2 text-foreground transition-colors hover:text-shadow-[0_0_5px_rgba(0,0,0,0.2)] hover:text-foreground dark:text-foreground/78 dark:hover:text-shadow-[0_0_5px_rgba(255,255,255,0.8)] dark:hover:text-foreground/92"
+            class="cursor-pointer rounded-md p-2 text-foreground transition-colors hover:text-shadow-[0_0_5px_rgba(0,0,0,0.2)] hover:text-foreground dark:text-foreground/78 dark:hover:text-shadow-[0_0_5px_rgba(255,255,255,0.8)] dark:hover:text-foreground/92"
           >
             <svg
               aria-hidden="true"
-              class="lucide lucide-moon w-5 h-5 text-foreground"
+              class="lucide lucide-moon h-5 w-5 text-foreground"
               fill="none"
               height="24"
               stroke="currentColor"

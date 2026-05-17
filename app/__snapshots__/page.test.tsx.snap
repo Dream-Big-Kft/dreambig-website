@@ -13,11 +13,11 @@ exports[`Home page > matches the snapshot 1`] = `
         class="container mx-auto px-4 sm:px-6 lg:px-8"
       >
         <div
-          class="flex items-center justify-between h-16"
+          class="flex h-16 items-center justify-between"
         >
           <a
             class="flex items-center gap-2"
-            href="#top"
+            href="/#top"
           >
             <img
               alt="DreamBig Software logo"
@@ -36,40 +36,40 @@ exports[`Home page > matches the snapshot 1`] = `
             class="flex items-center gap-2 sm:gap-3"
           >
             <nav
-              class="hidden md:flex items-center gap-8 pr-2"
+              class="hidden items-center gap-8 pr-2 md:flex"
             >
               <a
                 class="rounded-md border-none background-none px-3 py-2 text-base font-medium text-muted-foreground transition-all hover:text-shadow-[0_0_5px_rgba(0,0,0,0.2)] hover:text-foreground dark:text-foreground/78 dark:hover:text-shadow-[0_0_5px_rgba(255,255,255,0.8)] dark:hover:text-foreground/92"
-                href="#services"
+                href="/#services"
               >
                 Services
               </a>
               <a
                 class="rounded-md border-none background-none px-3 py-2 text-base font-medium text-muted-foreground transition-all hover:text-shadow-[0_0_5px_rgba(0,0,0,0.2)] hover:text-foreground dark:text-foreground/78 dark:hover:text-shadow-[0_0_5px_rgba(255,255,255,0.8)] dark:hover:text-foreground/92"
-                href="#process"
+                href="/#process"
               >
                 Process
               </a>
               <a
                 class="rounded-md border-none background-none px-3 py-2 text-base font-medium text-muted-foreground transition-all hover:text-shadow-[0_0_5px_rgba(0,0,0,0.2)] hover:text-foreground dark:text-foreground/78 dark:hover:text-shadow-[0_0_5px_rgba(255,255,255,0.8)] dark:hover:text-foreground/92"
-                href="#tech"
+                href="/#tech"
               >
                 Technology
               </a>
               <a
                 class="rounded-md border-none background-none px-3 py-2 text-base font-medium text-muted-foreground transition-all hover:text-shadow-[0_0_5px_rgba(0,0,0,0.2)] hover:text-foreground dark:text-foreground/78 dark:hover:text-shadow-[0_0_5px_rgba(255,255,255,0.8)] dark:hover:text-foreground/92"
-                href="#contact"
+                href="/#contact"
               >
                 Contact
               </a>
             </nav>
             <button
               aria-label="Toggle theme"
-              class="rounded-md cursor-pointer p-2 text-foreground transition-colors hover:text-shadow-[0_0_5px_rgba(0,0,0,0.2)] hover:text-foreground dark:text-foreground/78 dark:hover:text-shadow-[0_0_5px_rgba(255,255,255,0.8)] dark:hover:text-foreground/92"
+              class="cursor-pointer rounded-md p-2 text-foreground transition-colors hover:text-shadow-[0_0_5px_rgba(0,0,0,0.2)] hover:text-foreground dark:text-foreground/78 dark:hover:text-shadow-[0_0_5px_rgba(255,255,255,0.8)] dark:hover:text-foreground/92"
             >
               <svg
                 aria-hidden="true"
-                class="lucide lucide-moon w-5 h-5 text-foreground"
+                class="lucide lucide-moon h-5 w-5 text-foreground"
                 fill="none"
                 height="24"
                 stroke="currentColor"
@@ -1507,6 +1507,7 @@ exports[`Home page > matches the snapshot 1`] = `
               <form
                 action="https://example.com/formspree"
                 class="mx-auto mt-12 grid max-w-2xl gap-6 rounded-lg  text-left"
+                data-hj-suppress="true"
                 method="POST"
               >
                 <input
@@ -1535,6 +1536,7 @@ exports[`Home page > matches the snapshot 1`] = `
                     <input
                       autocomplete="name"
                       class="mt-2 w-full rounded-md border border-border bg-background px-4 py-3 text-base text-foreground shadow-sm transition-colors placeholder:text-muted-foreground/75 focus:border-ring focus:outline-none focus:ring-2 focus:ring-ring/25 dark:bg-card"
+                      data-hj-suppress="true"
                       id="contact-name"
                       name="name"
                       placeholder="Your name"
@@ -1552,6 +1554,7 @@ exports[`Home page > matches the snapshot 1`] = `
                     <input
                       autocomplete="email"
                       class="mt-2 w-full rounded-md border border-border bg-background px-4 py-3 text-base text-foreground shadow-sm transition-colors placeholder:text-muted-foreground/75 focus:border-ring focus:outline-none focus:ring-2 focus:ring-ring/25 dark:bg-card"
+                      data-hj-suppress="true"
                       id="contact-email"
                       name="email"
                       placeholder="you@example.com"
@@ -1575,6 +1578,7 @@ exports[`Home page > matches the snapshot 1`] = `
                   <input
                     autocomplete="tel"
                     class="mt-2 w-full rounded-md border border-border bg-background px-4 py-3 text-base text-foreground shadow-sm transition-colors placeholder:text-muted-foreground/75 focus:border-ring focus:outline-none focus:ring-2 focus:ring-ring/25 dark:bg-card"
+                    data-hj-suppress="true"
                     id="contact-phone"
                     name="phone"
                     placeholder="+36 30 123 4567"
@@ -1590,6 +1594,7 @@ exports[`Home page > matches the snapshot 1`] = `
                   </label>
                   <textarea
                     class="mt-2 w-full rounded-md border border-border bg-background px-4 py-3 text-base text-foreground shadow-sm transition-colors placeholder:text-muted-foreground/75 focus:border-ring focus:outline-none focus:ring-2 focus:ring-ring/25 dark:bg-card min-h-36 resize-y"
+                    data-hj-suppress="true"
                     id="contact-message"
                     name="message"
                     placeholder="What are you building, improving, or trying to solve?"
@@ -1631,6 +1636,18 @@ exports[`Home page > matches the snapshot 1`] = `
                     aria-live="polite"
                   />
                 </div>
+                <p
+                  class="text-xs leading-relaxed text-muted-foreground"
+                >
+                  We use your details only to respond to your inquiry. The form is processed by Formspree on our behalf. See our 
+                  <a
+                    class="underline underline-offset-4"
+                    href="/privacy"
+                  >
+                    Privacy Policy
+                  </a>
+                   for retention, recipients, and your GDPR rights.
+                </p>
               </form>
             </div>
           </div>
@@ -1663,11 +1680,53 @@ exports[`Home page > matches the snapshot 1`] = `
               Dream Big Software Solutions
             </span>
           </a>
-          <p
-            class="text-sm text-muted-foreground dark:text-foreground/72"
+          <div
+            class="flex items-center gap-5 text-sm text-muted-foreground dark:text-foreground/78"
           >
-            © 2026 Dream Big Kft. All rights reserved.
-          </p>
+            <a
+              aria-label="LinkedIn"
+              class="transition-colors hover:text-foreground dark:hover:text-foreground/92"
+              href="https://linkedin.com/company/dreambig"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <svg
+                aria-hidden="true"
+                class="h-5 w-5"
+                height="1em"
+                role="img"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+              >
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037c-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85c3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065a2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                  fill="currentColor"
+                />
+              </svg>
+            </a>
+          </div>
+          <div
+            class="flex items-center gap-4 text-sm text-muted-foreground dark:text-foreground/72"
+          >
+            <p>
+              © 2026 Dream Big Kft. All rights reserved.
+            </p>
+            <a
+              class="underline underline-offset-4 hover:text-foreground transition-colors dark:hover:text-foreground/92"
+              href="/privacy"
+            >
+              Privacy Policy
+            </a>
+            <button
+              class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive cursor-pointer hover:underline has-[>svg]:px-3 h-auto p-0 text-sm font-normal text-muted-foreground underline underline-offset-4 hover:text-foreground dark:text-foreground/72 dark:hover:text-foreground/92"
+              data-slot="button"
+              type="button"
+            >
+              Cookie settings
+            </button>
+          </div>
         </div>
       </div>
     </footer>
