@@ -1,0 +1,577 @@
+/*
+ * Cookiebot CMP theme overrides.
+ *
+ * These selectors target Cookiebot's injected "bottom-v2" dialog markup from
+ * consent.cookiebot.com/.../cc.js. Keep this file separate from globals.css so
+ * third-party CMP styling is easy to audit when Cookiebot updates its template.
+ */
+
+:root {
+  --cookiebot-surface: var(--card);
+  --cookiebot-surface-raised: var(--popover);
+  --cookiebot-text: var(--foreground);
+  --cookiebot-muted: var(--muted-foreground);
+  --cookiebot-border: var(--border);
+  --cookiebot-primary: var(--primary);
+  --cookiebot-primary-text: var(--primary-foreground);
+  --cookiebot-secondary: var(--secondary);
+  --cookiebot-secondary-text: var(--secondary-foreground);
+  --cookiebot-shadow: 0 22px 70px rgba(15, 23, 42, 0.18);
+  --cookiebot-focus: var(--focus-ring-color);
+}
+
+.dark {
+  --cookiebot-shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
+}
+
+/* Full-screen dimmer behind the preferences dialog. */
+#CybotCookiebotDialogBodyUnderlay {
+  background: color-mix(in oklch, var(--background) 72%, transparent) !important;
+  backdrop-filter: blur(6px);
+}
+
+/* Main Cookiebot dialog shell. */
+#CybotCookiebotDialog {
+  overflow: hidden !important;
+  border: 1px solid var(--cookiebot-border) !important;
+  border-radius: var(--radius-lg) !important;
+  background: var(--cookiebot-surface) !important;
+  box-shadow: var(--cookiebot-shadow) !important;
+  color: var(--cookiebot-text) !important;
+  font-family: var(--font-sans) !important;
+  outline: none !important;
+}
+
+/* Cookiebot focuses the modal shell on open; avoid showing our global blue
+   focus ring as a full-width line around the banner while keeping control
+   focus styles below for keyboard users. */
+#CybotCookiebotDialog:focus,
+#CybotCookiebotDialog:focus-visible {
+  outline: none !important;
+}
+
+/* Inner content wrapper used by Cookiebot's bottom-v2 template. */
+#CybotCookiebotDialog .CybotCookiebotDialogContentWrapper {
+  background: var(--cookiebot-surface) !important;
+  color: var(--cookiebot-text) !important;
+}
+
+/* Bottom banner layout containers. Cookiebot sets several inline dimensions on
+   open; these keep the collapsed banner visually part of the site surface. */
+#CybotCookiebotDialog.CybotEdge,
+#CybotCookiebotDialog[data-template="bottom"],
+#CybotCookiebotDialog .CybotCookiebotScrollContainer,
+#CybotCookiebotDialog .CybotCookiebotScrollArea,
+#CybotCookiebotDialog .CybotCookiebotDialogTabPanel {
+  background: var(--cookiebot-surface) !important;
+  color: var(--cookiebot-text) !important;
+}
+
+/* Cookiebot adds white fade gradients and a scrollbar container inside the
+   banner. The banner content fits our layout, so hide that chrome completely. */
+#CybotCookiebotDialog .CybotCookiebotFader,
+#CybotCookiebotDialog .CybotCookiebotFaderLeft,
+#CybotCookiebotDialog .CybotCookiebotFaderRight,
+#CybotCookiebotDialog .CybotCookiebotScrollbarContainer {
+  display: none !important;
+  background: transparent !important;
+  background-image: none !important;
+}
+
+#CybotCookiebotDialog .CybotCookiebotScrollArea {
+  scrollbar-width: none !important;
+}
+
+#CybotCookiebotDialog .CybotCookiebotScrollArea::-webkit-scrollbar {
+  display: none !important;
+}
+
+/* Header area containing Cookiebot branding and tab navigation. */
+#CybotCookiebotDialogHeader,
+#CybotCookiebotDialogHeaderLogosWrapper,
+#CybotCookiebotDialogPoweredbyLink {
+  background: var(--cookiebot-surface) !important;
+  border-color: var(--cookiebot-border) !important;
+  color: var(--cookiebot-muted) !important;
+}
+
+/* Cookiebot/Usercentrics branding block. */
+#CybotCookiebotDialogPoweredbyLink,
+#CybotCookiebotDialogPoweredbyCybot,
+#CybotCookiebotDialogPoweredByText {
+  color: var(--cookiebot-muted) !important;
+}
+
+#CybotCookiebotDialogPoweredbyImage {
+  max-width: 46px !important;
+  max-height: 34px !important;
+  opacity: 0.78 !important;
+}
+
+/* The powered-by wordmark is injected as a black SVG in the banner. Scope the
+   inversion to that exact SVG so other Cookiebot controls are not affected. */
+.dark #CybotCookiebotDialogPoweredbyCybot > svg {
+  filter: invert(1) grayscale(1) brightness(0.72) !important;
+  opacity: 0.7 !important;
+}
+
+/* Top tab strip: Consent / Details / About. */
+#CybotCookiebotDialogNav,
+#CybotCookiebotDialogNavList {
+  background: var(--cookiebot-surface) !important;
+  border-color: var(--cookiebot-border) !important;
+}
+
+/* Individual tab links in the Cookiebot dialog. */
+#CybotCookiebotDialogNav .CybotCookiebotDialogNavItemLink {
+  border: 1px solid transparent !important;
+  border-radius: 0 !important;
+  color: var(--cookiebot-muted) !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    text-shadow 180ms ease !important;
+}
+
+#CybotCookiebotDialogNav .CybotCookiebotDialogNavItemLink:hover,
+#CybotCookiebotDialogNav .CybotCookiebotDialogNavItemLink:focus-visible {
+  background: color-mix(in oklch, var(--cookiebot-text) 6%, var(--cookiebot-surface)) !important;
+  border-color: transparent !important;
+  color: var(--cookiebot-text) !important;
+  text-shadow: 0 0 5px color-mix(in oklch, var(--cookiebot-text) 22%, transparent) !important;
+  outline: none !important;
+}
+
+#CybotCookiebotDialogNav .CybotCookiebotDialogNavItemLink.CybotCookiebotDialogActive {
+  background: color-mix(in oklch, var(--cookiebot-secondary) 78%, var(--cookiebot-surface)) !important;
+  border-color: transparent !important;
+  border-bottom: 2px solid color-mix(in oklch, var(--cookiebot-text) 34%, var(--cookiebot-border)) !important;
+  color: var(--cookiebot-secondary-text) !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* Cookiebot applies stronger per-tab active borders; keep active state subtle
+   and neutral so it does not introduce Cookiebot's default blue accent. */
+#CybotCookiebotDialogNavDeclaration.CybotCookiebotDialogActive,
+#CybotCookiebotDialogNavDetails.CybotCookiebotDialogActive,
+#CybotCookiebotDialogNavAbout.CybotCookiebotDialogActive {
+  border-color: transparent !important;
+  border-bottom: 2px solid color-mix(in oklch, var(--cookiebot-text) 34%, var(--cookiebot-border)) !important;
+  box-shadow: none !important;
+}
+
+/* Main consent text area. */
+#CybotCookiebotDialogBody,
+#CybotCookiebotDialogBodyContent,
+#CybotCookiebotDialogBodyContentText,
+#CybotCookiebotDialogTabContent,
+#CybotCookiebotDialogTabContentDetails {
+  background: var(--cookiebot-surface) !important;
+  color: var(--cookiebot-text) !important;
+}
+
+/* Banner title. */
+#CybotCookiebotDialogBodyContentTitle {
+  color: var(--cookiebot-text) !important;
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0 !important;
+}
+
+/* Banner description text. */
+#CybotCookiebotDialogBodyContentText,
+#CybotCookiebotDialogDetailBodyContentTextOverview,
+#CybotCookiebotDialogDetailBodyContentTextAbout,
+#CybotCookiebotDialogDetailFooter {
+  color: var(--cookiebot-muted) !important;
+  font-size: 0.95rem !important;
+  line-height: 1.65 !important;
+}
+
+/* GPC / Do Not Sell signal notice area, when Cookiebot shows it in the banner. */
+#CybotCookiebotDialogGpcContainer,
+#CybotCookiebotDialogGpcIcon,
+#CybotCookiebotDialog .CybotCookiebotDialogGpcText {
+  background: var(--cookiebot-surface) !important;
+  color: var(--cookiebot-muted) !important;
+  border-color: var(--cookiebot-border) !important;
+}
+
+/* Links inside the banner and details panels. */
+#CybotCookiebotDialog a {
+  color: var(--cookiebot-text) !important;
+  text-decoration-color: color-mix(in oklch, var(--cookiebot-text) 45%, transparent) !important;
+  text-underline-offset: 4px !important;
+}
+
+#CybotCookiebotDialog a:hover {
+  text-decoration-color: var(--cookiebot-text) !important;
+}
+
+/* "Show details" disclosure link and its arrow icon. */
+#CybotCookiebotDialogBodyEdgeMoreDetails,
+#CybotCookiebotDialogBodyEdgeMoreDetailsLink,
+#CybotCookiebotDialogBodyContentTextToggleDetails,
+#CybotCookiebotDialog .CybotCookiebotDialogArrow {
+  color: var(--cookiebot-text) !important;
+  fill: currentColor !important;
+  stroke: currentColor !important;
+}
+
+#CybotCookiebotDialogBodyEdgeMoreDetailsLink,
+#CybotCookiebotDialogBodyContentTextToggleDetails {
+  border-radius: var(--radius-sm) !important;
+  text-decoration: none !important;
+  transition:
+    color 180ms ease,
+    text-shadow 180ms ease !important;
+}
+
+#CybotCookiebotDialogBodyEdgeMoreDetailsLink:hover,
+#CybotCookiebotDialogBodyEdgeMoreDetailsLink:focus-visible,
+#CybotCookiebotDialogBodyContentTextToggleDetails:hover,
+#CybotCookiebotDialogBodyContentTextToggleDetails:focus-visible {
+  color: var(--cookiebot-text) !important;
+  text-shadow: 0 0 5px color-mix(in oklch, var(--cookiebot-text) 35%, transparent) !important;
+}
+
+#CybotCookiebotDialogBodyEdgeMoreDetailsLink::before,
+#CybotCookiebotDialogBodyEdgeMoreDetailsLink::after,
+#CybotCookiebotDialogBodyContentTextToggleDetails::before,
+#CybotCookiebotDialogBodyContentTextToggleDetails::after {
+  border-color: var(--cookiebot-text) !important;
+  color: var(--cookiebot-text) !important;
+  transition: border-color 180ms ease !important;
+}
+
+.dark #CybotCookiebotDialogBodyEdgeMoreDetails img,
+.dark #CybotCookiebotDialogBodyEdgeMoreDetails svg,
+.dark #CybotCookiebotDialogBodyContentTextToggleDetails img,
+.dark #CybotCookiebotDialogBodyContentTextToggleDetails svg {
+  filter: invert(1) grayscale(1) brightness(1.25) !important;
+}
+
+/* Bottom section containing category toggles and action buttons. */
+#CybotCookiebotDialogBodyBottomWrapper,
+#CybotCookiebotDialogBodyLevelWrapper,
+#CybotCookiebotDialogBodyLevelButtons,
+#CybotCookiebotDialogBodyButtonsWrapper {
+  background: var(--cookiebot-surface) !important;
+  border-color: var(--cookiebot-border) !important;
+}
+
+/* Cookie category rows: Necessary, Preferences, Statistics, Marketing. */
+#CybotCookiebotDialog .CybotCookiebotDialogBodyLevelButtonWrapper {
+  background: var(--cookiebot-surface-raised) !important;
+  border: 1px solid var(--cookiebot-border) !important;
+  border-radius: var(--radius-md) !important;
+}
+
+/* Cookie category labels. */
+#CybotCookiebotDialog .CybotCookiebotDialogBodyLevelButtonLabel,
+#CybotCookiebotDialog .CybotCookiebotDialogBodyLevelButtonDescription {
+  color: var(--cookiebot-text) !important;
+  font-weight: 600 !important;
+}
+
+/* Toggle track for consent category switches. */
+#CybotCookiebotDialog .CybotCookiebotDialogBodyLevelButtonSlider {
+  background-color: var(--cookiebot-border) !important;
+  border-color: var(--cookiebot-border) !important;
+}
+
+/* Enabled state for category switches. */
+#CybotCookiebotDialog .CybotCookiebotDialogBodyLevelButton:checked + .CybotCookiebotDialogBodyLevelButtonSlider {
+  background-color: var(--cookiebot-primary) !important;
+  border-color: var(--cookiebot-primary) !important;
+}
+
+/* Disabled Necessary switch. */
+#CybotCookiebotDialog .CybotCookiebotDialogBodyLevelButtonSliderWrapperDisabled .CybotCookiebotDialogBodyLevelButtonSlider {
+  opacity: 0.55 !important;
+}
+
+/* Primary action: Allow all / Accept. */
+#CybotCookiebotDialogBodyLevelButtonAccept,
+#CybotCookiebotDialogBodyButtonAccept,
+#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll {
+  border: 1px solid var(--cookiebot-primary) !important;
+  border-radius: var(--radius-md) !important;
+  background: var(--cookiebot-primary) !important;
+  color: var(--cookiebot-primary-text) !important;
+  font-weight: 600 !important;
+}
+
+/* Secondary actions: selection, customize, decline. */
+#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowallSelection,
+#CybotCookiebotDialogBodyLevelButtonCustomize,
+#CybotCookiebotDialogBodyButtonDecline,
+#CybotCookiebotDialogBodyButtonDetails {
+  border: 1px solid var(--cookiebot-border) !important;
+  border-radius: var(--radius-md) !important;
+  background: var(--cookiebot-secondary) !important;
+  color: var(--cookiebot-secondary-text) !important;
+  font-weight: 600 !important;
+}
+
+#CybotCookiebotDialogBodyLevelButtonAccept:hover,
+#CybotCookiebotDialogBodyButtonAccept:hover,
+#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll:hover,
+#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowallSelection:hover,
+#CybotCookiebotDialogBodyLevelButtonCustomize:hover,
+#CybotCookiebotDialogBodyButtonDecline:hover,
+#CybotCookiebotDialogBodyButtonDetails:hover {
+  filter: brightness(0.96);
+}
+
+.dark #CybotCookiebotDialogBodyLevelButtonAccept:hover,
+.dark #CybotCookiebotDialogBodyButtonAccept:hover,
+.dark #CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll:hover,
+.dark #CybotCookiebotDialogBodyLevelButtonLevelOptinAllowallSelection:hover,
+.dark #CybotCookiebotDialogBodyLevelButtonCustomize:hover,
+.dark #CybotCookiebotDialogBodyButtonDecline:hover,
+.dark #CybotCookiebotDialogBodyButtonDetails:hover {
+  filter: brightness(1.12);
+}
+
+/* Cookie declaration cards in the Details tab. */
+#CybotCookiebotDialogDetailBody,
+#CybotCookiebotDialogDetailBodyContent,
+#CybotCookiebotDialogDetailBodyContentTextOverview,
+#CybotCookiebotDialogDetailBodyContentCookieContainer,
+#CybotCookiebotDialogDetailBodyContentCookieContainerNecessaryCard,
+#CybotCookiebotDialogDetailBodyContentCookieContainerPreferenceCard,
+#CybotCookiebotDialogDetailBodyContentCookieContainerStatisticsCard,
+#CybotCookiebotDialogDetailBodyContentCookieContainerAdvertisingCard,
+#CybotCookiebotDialogDetailBodyContentCookieContainerUnclassifiedCard {
+  background: var(--cookiebot-surface) !important;
+  border-color: var(--cookiebot-border) !important;
+  color: var(--cookiebot-text) !important;
+}
+
+/* Details tab heading. */
+#CybotCookiebotDialogSROnly {
+  color: var(--cookiebot-text) !important;
+  font-weight: 700 !important;
+}
+
+/* Details tab cookie-category list. */
+#CybotCookiebotDialogDetailBodyContentCookieContainerTypes,
+#CybotCookiebotDialogDetailBodyContentCookieContainerTypes .CookieCard,
+#CybotCookiebotDialogDetailBodyContentCookieContainerTypes ul,
+#CybotCookiebotDialogDetailBodyContentCookieContainerTypes li {
+  border-color: var(--cookiebot-border) !important;
+  color: var(--cookiebot-text) !important;
+}
+
+#CybotCookiebotDialogDetailBodyContentCookieContainerTypes .CookieCard {
+  border-bottom: 1px solid var(--cookiebot-border) !important;
+}
+
+/* Expand/collapse buttons for cookie category cards. */
+#CybotCookiebotDialog .CybotCookiebotDialogDetailBodyContentCookieContainerButton {
+  display: inline-flex !important;
+  min-height: 2.65rem !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 0.58rem !important;
+  padding: 0.5rem 0.85rem !important;
+  background: transparent !important;
+  border-color: var(--cookiebot-border) !important;
+  border-radius: var(--radius-sm) !important;
+  color: var(--cookiebot-text) !important;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    text-shadow 180ms ease !important;
+}
+
+#CybotCookiebotDialog .CybotCookiebotDialogDetailBodyContentCookieContainerButton:hover,
+#CybotCookiebotDialog .CybotCookiebotDialogDetailBodyContentCookieContainerButton:focus-visible {
+  background: color-mix(in oklch, var(--cookiebot-secondary) 72%, transparent) !important;
+  border-color: color-mix(in oklch, var(--cookiebot-text) 22%, var(--cookiebot-border)) !important;
+  color: var(--cookiebot-text) !important;
+  text-shadow: 0 0 5px color-mix(in oklch, var(--cookiebot-text) 22%, transparent) !important;
+  outline: none !important;
+}
+
+/* Details tab expand/collapse arrows. Cookiebot renders these with pseudo
+   elements, so normalize their color and give them the same restrained hover. */
+#CybotCookiebotDialog .CybotCookiebotDialogDetailBodyContentCookieContainerButton {
+  position: relative !important;
+}
+
+#CybotCookiebotDialog .CybotCookiebotDialogDetailBodyContentCookieContainerButton::before,
+#CybotCookiebotDialog .CybotCookiebotDialogDetailBodyContentCookieContainerButton::after,
+#CybotCookiebotDialog .CybotCookiebotDialogDetailBodyContentCookieProvider::before,
+#CybotCookiebotDialog .CybotCookiebotDialogDetailBodyContentCookieProvider::after {
+  border-color: color-mix(in oklch, var(--cookiebot-text) 58%, transparent) !important;
+  color: color-mix(in oklch, var(--cookiebot-text) 58%, transparent) !important;
+  transition: border-color 180ms ease !important;
+}
+
+#CybotCookiebotDialog .CybotCookiebotDialogDetailBodyContentCookieContainerButton::before,
+#CybotCookiebotDialog .CybotCookiebotDialogDetailBodyContentCookieContainerButton::after {
+  position: static !important;
+  flex: 0 0 auto !important;
+  align-self: center !important;
+  margin: 0 !important;
+  vertical-align: initial !important;
+  transform-origin: center !important;
+}
+
+#CybotCookiebotDialog .CybotCookiebotDialogDetailBodyContentCookieContainerButton::before {
+  transform: translateY(-1px) rotate(45deg) !important;
+}
+
+#CybotCookiebotDialog .CybotCookiebotDialogDetailBodyContentCookieContainerButton.CybotCookiebotDialogCollapsed::before {
+  transform: translateY(-1px) rotate(135deg) !important;
+}
+
+#CybotCookiebotDialog .CybotCookiebotDialogDetailBodyContentCookieContainerButton:hover::before,
+#CybotCookiebotDialog .CybotCookiebotDialogDetailBodyContentCookieContainerButton:hover::after,
+#CybotCookiebotDialog .CybotCookiebotDialogDetailBodyContentCookieContainerButton:focus-visible::before,
+#CybotCookiebotDialog .CybotCookiebotDialogDetailBodyContentCookieContainerButton:focus-visible::after {
+  border-color: color-mix(in oklch, var(--cookiebot-text) 82%, transparent) !important;
+}
+
+/* Category names and cookie counts in the Details tab. */
+#CybotCookiebotDialog .CybotCookiebotDialogBodyLevelButtonDescription,
+#CybotCookiebotDialog .CybotCookiebotDialogDetailBulkConsentCount,
+#CybotCookiebotDialog [id$="InlineLabel"] {
+  color: var(--cookiebot-text) !important;
+}
+
+#CybotCookiebotDialog .CybotCookiebotDialogDetailBulkConsentCount {
+  display: inline-flex !important;
+  width: 1.55rem !important;
+  min-width: 1.55rem !important;
+  height: 1.55rem !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 1px solid color-mix(in oklch, var(--cookiebot-text) 10%, var(--cookiebot-border)) !important;
+  border-radius: 999px !important;
+  background: color-mix(in oklch, var(--cookiebot-text) 7%, var(--cookiebot-surface)) !important;
+  color: color-mix(in oklch, var(--cookiebot-text) 78%, var(--cookiebot-muted)) !important;
+  font-size: 0.78rem !important;
+  font-weight: 600 !important;
+  line-height: 1 !important;
+  vertical-align: middle !important;
+}
+
+#CybotCookiebotDialog .CybotCookiebotDialogDetailBodyContentCookieInfoCount.CybotCookiebotDialogDetailBulkConsentCount {
+  margin-left: 0.58rem !important;
+}
+
+#CybotCookiebotDialog .CybotCookiebotDialogBodyLevelButtonDescription,
+#CybotCookiebotDialog [id$="InlineLabel"] {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.45rem !important;
+  line-height: 1.2 !important;
+  margin-left: 0 !important;
+}
+
+/* Disabled/necessary and optional cookie switches in Details. */
+#CybotCookiebotDialog .CybotCookiebotDialogBodyLevelButtonSliderWrapper,
+#CybotCookiebotDialog .CybotCookiebotDialogBodyLevelButtonSliderWrapperFullWidth {
+  color: var(--cookiebot-text) !important;
+}
+
+#CybotCookiebotDialog .CybotCookiebotDialogBodyLevelButtonSliderWrapper:hover .CybotCookiebotDialogBodyLevelButtonSlider,
+#CybotCookiebotDialog .CybotCookiebotDialogBodyLevelButtonSliderWrapperFullWidth:hover .CybotCookiebotDialogBodyLevelButtonSlider {
+  box-shadow: 0 0 0 3px color-mix(in oklch, var(--cookiebot-text) 10%, transparent) !important;
+}
+
+#CybotCookiebotDialog .CybotCookiebotDialogBodyLevelButtonSlider::before,
+#CybotCookiebotDialog .CybotCookiebotDialogBodyLevelButtonSlider::after {
+  background: var(--cookiebot-surface) !important;
+  border-color: var(--cookiebot-border) !important;
+}
+
+/* Cookie provider rows revealed when a category is expanded. */
+#CybotCookiebotDialog .CybotCookiebotDialogDetailBodyContentCookieTypeIntro,
+#CybotCookiebotDialog .CybotCookiebotDialogDetailBodyContentCookieTabs,
+#CybotCookiebotDialog .CybotCookiebotDialogDetailBodyContentCookieProvider,
+#CybotCookiebotDialog .CybotCookiebotDialogDetailBodyContentCookieInfo,
+#CybotCookiebotDialog .CybotCookiebotDialogDetailBodyContentCookieInfoWrapper,
+#CybotCookiebotDialog .CybotCookiebotDialogDetailBodyContentCookieInfoFooter {
+  background: var(--cookiebot-surface) !important;
+  border-color: var(--cookiebot-border) !important;
+  color: var(--cookiebot-muted) !important;
+}
+
+#CybotCookiebotDialog .CybotCookiebotDialogDetailBodyContentCookieInfoTitle {
+  color: var(--cookiebot-text) !important;
+  font-weight: 600 !important;
+}
+
+#CybotCookiebotDialog .CybotCookiebotDialogDetailBodyContentCookieInfoDescription,
+#CybotCookiebotDialog .CybotCookiebotDialogDetailBodyContentCookieInfoFooterContent,
+#CybotCookiebotDialog .CybotCookiebotDialogDetailBodyContentCookieProviderDescription {
+  color: var(--cookiebot-muted) !important;
+}
+
+/* Details footer/action bar. */
+#CybotCookiebotDialogFooter,
+#CybotCookiebotDialogDetailFooter {
+  background: var(--cookiebot-surface) !important;
+  border-color: var(--cookiebot-border) !important;
+}
+
+#CybotCookiebotDialogFooter #CybotCookiebotDialogBodyButtonAccept,
+#CybotCookiebotDialogFooter #CybotCookiebotDialogBodyButtonDecline,
+#CybotCookiebotDialogFooter #CybotCookiebotDialogBodyLevelButtonAccept,
+#CybotCookiebotDialogFooter #CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll {
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    filter 180ms ease !important;
+}
+
+/* Cookie detail tables. */
+#CybotCookiebotDialog .CybotCookiebotDialogDetailBodyContentCookieTypeTable,
+#CybotCookiebotDialog .CybotCookiebotDialogDetailBodyContentCookieTypeTable td,
+#CybotCookiebotDialog .CybotCookiebotDialogDetailBodyContentCookieTypeTable th {
+  border-color: var(--cookiebot-border) !important;
+  color: var(--cookiebot-text) !important;
+}
+
+/* Small floating Cookiebot widget shown after a consent choice, when enabled. */
+#CookiebotWidget,
+#CookiebotWidget *,
+#CookiebotWidget .CookiebotWidget-body,
+#CookiebotWidget .CookiebotWidget-consent-details,
+#CookiebotWidget .CookiebotWidget-main-logo {
+  border-color: var(--cookiebot-border) !important;
+  background-color: var(--cookiebot-surface) !important;
+  color: var(--cookiebot-text) !important;
+}
+
+#CookiebotWidget button,
+#CookiebotWidget .CookiebotWidget-logo {
+  border-color: var(--cookiebot-border) !important;
+  background-color: var(--cookiebot-secondary) !important;
+  color: var(--cookiebot-secondary-text) !important;
+}
+
+/* Keyboard focus inside Cookiebot UI. */
+#CybotCookiebotDialog :focus-visible,
+#CookiebotWidget :focus-visible {
+  outline: var(--focus-ring-width) solid var(--cookiebot-focus) !important;
+  outline-offset: var(--focus-ring-offset) !important;
+}
+
+@media (max-width: 640px) {
+  #CybotCookiebotDialog {
+    border-radius: var(--radius-md) var(--radius-md) 0 0 !important;
+  }
+}
