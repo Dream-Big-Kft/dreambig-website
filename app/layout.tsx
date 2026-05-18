@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
 import Analytics from "@/components/Analytics";
 import "./globals.css";
+import "./cookiebot.css";
 
 export const metadata: Metadata = {
     title: "DreamBig Software | Custom Software Development & Consulting",
