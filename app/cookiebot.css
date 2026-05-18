@@ -375,6 +375,7 @@
 /* Expand/collapse buttons for cookie category cards. */
 #CybotCookiebotDialog .CybotCookiebotDialogDetailBodyContentCookieContainerButton {
   display: inline-flex !important;
+  position: relative !important;
   min-height: 2.65rem !important;
   align-items: center !important;
   justify-content: flex-start !important;
@@ -402,10 +403,6 @@
 
 /* Details tab expand/collapse arrows. Cookiebot renders these with pseudo
    elements, so normalize their color and give them the same restrained hover. */
-#CybotCookiebotDialog .CybotCookiebotDialogDetailBodyContentCookieContainerButton {
-  position: relative !important;
-}
-
 #CybotCookiebotDialog .CybotCookiebotDialogDetailBodyContentCookieContainerButton::before,
 #CybotCookiebotDialog .CybotCookiebotDialogDetailBodyContentCookieContainerButton::after,
 #CybotCookiebotDialog .CybotCookiebotDialogDetailBodyContentCookieProvider::before,
@@ -421,8 +418,6 @@
   flex: 0 0 auto !important;
   align-self: center !important;
   margin: 0 !important;
-  vertical-align: initial !important;
-  transform-origin: center !important;
 }
 
 #CybotCookiebotDialog .CybotCookiebotDialogDetailBodyContentCookieContainerButton::before {
@@ -442,7 +437,6 @@
 
 /* Category names and cookie counts in the Details tab. */
 #CybotCookiebotDialog .CybotCookiebotDialogBodyLevelButtonDescription,
-#CybotCookiebotDialog .CybotCookiebotDialogDetailBulkConsentCount,
 #CybotCookiebotDialog [id$="InlineLabel"] {
   color: var(--cookiebot-text) !important;
 }
