@@ -190,6 +190,30 @@
   filter: brightness(0.96);
 }
 
+#CybotCookiebotDialog .CybotCookiebotDialogBodyLevelButtonSlider {
+  background-color: color-mix(in oklch, var(--cookiebot-text) 12%, var(--cookiebot-surface)) !important;
+  border-color: color-mix(in oklch, var(--cookiebot-text) 16%, var(--cookiebot-border)) !important;
+}
+
+#CybotCookiebotDialog .CybotCookiebotDialogBodyLevelButtonSlider::before {
+  background-color: var(--cookiebot-surface) !important;
+  border-color: color-mix(in oklch, var(--cookiebot-text) 14%, var(--cookiebot-border)) !important;
+}
+
+#CybotCookiebotDialog .CybotCookiebotDialogBodyLevelButton:checked + .CybotCookiebotDialogBodyLevelButtonSlider {
+  background-color: color-mix(in oklch, var(--cookiebot-primary) 72%, var(--cookiebot-text)) !important;
+  border-color: color-mix(in oklch, var(--cookiebot-primary) 78%, var(--cookiebot-border)) !important;
+}
+
+#CybotCookiebotDialog .CybotCookiebotDialogBodyLevelButton:checked + .CybotCookiebotDialogBodyLevelButtonSlider::before {
+  background-color: var(--cookiebot-primary-text) !important;
+  border-color: color-mix(in oklch, var(--cookiebot-primary-text) 82%, var(--cookiebot-border)) !important;
+}
+
+#CybotCookiebotDialog .CybotCookiebotDialogBodyLevelButtonSliderWrapperDisabled {
+  opacity: 0.72 !important;
+}
+
 #CybotCookiebotDialogDetailBodyContentCookieContainerTypes .CookieCard,
 #CybotCookiebotDialog .CybotCookiebotDialogDetailBodyContentCookieInfo,
 #CybotCookiebotDialog .CybotCookiebotDialogDetailBodyContentCookieInfoWrapper {
