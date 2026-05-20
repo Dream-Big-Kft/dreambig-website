@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
-import Analytics from "@/components/Analytics";
 import "./globals.css";
 import "./cookiebot.css";
 
@@ -53,7 +52,8 @@ export default function RootLayout({ children }: Readonly<{
                 <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
                     {children}
                 </ThemeProvider>
-                <Analytics />
+                {/* Analytics is currently disabled */}
+                {/* <Analytics /> */}
             </body>
         </html>
     );
