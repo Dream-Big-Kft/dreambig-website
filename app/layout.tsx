@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
 import "./cookiebot.css";
@@ -31,29 +32,24 @@ export default function RootLayout({ children }: Readonly<{
 }>) {
     return (
         <html lang="en" suppressHydrationWarning>
-            <head>
-                {/*
-          Plain <script> — NOT next/script — intentional.
-          Cookiebot must be the first script in <head> to intercept and block
-          all other scripts before they run (auto-blocking mode).
-          next/script strategy="beforeInteractive" does not guarantee first
-          position in <head>, which breaks Cookiebot's blocking mechanism.
-          See: https://www.cookiebot.com/en/manual-implementation/
-        */}
-                <script
-                    id="Cookiebot"
-                    src="https://consent.cookiebot.com/uc.js"
-                    data-cbid={process.env.NEXT_PUBLIC_COOKIEBOT_ID}
-                    data-blockingmode="auto"
-                    type="text/javascript"
-                />
-            </head>
             <body className="font-sans antialiased">
                 <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
                     {children}
                 </ThemeProvider>
                 {/* Analytics is currently disabled */}
                 {/* <Analytics /> */}
+                {/*
+                    Load Cookiebot after hydration so its injected banner cannot
+                    mutate server-rendered markup before React attaches. Analytics
+                    remains consent-gated in our own Segment wrapper, so we do not
+                    rely on Cookiebot's pre-hydration auto-blocking mode here.
+                */}
+                <Script
+                    id="Cookiebot"
+                    src="https://consent.cookiebot.com/uc.js"
+                    data-cbid={process.env.NEXT_PUBLIC_COOKIEBOT_ID}
+                    strategy="afterInteractive"
+                />
             </body>
         </html>
     );
