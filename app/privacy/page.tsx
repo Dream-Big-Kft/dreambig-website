@@ -1,6 +1,7 @@
 import { Header } from "@/components/landing/header";
 import { Footer } from "@/components/landing/footer";
 import { CookieSettingsButton } from "@/components/CookieSettingsButton";
+import { CompanyEmailLink } from "@/components/CompanyEmailLink";
 
 export default function PrivacyPage() {
     return (
@@ -25,9 +26,7 @@ export default function PrivacyPage() {
                     </ul>
                     <p className="mt-2">
                         Contact for privacy requests:{" "}
-                        <a href="mailto:info@dreambig.hu" className="underline underline-offset-4">
-                            info@dreambig.hu
-                        </a>
+                        <CompanyEmailLink className="underline underline-offset-4" />
                     </p>
                 </Section>
 
@@ -138,9 +137,7 @@ export default function PrivacyPage() {
                     </ul>
                     <p className="mt-2">
                         To exercise your rights, contact us at{" "}
-                        <a href="mailto:info@dreambig.hu" className="underline underline-offset-4">
-                            info@dreambig.hu
-                        </a>
+                        <CompanyEmailLink className="underline underline-offset-4" />
                         .
                     </p>
                 </Section>
