@@ -27,9 +27,9 @@ exports[`Home page > matches the snapshot 1`] = `
               width="32"
             />
             <span
-              class="hidden text-foreground/90 sm:block sm:font-medium dark:text-foreground/88"
+              class="text-foreground/90 block font-medium dark:text-foreground/88"
             >
-              Dream Big Software Solutions
+              Dream Big Software
             </span>
           </a>
           <div
@@ -1668,7 +1668,7 @@ exports[`Home page > matches the snapshot 1`] = `
             href="#top"
           >
             <img
-              alt="Dream Big Software Solutions logo"
+              alt="Dream Big Software logo"
               class="h-8 w-8 object-contain dark:invert"
               height="32"
               src="dreambig-logo.svg"
@@ -1677,7 +1677,7 @@ exports[`Home page > matches the snapshot 1`] = `
             <span
               class="font-medium text-foreground/90 dark:text-foreground/88"
             >
-              Dream Big Software Solutions
+              Dream Big Software
             </span>
           </a>
           <div
