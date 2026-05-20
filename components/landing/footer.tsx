@@ -13,13 +13,13 @@ export function Footer() {
           <a href="#top" className="flex items-center gap-3">
             <Image
               src="dreambig-logo.svg"
-              alt="Dream Big Software Solutions logo"
+              alt="Dream Big Software logo"
               width={32}
               height={32}
               className="h-8 w-8 object-contain dark:invert"
             />
             <span className="font-medium text-foreground/90 dark:text-foreground/88">
-                            Dream Big Software Solutions
+              Dream Big Software
             </span>
           </a>
 
@@ -38,12 +38,14 @@ export function Footer() {
 
           {/* Copyright + Cookie settings + Privacy */}
           <div className="flex items-center gap-4 text-sm text-muted-foreground dark:text-foreground/72">
-            <p>© {new Date().getFullYear()} Dream Big Kft. All rights reserved.</p>
+            <p>
+              © {new Date().getFullYear()} Dream Big Kft. All rights reserved.
+            </p>
             <Link
               href="/privacy"
               className="underline underline-offset-4 hover:text-foreground transition-colors dark:hover:text-foreground/92"
             >
-                            Privacy Policy
+              Privacy Policy
             </Link>
             <CookieSettingsButton
               variant="link"

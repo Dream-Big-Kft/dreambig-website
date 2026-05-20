@@ -7,12 +7,10 @@ describe("Footer", () => {
     render(<Footer />);
 
     expect(
-      screen.getByRole("img", { name: "Dream Big Software Solutions logo" }),
+      screen.getByRole("img", { name: "Dream Big Software logo" }),
     ).toHaveAttribute("src", "dreambig-logo.svg");
 
-    expect(
-      screen.getByText("Dream Big Software Solutions"),
-    ).toBeInTheDocument();
+    expect(screen.getByText("Dream Big Software")).toBeInTheDocument();
 
     expect(
       screen.getByText(/Dream Big Kft\. All rights reserved\./),

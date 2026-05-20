@@ -23,9 +23,9 @@ exports[`Header > matches the snapshot 1`] = `
             width="32"
           />
           <span
-            class="hidden text-foreground/90 sm:block sm:font-medium dark:text-foreground/88"
+            class="text-foreground/90 block font-medium dark:text-foreground/88"
           >
-            Dream Big Software Solutions
+            Dream Big Software
           </span>
         </a>
         <div
