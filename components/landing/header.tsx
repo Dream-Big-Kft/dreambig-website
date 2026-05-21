@@ -28,7 +28,7 @@ export function Header() {
     const activeTheme = resolvedTheme ?? theme;
 
     const themeIcon = !mounted ? (
-    // Keep the toggle footprint stable until the real icon is known, so nearby links do not shift.
+        // Keep the toggle footprint stable until the real icon is known, so nearby links do not shift.
         <span className="block h-5 w-5" aria-hidden="true" />
     ) : activeTheme === "dark" ? (
         <Sun className="h-5 w-5 text-foreground" />
@@ -59,7 +59,7 @@ export function Header() {
                             priority
                         />
                         <span className="hidden text-foreground/90 sm:block sm:font-medium dark:text-foreground/88">
-              Dream Big Software Solutions
+                            Dream Big Software Solutions
                         </span>
                     </Link>
 
@@ -78,11 +78,9 @@ export function Header() {
                         </nav>
 
                         <button
-                            onClick={() =>
-                                setTheme(activeTheme === "dark" ? "light" : "dark")
-                            }
-                            className="cursor-pointer rounded-md p-2 text-foreground transition-colors hover:text-shadow-[0_0_5px_rgba(0,0,0,0.2)] hover:text-foreground dark:text-foreground/78 dark:hover:text-shadow-[0_0_5px_rgba(255,255,255,0.8)] dark:hover:text-foreground/92"
                             aria-label="Toggle theme"
+                            onClick={() => setTheme(activeTheme === "dark" ? "light" : "dark")}
+                            className="cursor-pointer rounded-md p-2 text-foreground transition-colors hover:text-shadow-[0_0_5px_rgba(0,0,0,0.2)] hover:text-foreground dark:text-foreground/78 dark:hover:text-shadow-[0_0_5px_rgba(255,255,255,0.8)] dark:hover:text-foreground/92"
                         >
                             {themeIcon}
                         </button>

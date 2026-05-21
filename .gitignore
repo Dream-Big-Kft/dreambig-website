@@ -7,5 +7,6 @@ out/
 audit-report.json
 audit-summary.txt
 .env*
+!.env
 .local
 NEXTJS_LEARNING_LOG.md
