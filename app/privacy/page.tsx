@@ -150,14 +150,6 @@ export default function PrivacyPage() {
                         available from the consent banner and this page before launch.
                     </p>
                 </Section>
-
-                <Section title="7. Before Launch">
-                    <p>
-                        This policy still needs final verification against the official company
-                        extract, processor details, retention settings, and legal approval
-                        before it is treated as the live production privacy notice.
-                    </p>
-                </Section>
             </main>
             <Footer />
         </>
