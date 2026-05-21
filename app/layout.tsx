@@ -5,52 +5,52 @@ import "./globals.css";
 import "./cookiebot.css";
 
 export const metadata: Metadata = {
-    title: "DreamBig Software | Custom Software Development & Consulting",
-    description:
+  title: "DreamBig Software | Custom Software Development & Consulting",
+  description:
         "We design and build scalable web applications, cloud systems, and APIs for startups and growing companies.",
-    generator: "v0.app",
-    robots: {
-        index: false,
-        follow: false,
-        googleBot: {
-            index: false,
-            follow: false,
-            noimageindex: true,
-        },
+  generator: "v0.app",
+  robots: {
+    index: false,
+    follow: false,
+    googleBot: {
+      index: false,
+      follow: false,
+      noimageindex: true,
     },
-    icons: {
-        icon: {
-            url: "icon.svg",
-            type: "image/svg+xml",
-        },
-        apple: "dreambig-logo.png",
+  },
+  icons: {
+    icon: {
+      url: "icon.svg",
+      type: "image/svg+xml",
     },
+    apple: "dreambig-logo.png",
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{
     children: React.ReactNode;
 }>) {
-    return (
-        <html lang="en" suppressHydrationWarning>
-            <body className="font-sans antialiased">
-                <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-                    {children}
-                </ThemeProvider>
-                {/* Analytics is currently disabled */}
-                {/* <Analytics /> */}
-                {/*
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <body className="font-sans antialiased">
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          {children}
+        </ThemeProvider>
+        {/* Analytics is currently disabled */}
+        {/* <Analytics /> */}
+        {/*
                     Load Cookiebot after hydration so its injected banner cannot
                     mutate server-rendered markup before React attaches. Analytics
                     remains consent-gated in our own Segment wrapper, so we do not
                     rely on Cookiebot's pre-hydration auto-blocking mode here.
                 */}
-                <Script
-                    id="Cookiebot"
-                    src="https://consent.cookiebot.com/uc.js"
-                    data-cbid={process.env.NEXT_PUBLIC_COOKIEBOT_ID}
-                    strategy="afterInteractive"
-                />
-            </body>
-        </html>
-    );
+        <Script
+          id="Cookiebot"
+          src="https://consent.cookiebot.com/uc.js"
+          data-cbid={process.env.NEXT_PUBLIC_COOKIEBOT_ID}
+          strategy="afterInteractive"
+        />
+      </body>
+    </html>
+  );
 }

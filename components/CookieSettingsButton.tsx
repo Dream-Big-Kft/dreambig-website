@@ -11,20 +11,20 @@ type CookieSettingsButtonProps = {
 };
 
 export function CookieSettingsButton({
-    className,
-    variant,
-    size,
-    children = "Cookie settings",
+  className,
+  variant,
+  size,
+  children = "Cookie settings",
 }: CookieSettingsButtonProps) {
-    return (
-        <Button
-            type="button"
-            variant={variant}
-            size={size}
-            className={className}
-            onClick={() => window.Cookiebot?.renew?.()}
-        >
-            {children}
-        </Button>
-    );
+  return (
+    <Button
+      type="button"
+      variant={variant}
+      size={size}
+      className={className}
+      onClick={() => window.Cookiebot?.renew?.()}
+    >
+      {children}
+    </Button>
+  );
 }
