@@ -24,9 +24,25 @@ export const mockUseTheme = vi.fn(() => createMockThemeState());
 // Keep the provider mock transparent by default so tests only see their own UI.
 export const mockNextThemesProvider = vi.fn(renderChildren);
 
+vi.mock("@/config", () => ({
+  __esModule: true,
+  default: {
+    thirdParty: {
+      formspree: {
+        endpoint: "https://formspree.io/f/test",
+      },
+      segment: {
+        writeKey: "test_key",
+      },
+      cookiebot: {
+        id: "test_id",
+      },
+    },
+  },
+}));
+
 beforeEach(() => {
   vi.clearAllMocks();
-  process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT = "https://example.com/formspree";
   mockUseTheme.mockReturnValue(createMockThemeState());
   // Restore shared mocks in case a test overrides their behavior.
   mockNextThemesProvider.mockImplementation(renderChildren);
@@ -61,8 +77,7 @@ vi.mock("next/image", () => ({
   }: React.ImgHTMLAttributes<HTMLImageElement> & {
     priority?: boolean;
     src: string;
-  }) =>
-    React.createElement("img", { alt, src, ...props }),
+  }) => React.createElement("img", { alt, src, ...props }),
 }));
 
 vi.mock("next/font/google", () => ({

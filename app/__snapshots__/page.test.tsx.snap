@@ -1505,7 +1505,7 @@ exports[`Home page > matches the snapshot 1`] = `
                 Tell us a bit about the vision you're looking to bring to life, and we'll help you figure out the best technical path to get there.
               </p>
               <form
-                action="https://example.com/formspree"
+                action="https://formspree.io/f/test"
                 class="mx-auto mt-12 grid max-w-2xl gap-6 rounded-lg  text-left"
                 data-hj-suppress="true"
                 method="POST"
