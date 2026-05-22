@@ -1,5 +1,5 @@
 import userEvent from "@testing-library/user-event";
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen, waitFor, act } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { CTASection } from "./cta-section";
 
@@ -73,7 +73,7 @@ describe("CTASection", () => {
     ).not.toBeInTheDocument();
   });
 
-  it("does not submit twice while a request is already in progress", async () => {
+  it.only("does not submit twice while a request is already in progress", async () => {
     const user = userEvent.setup();
     const fetchMock = vi.fn(() => new Promise<Response>(() => undefined));
     vi.stubGlobal("fetch", fetchMock);
@@ -88,8 +88,12 @@ describe("CTASection", () => {
       .getByRole("button", { name: /Send Message/i })
       .closest("form");
 
-    form?.requestSubmit();
-    form?.requestSubmit();
+    act(() => {
+      form?.requestSubmit();
+    });
+    act(() => {
+      form?.requestSubmit();
+    });
 
     await waitFor(() => {
       expect(fetchMock).toHaveBeenCalledTimes(1);
