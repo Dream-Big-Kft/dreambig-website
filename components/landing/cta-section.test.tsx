@@ -73,7 +73,7 @@ describe("CTASection", () => {
     ).not.toBeInTheDocument();
   });
 
-  it.only("does not submit twice while a request is already in progress", async () => {
+  it("does not submit twice while a request is already in progress", async () => {
     const user = userEvent.setup();
     const fetchMock = vi.fn(() => new Promise<Response>(() => undefined));
     vi.stubGlobal("fetch", fetchMock);
