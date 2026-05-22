@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import { ThemeProvider } from "next-themes";
+import config from "@/config";
 import "./globals.css";
 import "./cookiebot.css";
 
 export const metadata: Metadata = {
   title: "DreamBig Software | Custom Software Development & Consulting",
   description:
-        "We design and build scalable web applications, cloud systems, and APIs for startups and growing companies.",
+    "We design and build scalable web applications, cloud systems, and APIs for startups and growing companies.",
   generator: "v0.app",
   robots: {
     index: false,
@@ -27,8 +28,10 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: Readonly<{
-    children: React.ReactNode;
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
@@ -47,7 +50,7 @@ export default function RootLayout({ children }: Readonly<{
         <Script
           id="Cookiebot"
           src="https://consent.cookiebot.com/uc.js"
-          data-cbid={process.env.NEXT_PUBLIC_COOKIEBOT_ID}
+          data-cbid={config.thirdParty.cookiebot.id}
           strategy="afterInteractive"
         />
       </body>

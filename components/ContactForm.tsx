@@ -9,19 +9,20 @@ import {
 import { Send } from "lucide-react";
 import Link from "next/link";
 import { useRef, useState, type ComponentProps } from "react";
+import config from "@/config";
 
 const getFormspreeEndpoint = () => {
-  const endpoint = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT;
+  const endpoint = config.thirdParty.formspree.endpoint;
 
   if (!endpoint) {
-    throw new Error("Missing NEXT_PUBLIC_FORMSPREE_ENDPOINT");
+    throw new Error("Missing formspree endpoint configuration");
   }
 
   return endpoint;
 };
 
 const inputClassName =
-    "mt-2 w-full rounded-md border border-border bg-background px-4 py-3 text-base text-foreground shadow-sm transition-colors placeholder:text-muted-foreground/75 focus:border-ring focus:outline-none focus:ring-2 focus:ring-ring/25 dark:bg-card";
+  "mt-2 w-full rounded-md border border-border bg-background px-4 py-3 text-base text-foreground shadow-sm transition-colors placeholder:text-muted-foreground/75 focus:border-ring focus:outline-none focus:ring-2 focus:ring-ring/25 dark:bg-card";
 
 const labelClassName = "text-sm font-medium text-foreground";
 
@@ -31,13 +32,13 @@ const FormStatusMessage = ({ status }: { status: FormStatus }) => (
   <div aria-live="polite">
     {status === "success" ? (
       <p className="text-sm font-medium text-emerald-600 dark:text-emerald-400">
-                Thanks, your message was sent successfully. We&apos;ll get back to you
-                soon.
+        Thanks, your message was sent successfully. We&apos;ll get back to you
+        soon.
       </p>
     ) : null}
     {status === "error" ? (
       <p className="text-sm font-medium text-destructive">
-                Something went wrong while sending your message. Please try again.
+        Something went wrong while sending your message. Please try again.
       </p>
     ) : null}
   </div>
@@ -128,7 +129,7 @@ const ContactForm = () => {
       <div className="grid gap-6 sm:grid-cols-2">
         <div>
           <label htmlFor="contact-name" className={labelClassName}>
-                        Name
+            Name
           </label>
           <input
             id="contact-name"
@@ -144,7 +145,7 @@ const ContactForm = () => {
 
         <div>
           <label htmlFor="contact-email" className={labelClassName}>
-                        Email
+            Email
           </label>
           <input
             id="contact-email"
@@ -161,7 +162,7 @@ const ContactForm = () => {
 
       <div>
         <label htmlFor="contact-phone" className={labelClassName}>
-                    Phone number <span className="text-muted-foreground">(optional)</span>
+          Phone number <span className="text-muted-foreground">(optional)</span>
         </label>
         <input
           id="contact-phone"
@@ -176,7 +177,7 @@ const ContactForm = () => {
 
       <div>
         <label htmlFor="contact-message" className={labelClassName}>
-                    Message
+          Message
         </label>
         <textarea
           id="contact-message"
@@ -203,12 +204,12 @@ const ContactForm = () => {
         <FormStatusMessage status={status} />
       </div>
       <p className="text-xs leading-relaxed text-muted-foreground">
-                We use your details only to respond to your inquiry. The form is
-                processed by Formspree on our behalf. See our{" "}
+        We use your details only to respond to your inquiry. The form is
+        processed by Formspree on our behalf. See our{" "}
         <Link href="/privacy" className="underline underline-offset-4">
-                    Privacy Policy
+          Privacy Policy
         </Link>{" "}
-                for retention, recipients, and your GDPR rights.
+        for retention, recipients, and your GDPR rights.
       </p>
     </form>
   );

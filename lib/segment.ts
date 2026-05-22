@@ -1,4 +1,5 @@
 import { AnalyticsBrowser } from "@segment/analytics-next";
+import config from "@/config";
 
 // Instance created but NOT loaded — no network activity until initSegment() is called
 export const analytics = new AnalyticsBrowser();
@@ -17,10 +18,10 @@ export async function initSegment(): Promise<void> {
   // explicitly granted statistics consent.
   if (window.Cookiebot?.consent?.statistics !== true) return;
 
-  const writeKey = process.env.NEXT_PUBLIC_SEGMENT_WRITE_KEY;
+  const writeKey = config.thirdParty.segment.writeKey;
   if (!writeKey) {
     if (process.env.NODE_ENV !== "production") {
-      console.warn("[analytics] NEXT_PUBLIC_SEGMENT_WRITE_KEY is not set — skipping.");
+      console.warn("[analytics] Segment write key is not set — skipping.");
     }
     return;
   }

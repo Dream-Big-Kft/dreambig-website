@@ -1,15 +1,10 @@
 import userEvent from "@testing-library/user-event";
 import { render, screen, waitFor } from "@testing-library/react";
-import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { CTASection } from "./cta-section";
-
-beforeEach(() => {
-  process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT = "https://formspree.io/f/test";
-});
 
 afterEach(() => {
   vi.unstubAllGlobals();
-  delete process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT;
 });
 
 describe("CTASection", () => {
@@ -23,9 +18,7 @@ describe("CTASection", () => {
     ).toBeInTheDocument();
 
     expect(
-      screen.getByText(
-        /Every great product begins with a simple discussion/i,
-      ),
+      screen.getByText(/Every great product begins with a simple discussion/i),
     ).toBeInTheDocument();
 
     expect(screen.getByLabelText("Name")).toBeRequired();
@@ -82,9 +75,7 @@ describe("CTASection", () => {
 
   it("does not submit twice while a request is already in progress", async () => {
     const user = userEvent.setup();
-    const fetchMock = vi.fn(
-      () => new Promise<Response>(() => undefined),
-    );
+    const fetchMock = vi.fn(() => new Promise<Response>(() => undefined));
     vi.stubGlobal("fetch", fetchMock);
 
     render(<CTASection />);
@@ -93,7 +84,8 @@ describe("CTASection", () => {
     await user.type(screen.getByLabelText("Email"), "ada@example.com");
     await user.type(screen.getByLabelText("Message"), "We need a React audit.");
 
-    const form = screen.getByRole("button", { name: /Send Message/i })
+    const form = screen
+      .getByRole("button", { name: /Send Message/i })
       .closest("form");
 
     form?.requestSubmit();
