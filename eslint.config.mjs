@@ -43,7 +43,7 @@ export default defineConfig(
     },
     // Project-specific rule choices that we can tighten or relax over time.
     rules: {
-      // Warns when editor defaults drift from the repository's 4-space indentation.
+      // Warns when editor defaults drift from the repository's 2-space indentation.
       indent: ["warn", 2],
       // Warns about unused variables while allowing intentionally unused names prefixed with `_`.
       "@typescript-eslint/no-unused-vars": [

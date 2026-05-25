@@ -15,10 +15,14 @@
   --cookiebot-primary-text: var(--primary-foreground);
   --cookiebot-secondary: var(--secondary);
   --cookiebot-secondary-text: var(--secondary-foreground);
+  --cookiebot-powered-logo-filter: none;
+  --cookiebot-powered-logo-opacity: 1;
   --cookiebot-shadow: 0 22px 70px rgba(15, 23, 42, 0.18);
 }
 
 .dark {
+  --cookiebot-powered-logo-filter: invert(1);
+  --cookiebot-powered-logo-opacity: 1;
   --cookiebot-shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
 }
 
@@ -84,9 +88,11 @@
   border-color: var(--cookiebot-border) !important;
 }
 
-.dark #CybotCookiebotDialogPoweredbyCybot > svg {
-  filter: invert(1) grayscale(1) brightness(0.72) !important;
-  opacity: 0.7 !important;
+#CybotCookiebotDialogPoweredbyCybot > svg,
+#CybotCookiebotDialogPoweredbyImage,
+#CybotCookiebotDialogPoweredByImage {
+  filter: var(--cookiebot-powered-logo-filter) !important;
+  opacity: var(--cookiebot-powered-logo-opacity) !important;
 }
 
 #CybotCookiebotDialogBodyContentTitle,
