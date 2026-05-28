@@ -1,8 +1,11 @@
-import { analytics, isLoaded } from "./segment";
+import { analytics, getAnalyticsConsent, isLoaded } from "./segment";
 
 function isTrackingAllowed(): boolean {
-  return window.Cookiebot?.consent?.statistics === true && isLoaded();
+  return getAnalyticsConsent().statistics && isLoaded();
 }
+
+// Active Segment destination: Google Analytics 4 Web.
+// Future statistics destination placeholder: "Hotjar".
 
 export function trackPageView(): void {
   if (!isTrackingAllowed()) return;
