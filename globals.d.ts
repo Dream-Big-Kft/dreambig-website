@@ -9,6 +9,7 @@ interface Window {
             statistics: boolean;
             marketing: boolean;
             preferences: boolean;
+            necessary: boolean;
         };
         renew?: () => void;
     };
