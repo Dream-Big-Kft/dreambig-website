@@ -6,6 +6,7 @@ const withBundleAnalyzer = bundleAnalyzer({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  reactCompiler: true,
   // GitHub Pages can host static files, but not a running Next server.
   // output: "export" tells Next to generate static HTML/CSS/JS that GitHub Pages can serve.
   output: "export",
