@@ -40,7 +40,6 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
         </ThemeProvider>
-        {/* Analytics is currently disabled */}
         <Analytics />
         {/*
                     Load Cookiebot after hydration so its injected banner cannot
