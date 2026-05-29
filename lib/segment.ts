@@ -12,7 +12,7 @@ export type AnalyticsConsent = {
   preferences: boolean;
 };
 
-export function getAnalyticsConsent(): AnalyticsConsent {
+export function getCookieConsent(): AnalyticsConsent {
   if (typeof window === "undefined") {
     return { 
       statistics: false,
@@ -37,7 +37,7 @@ export function isLoaded(): boolean {
 export async function initSegment(): Promise<void> {
   if (loaded) return;
 
-  const consent = getAnalyticsConsent();
+  const consent = getCookieConsent();
   if (!consent.statistics) return;
 
   const writeKey = config.thirdParty.segment.writeKey;

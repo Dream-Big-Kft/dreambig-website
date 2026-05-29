@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import {
-  getAnalyticsConsent,
+  getCookieConsent,
   initSegment,
   isLoaded,
   resetSegment,
@@ -16,7 +16,7 @@ export default function Analytics() {
 
   useEffect(() => {
     const initializeAnalyticsIfConsented = async () => {
-      const consent = getAnalyticsConsent();
+      const consent = getCookieConsent();
       if (!consent.statistics) return;
 
       await initSegment();
@@ -36,7 +36,7 @@ export default function Analytics() {
     // Fires when the user's consent state is ready, either loaded from an
     // existing cookie or submitted from the banner/settings dialog.
     const handleConsentReady = async () => {
-      const consent = getAnalyticsConsent();
+      const consent = getCookieConsent();
       if (consent.statistics) {
         await initializeAnalyticsIfConsented();
       } else {
