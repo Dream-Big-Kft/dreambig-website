@@ -5,7 +5,7 @@ import {
   trackContactFormError,
   trackContactFormStart,
   trackContactFormSubmit,
-} from "@/lib/analytics";
+} from "@/utils/analytics";
 import { Send } from "lucide-react";
 import Link from "next/link";
 import { useRef, useState, type ComponentProps } from "react";
