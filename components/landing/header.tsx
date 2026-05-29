@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import { trackContactNavClick } from "@/lib/analytics";
+import { trackContactNavClick } from "@/utils/analytics";
 
 const navLinks = [
   { label: "Services", href: "/#services" },

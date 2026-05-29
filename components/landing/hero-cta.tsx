@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { trackCtaClick } from "@/lib/analytics";
+import { trackCtaClick } from "@/utils/analytics";
 
 export function HeroCta() {
   return (

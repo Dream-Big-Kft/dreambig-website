@@ -4,7 +4,7 @@ import { ThemeProvider } from "next-themes";
 import config from "@/config";
 import "./globals.css";
 import "./cookiebot.css";
-import Analytics from '@/components/Analytics';
+import SegmentInitializer from '@/components/SegmentInitializer';
 
 export const metadata: Metadata = {
   title: "DreamBig Software | Custom Software Development & Consulting",
@@ -40,7 +40,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
         </ThemeProvider>
-        <Analytics />
+        <SegmentInitializer />
         {/*
                     Load Cookiebot after hydration so its injected banner cannot
                     mutate server-rendered markup before React attaches. Analytics

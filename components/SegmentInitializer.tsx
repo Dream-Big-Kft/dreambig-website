@@ -6,10 +6,10 @@ import {
   initSegment,
   isLoaded,
   resetSegment,
-} from "@/lib/segment";
-import { trackPageView } from "@/lib/analytics";
+} from "@/utils/segment";
+import { trackPageView } from "@/utils/analytics";
 
-export default function Analytics() {
+export default function SegmentInitializer() {
   // Multiple Cookiebot events and the mount fallback can run on the same page load,
   // so keep the initial Segment page view to one event per mount.
   const pageTracked = useRef(false);
