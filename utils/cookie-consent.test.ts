@@ -1,12 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import {
-  COOKIE_CONSENT_COOKIE_NAME,
-  COOKIE_CONSENT_MAX_AGE_MS,
-  clearConsent,
-  hasConsent,
-  readConsent,
-  saveConsent,
-} from "./cookie-consent";
+import { hasConsent, getCookiConsent, saveConsent } from "./cookie-consent";
+
+const COOKIE_CONSENT_COOKIE_NAME = "dreambig_CC";
 
 const selectedConsent = {
   necessary: true,
@@ -18,18 +13,18 @@ const selectedConsent = {
 describe("cookie consent storage", () => {
   beforeEach(() => {
     vi.useRealTimers();
-    clearConsent();
+    removeConsentCookie();
   });
 
-  it("returns null when no consent cookie exists", () => {
-    expect(readConsent()).toBeNull();
+  it("returns undefined when no consent cookie exists", () => {
+    expect(getCookiConsent()).toBeUndefined();
     expect(hasConsent()).toBe(false);
   });
 
   it("saves and reads consent", () => {
     saveConsent(selectedConsent);
 
-    expect(readConsent()).toEqual(selectedConsent);
+    expect(getCookiConsent()).toEqual(selectedConsent);
     expect(hasConsent()).toBe(true);
   });
 
@@ -41,7 +36,7 @@ describe("cookie consent storage", () => {
       marketing: false,
     });
 
-    expect(readConsent()).toEqual({
+    expect(getCookiConsent()).toEqual({
       necessary: true,
       preferences: false,
       statistics: false,
@@ -52,28 +47,17 @@ describe("cookie consent storage", () => {
   it("ignores malformed consent cookies", () => {
     document.cookie = `${COOKIE_CONSENT_COOKIE_NAME}=not-json; path=/`;
 
-    expect(readConsent()).toBeNull();
+    expect(getCookiConsent()).toBeUndefined();
     expect(hasConsent()).toBe(false);
   });
 
-  it("ignores expired consent cookies", () => {
-    const expiredDate = new Date(Date.now() - COOKIE_CONSENT_MAX_AGE_MS - 1);
-
+  it("ignores partial consent cookies", () => {
     writeConsentCookie({
-      createdAt: expiredDate.toISOString(),
-      ...selectedConsent,
+      necessary: true,
+      marketing: true,
     });
 
-    expect(readConsent()).toBeNull();
-    expect(hasConsent()).toBe(false);
-  });
-
-  it("removes saved consent", () => {
-    saveConsent(selectedConsent);
-
-    clearConsent();
-
-    expect(readConsent()).toBeNull();
+    expect(getCookiConsent()).toBeUndefined();
     expect(hasConsent()).toBe(false);
   });
 });
@@ -82,4 +66,8 @@ function writeConsentCookie(value: unknown): void {
   document.cookie = `${COOKIE_CONSENT_COOKIE_NAME}=${encodeURIComponent(
     JSON.stringify(value),
   )}; path=/`;
+}
+
+function removeConsentCookie(): void {
+  document.cookie = `${COOKIE_CONSENT_COOKIE_NAME}=; max-age=0; path=/`;
 }
