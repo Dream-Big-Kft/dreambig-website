@@ -60,5 +60,10 @@
     "typescript": "5.7.3",
     "typescript-eslint": "^8.59.2",
     "vitest": "^4.1.4"
+  },
+  "pnpm": {
+    "overrides": {
+      "js-cookie": "3.0.7"
+    }
   }
 }
