@@ -1,11 +1,9 @@
 # Workflow name shown in the GitHub Actions UI.
 name: Build and deploy to GitHub Pages
 
-# Run automatically when code lands on main, and allow manual runs from the UI.
+# Run automatically on any branch, and allow manual runs from the UI.
 on:
   push:
-    branches:
-      - main
   workflow_dispatch:
 
 # Minimum permissions needed to read the repo and publish to GitHub Pages.
@@ -21,7 +19,7 @@ concurrency:
 
 jobs:
   # Build the static site and upload it as a Pages artifact.
-  build:
+  buildAndTest:
     # Use GitHub's Ubuntu runner for the CI job.
     runs-on: ubuntu-latest
 
@@ -34,7 +32,7 @@ jobs:
       - name: Set up pnpm
         uses: pnpm/action-setup@v4
         with:
-          package_json_file: dreamBig-next/package.json
+          package_json_file: package.json
 
       # Install Node.js and enable pnpm dependency caching.
       - name: Set up Node.js
@@ -44,36 +42,50 @@ jobs:
           node-version-file: .node-version
           # Reuse downloaded pnpm packages between workflow runs.
           cache: pnpm
-          # Point cache lookup to the app's lockfile inside the monorepo-style structure.
-          cache-dependency-path: dreamBig-next/pnpm-lock.yaml
+          # Point cache lookup to the repo-root lockfile.
+          cache-dependency-path: pnpm-lock.yaml
 
       # Install exact dependencies from pnpm-lock.yaml using the same package manager as local development.
       - name: Install dependencies
-        working-directory: dreamBig-next
         run: pnpm install --frozen-lockfile
 
-      # Build the Next.js app and pass the final site path prefix used on GitHub Pages.
+      # Audit dependencies and fail the build only on critical vulnerabilities.
+      - name: Run dependency audit
+        id: dependency_audit
+        run: pnpm dlx audit-ci@^7 --config ./audit-ci.jsonc | tee audit-summary.txt
+
+      # Upload the short audit summary when the audit command completed successfully.
+      - name: Upload audit summary
+        uses: actions/upload-artifact@v4
+        with:
+          name: dependency-audit-summary
+          path: audit-summary.txt
+
+      # Build the Next.js app for the custom domain root.
       - name: Run production build
-        working-directory: dreamBig-next
-        env:
-          NODE_ENV: production
-          SITE_BASE_PATH: /${{ github.event.repository.name }}
         run: pnpm build
+
+      # Run the test suite after the production build; any failing test stops deployment.
+      - name: Run tests
+        run: pnpm test
 
       # Prepare the runner for a GitHub Pages deployment.
       - name: Configure GitHub Pages
+        if: github.ref == 'refs/heads/main'
         uses: actions/configure-pages@v5
 
       # Upload the generated static site from Next's export output folder.
       - name: Upload Pages artifact
+        if: github.ref == 'refs/heads/main'
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dreamBig-next/out
+          path: out
 
   # Deploy the uploaded artifact to the GitHub Pages environment.
   deploy:
     # Wait for the build job to finish successfully before deploying.
-    needs: build
+    needs: buildAndTest
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     environment:
       # Attach this job to the special GitHub Pages environment.

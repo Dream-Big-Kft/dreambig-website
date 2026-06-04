@@ -1,0 +1,317 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ServicesSection > matches the snapshot 1`] = `
+<DocumentFragment>
+  <section
+    class="border-y border-border/75 bg-muted/75 py-20 dark:border-white/8 dark:bg-card/55 lg:py-24"
+  >
+    <div
+      class="container mx-auto px-4 sm:px-6 lg:px-8"
+    >
+      <div
+        class="mx-auto mb-16 max-w-2xl text-center"
+      >
+        <h2
+          class="text-3xl sm:text-4xl font-bold tracking-tight text-foreground text-balance"
+        >
+          How We Help Teams Ship Faster
+        </h2>
+      </div>
+      <div
+        class="grid gap-6 sm:grid-cols-2 xl:grid-cols-3"
+      >
+        <div
+          class="relative isolate rounded-2xl border border-border bg-card p-8"
+        >
+          <div
+            class="mb-6 flex items-center gap-4"
+          >
+            <div
+              class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border bg-sky-500/10 text-sky-600 dark:text-sky-400 border-sky-500/20"
+            >
+              <svg
+                aria-hidden="true"
+                class="lucide lucide-code-xml h-6 w-6"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="m18 16 4-4-4-4"
+                />
+                <path
+                  d="m6 8-4 4 4 4"
+                />
+                <path
+                  d="m14.5 4-5 16"
+                />
+              </svg>
+            </div>
+            <h3
+              class="text-2xl font-semibold tracking-tight text-foreground"
+            >
+              Custom Web Development
+            </h3>
+          </div>
+          <p
+            class="text-lg leading-relaxed text-muted-foreground"
+          >
+            Build scalable, high-performing web applications tailored to your business goals. Powered by React, we deliver secure, modern, and highly interactive web solutions—from complex enterprise platforms to dynamic web portals.
+          </p>
+        </div>
+        <div
+          class="relative isolate rounded-2xl border border-border bg-card p-8"
+        >
+          <div
+            class="mb-6 flex items-center gap-4"
+          >
+            <div
+              class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border bg-pink-500/10 text-pink-600 dark:text-pink-400 border-pink-500/20"
+            >
+              <svg
+                aria-hidden="true"
+                class="lucide lucide-smartphone h-6 w-6"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect
+                  height="20"
+                  rx="2"
+                  ry="2"
+                  width="14"
+                  x="5"
+                  y="2"
+                />
+                <path
+                  d="M12 18h.01"
+                />
+              </svg>
+            </div>
+            <h3
+              class="text-2xl font-semibold tracking-tight text-foreground"
+            >
+              Mobile Development
+            </h3>
+          </div>
+          <p
+            class="text-lg leading-relaxed text-muted-foreground"
+          >
+            Create engaging, feature-rich mobile experiences for iOS and Android. Leveraging React Native, we design and build intuitive applications that deliver top-tier performance and keep your users connected on the go.
+          </p>
+        </div>
+        <div
+          class="relative isolate rounded-2xl border border-border bg-card p-8"
+        >
+          <div
+            class="mb-6 flex items-center gap-4"
+          >
+            <div
+              class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border bg-violet-500/10 text-violet-600 dark:text-violet-400 border-violet-500/20"
+            >
+              <svg
+                aria-hidden="true"
+                class="lucide lucide-monitor-smartphone h-6 w-6"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M18 8V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h8"
+                />
+                <path
+                  d="M10 19v-3.96 3.15"
+                />
+                <path
+                  d="M7 19h5"
+                />
+                <rect
+                  height="10"
+                  rx="2"
+                  width="6"
+                  x="16"
+                  y="12"
+                />
+              </svg>
+            </div>
+            <h3
+              class="text-2xl font-semibold tracking-tight text-foreground"
+            >
+              Hybrid & Cross-Platform
+            </h3>
+          </div>
+          <p
+            class="text-lg leading-relaxed text-muted-foreground"
+          >
+            Get the best of both worlds with seamless applications that span web and mobile. By utilizing the React ecosystem across all devices, we build versatile, code-sharing solutions that maximize your reach while streamlining development timelines.
+          </p>
+        </div>
+        <div
+          class="relative isolate rounded-2xl border border-border bg-card p-8"
+        >
+          <div
+            class="mb-6 flex items-center gap-4"
+          >
+            <div
+              class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20"
+            >
+              <svg
+                aria-hidden="true"
+                class="lucide lucide-route h-6 w-6"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle
+                  cx="6"
+                  cy="19"
+                  r="3"
+                />
+                <path
+                  d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"
+                />
+                <circle
+                  cx="18"
+                  cy="5"
+                  r="3"
+                />
+              </svg>
+            </div>
+            <h3
+              class="text-2xl font-semibold tracking-tight text-foreground"
+            >
+              Technology Consulting
+            </h3>
+          </div>
+          <p
+            class="text-lg leading-relaxed text-muted-foreground"
+          >
+            Navigate complex technical decisions with confidence. We provide expert guidance on architecture design, tech stack selection, and digital strategy to ensure your project's success.
+          </p>
+        </div>
+        <div
+          class="relative isolate rounded-2xl border border-border bg-card p-8"
+        >
+          <div
+            class="mb-6 flex items-center gap-4"
+          >
+            <div
+              class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border bg-purple-500/10 text-purple-600 dark:text-purple-400 border-purple-500/20"
+            >
+              <svg
+                aria-hidden="true"
+                class="lucide lucide-users-round h-6 w-6"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M18 21a8 8 0 0 0-16 0"
+                />
+                <circle
+                  cx="10"
+                  cy="8"
+                  r="5"
+                />
+                <path
+                  d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3"
+                />
+              </svg>
+            </div>
+            <h3
+              class="text-2xl font-semibold tracking-tight text-foreground"
+            >
+              Team Augmentation
+            </h3>
+          </div>
+          <p
+            class="text-lg leading-relaxed text-muted-foreground"
+          >
+            Accelerate your roadmap by integrating our experts into your existing team. Whether you need specialized skills or extra hands for a critical project, we seamlessly plug in to help you deliver.
+          </p>
+        </div>
+        <div
+          class="relative isolate rounded-2xl border border-border bg-card p-8"
+        >
+          <div
+            class="mb-6 flex items-center gap-4"
+          >
+            <div
+              class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20"
+            >
+              <svg
+                aria-hidden="true"
+                class="lucide lucide-file-search h-6 w-6"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"
+                />
+                <path
+                  d="M14 2v5a1 1 0 0 0 1 1h5"
+                />
+                <circle
+                  cx="11.5"
+                  cy="14.5"
+                  r="2.5"
+                />
+                <path
+                  d="M13.3 16.3 15 18"
+                />
+              </svg>
+            </div>
+            <h3
+              class="text-2xl font-semibold tracking-tight text-foreground"
+            >
+              Code Audits & Optimization
+            </h3>
+          </div>
+          <p
+            class="text-lg leading-relaxed text-muted-foreground"
+          >
+            Uncover bottlenecks and technical debt in your existing applications. We provide comprehensive codebase reviews to suggest actionable performance, security, and scalability improvements.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</DocumentFragment>
+`;
