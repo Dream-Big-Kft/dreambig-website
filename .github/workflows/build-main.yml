@@ -19,7 +19,7 @@ concurrency:
 
 jobs:
   # Build the static site and upload it as a Pages artifact.
-  build:
+  buildAndTest:
     # Use GitHub's Ubuntu runner for the CI job.
     runs-on: ubuntu-latest
 
@@ -84,7 +84,7 @@ jobs:
   # Deploy the uploaded artifact to the GitHub Pages environment.
   deploy:
     # Wait for the build job to finish successfully before deploying.
-    needs: build
+    needs: buildAndTest
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     environment:
