@@ -32,7 +32,7 @@ export function readCookie<TShape>(
   return storedCookie;
 }
 
-export function getCookiConsent() {
+export function getCookieConsent() {
   const storedConsent = readCookie(COOKIE_CONSENT_COOKIE_NAME, isValidStoredConsent);
   return storedConsent;
 }
@@ -46,7 +46,7 @@ export function saveConsent(consent: CookieConsent): void {
 }
 
 export function hasConsent(): boolean {
-  return !!getCookiConsent();
+  return !!getCookieConsent();
 }
 
 function isValidStoredConsent(value: unknown): value is CookieConsent {
