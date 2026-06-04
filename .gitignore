@@ -3,6 +3,7 @@
 node_modules/
 .next/
 coverage/
+storybook-static/
 out/
 audit-report.json
 audit-summary.txt

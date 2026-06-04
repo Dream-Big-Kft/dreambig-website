@@ -15,6 +15,8 @@ export default defineConfig(
       "out/**",
       // Ignores test coverage reports.
       "coverage/**",
+      // Ignores generated Storybook build output.
+      "storybook-static/**",
       // Ignores Next.js generated TypeScript environment declarations.
       "next-env.d.ts",
       // Ignores installed dependencies.

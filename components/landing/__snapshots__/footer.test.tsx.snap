@@ -68,7 +68,7 @@ exports[`Footer > matches the snapshot 1`] = `
             Privacy Policy
           </a>
           <button
-            class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive cursor-pointer hover:underline has-[>svg]:px-3 h-auto p-0 text-sm font-normal text-muted-foreground underline underline-offset-4 hover:text-foreground dark:text-foreground/72 dark:hover:text-foreground/92"
+            class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:underline has-[>svg]:px-3 h-auto p-0 text-sm font-normal text-muted-foreground underline underline-offset-4 hover:text-foreground dark:text-foreground/72 dark:hover:text-foreground/92"
             data-slot="button"
             type="button"
           >
