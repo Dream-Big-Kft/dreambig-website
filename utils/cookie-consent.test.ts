@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import { hasConsent, getCookiConsent, saveConsent } from "./cookie-consent";
+import { getCookieConsent, hasConsent, saveConsent } from "./cookie-consent";
 
 const COOKIE_CONSENT_COOKIE_NAME = "dreambig_CC";
 
@@ -17,14 +17,14 @@ describe("cookie consent storage", () => {
   });
 
   it("returns undefined when no consent cookie exists", () => {
-    expect(getCookiConsent()).toBeUndefined();
+    expect(getCookieConsent()).toBeUndefined();
     expect(hasConsent()).toBe(false);
   });
 
   it("saves and reads consent", () => {
     saveConsent(selectedConsent);
 
-    expect(getCookiConsent()).toEqual(selectedConsent);
+    expect(getCookieConsent()).toEqual(selectedConsent);
     expect(hasConsent()).toBe(true);
   });
 
@@ -36,7 +36,7 @@ describe("cookie consent storage", () => {
       marketing: false,
     });
 
-    expect(getCookiConsent()).toEqual({
+    expect(getCookieConsent()).toEqual({
       necessary: true,
       preferences: false,
       statistics: false,
@@ -47,7 +47,7 @@ describe("cookie consent storage", () => {
   it("ignores malformed consent cookies", () => {
     document.cookie = `${COOKIE_CONSENT_COOKIE_NAME}=not-json; path=/`;
 
-    expect(getCookiConsent()).toBeUndefined();
+    expect(getCookieConsent()).toBeUndefined();
     expect(hasConsent()).toBe(false);
   });
 
@@ -57,7 +57,7 @@ describe("cookie consent storage", () => {
       marketing: true,
     });
 
-    expect(getCookiConsent()).toBeUndefined();
+    expect(getCookieConsent()).toBeUndefined();
     expect(hasConsent()).toBe(false);
   });
 });
