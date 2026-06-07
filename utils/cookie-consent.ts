@@ -19,55 +19,26 @@ export const DEFAULT_CONSENT: CookieConsent = {
   marketing: false,
 };
 
-export function readCookie<TShape>(
-  cookieName: string,
-  validator: (value: unknown) => value is TShape,
-): TShape | undefined {
-
-  const storedCookie = cookies.get<unknown>(cookieName);
-
-  if (!storedCookie) return undefined;
-  if (!validator(storedCookie)) return undefined;
-
+export const getCookieConsent = () => {
+  const storedCookie = cookies.get<CookieConsent | undefined>(COOKIE_CONSENT_COOKIE_NAME);
   return storedCookie;
-}
+};
 
-export function getCookieConsent() {
-  const storedConsent = readCookie(COOKIE_CONSENT_COOKIE_NAME, isValidStoredConsent);
-  return storedConsent;
-}
-
-export function saveConsent(consent: CookieConsent): void {
+export const saveConsent = (consent: CookieConsent): void => {
   cookies.set(
     COOKIE_CONSENT_COOKIE_NAME,
     { ...consent, necessary: true },
     getCookieOptions(),
   );
-}
+};
 
-export function hasConsent(): boolean {
-  return !!getCookieConsent();
-}
+export const hasConsent = () => !!getCookieConsent();
 
-function isValidStoredConsent(value: unknown): value is CookieConsent {
-  if (!value || typeof value !== "object") return false;
-
-  // This is a limited cast so we can inspect possible fields
-  const consent = value as Partial<CookieConsent>;
-
-  return (
-    typeof consent.necessary === "boolean" &&
-    typeof consent.preferences === "boolean" &&
-    typeof consent.statistics === "boolean" &&
-    typeof consent.marketing === "boolean"
-  );
-}
-
-function getCookieOptions(): CookieSetOptions {
+const getCookieOptions = (): CookieSetOptions => {
   return {
     path: "/",
     maxAge: COOKIE_CONSENT_MAX_AGE_SECONDS,
     sameSite: "strict",
     secure: window.location.protocol === "https:",
   };
-}
+};
