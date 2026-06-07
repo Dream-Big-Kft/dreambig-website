@@ -16,8 +16,8 @@ describe("cookie consent storage", () => {
     removeConsentCookie();
   });
 
-  it("returns undefined when no consent cookie exists", () => {
-    expect(getCookieConsent()).toBeUndefined();
+  it("returns an empty value when no consent cookie exists", () => {
+    expect(getCookieConsent()).toBe("");
     expect(hasConsent()).toBe(false);
   });
 
@@ -44,30 +44,32 @@ describe("cookie consent storage", () => {
     });
   });
 
-  it("ignores malformed consent cookies", () => {
+  it("reads malformed consent cookies as their raw value", () => {
     document.cookie = `${COOKIE_CONSENT_COOKIE_NAME}=not-json; path=/`;
 
-    expect(getCookieConsent()).toBeUndefined();
-    expect(hasConsent()).toBe(false);
+    expect(getCookieConsent()).toBe("not-json");
+    expect(hasConsent()).toBe(true);
   });
 
-  it("ignores partial consent cookies", () => {
-    writeConsentCookie({
+  it("reads stored partial consent cookies", () => {
+    const partialConsent = {
       necessary: true,
       marketing: true,
-    });
+    };
 
-    expect(getCookieConsent()).toBeUndefined();
-    expect(hasConsent()).toBe(false);
+    writeConsentCookie(partialConsent);
+
+    expect(getCookieConsent()).toEqual(partialConsent);
+    expect(hasConsent()).toBe(true);
   });
 });
 
-function writeConsentCookie(value: unknown): void {
+const writeConsentCookie = (value: unknown): void => {
   document.cookie = `${COOKIE_CONSENT_COOKIE_NAME}=${encodeURIComponent(
     JSON.stringify(value),
   )}; path=/`;
-}
+};
 
-function removeConsentCookie(): void {
+const removeConsentCookie = (): void => {
   document.cookie = `${COOKIE_CONSENT_COOKIE_NAME}=; max-age=0; path=/`;
-}
+};
