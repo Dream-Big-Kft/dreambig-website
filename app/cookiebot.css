@@ -18,6 +18,9 @@
   --cookiebot-powered-logo-filter: none;
   --cookiebot-powered-logo-opacity: 1;
   --cookiebot-shadow: 0 22px 70px rgba(15, 23, 42, 0.18);
+  --cookiebot-switch-width: 2.75rem;
+  --cookiebot-switch-height: 1.5rem;
+  --cookiebot-switch-thumb-size: 1.08rem;
 }
 
 .dark {
@@ -197,13 +200,45 @@
 }
 
 #CybotCookiebotDialog .CybotCookiebotDialogBodyLevelButtonSlider {
+  display: inline-flex !important;
+  width: var(--cookiebot-switch-width) !important;
+  min-width: var(--cookiebot-switch-width) !important;
+  height: var(--cookiebot-switch-height) !important;
+  align-items: center !important;
+  border: 1px solid color-mix(in oklch, var(--cookiebot-text) 16%, var(--cookiebot-border)) !important;
+  border-radius: 999px !important;
   background-color: color-mix(in oklch, var(--cookiebot-text) 12%, var(--cookiebot-surface)) !important;
-  border-color: color-mix(in oklch, var(--cookiebot-text) 16%, var(--cookiebot-border)) !important;
+  box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.08) !important;
+  cursor: pointer !important;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease !important;
 }
 
 #CybotCookiebotDialog .CybotCookiebotDialogBodyLevelButtonSlider::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 0.18rem !important;
+  width: var(--cookiebot-switch-thumb-size) !important;
+  height: var(--cookiebot-switch-thumb-size) !important;
+  border: 1px solid color-mix(in oklch, var(--cookiebot-text) 14%, var(--cookiebot-border)) !important;
+  border-radius: 999px !important;
   background-color: var(--cookiebot-surface) !important;
-  border-color: color-mix(in oklch, var(--cookiebot-text) 14%, var(--cookiebot-border)) !important;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.18) !important;
+  transform: translateY(-50%) !important;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease !important;
+}
+
+#CybotCookiebotDialog .CybotCookiebotDialogBodyLevelButton:focus-visible + .CybotCookiebotDialogBodyLevelButtonSlider {
+  outline: none !important;
+  box-shadow:
+    inset 0 1px 2px rgba(15, 23, 42, 0.08),
+    0 0 0 3px color-mix(in oklch, var(--cookiebot-primary) 24%, transparent) !important;
 }
 
 #CybotCookiebotDialog .CybotCookiebotDialogBodyLevelButton:checked + .CybotCookiebotDialogBodyLevelButtonSlider {
@@ -214,10 +249,30 @@
 #CybotCookiebotDialog .CybotCookiebotDialogBodyLevelButton:checked + .CybotCookiebotDialogBodyLevelButtonSlider::before {
   background-color: var(--cookiebot-primary-text) !important;
   border-color: color-mix(in oklch, var(--cookiebot-primary-text) 82%, var(--cookiebot-border)) !important;
+  transform: translate(calc(var(--cookiebot-switch-width) - var(--cookiebot-switch-thumb-size) - 0.38rem), -50%) !important;
 }
 
 #CybotCookiebotDialog .CybotCookiebotDialogBodyLevelButtonSliderWrapperDisabled {
   opacity: 0.72 !important;
+}
+
+#CybotCookiebotDialog .CybotCookiebotDialogBodyLevelButtonSliderWrapperDisabled .CybotCookiebotDialogBodyLevelButtonSlider {
+  cursor: not-allowed !important;
+}
+
+#CybotCookiebotDialog input[type="checkbox"]:not(.CybotCookiebotDialogBodyLevelButton),
+#CybotCookiebotDialog input[type="radio"] {
+  width: 1rem !important;
+  height: 1rem !important;
+  margin: 0 !important;
+  accent-color: var(--cookiebot-primary) !important;
+  cursor: pointer !important;
+}
+
+#CybotCookiebotDialog input[type="checkbox"]:not(.CybotCookiebotDialogBodyLevelButton):focus-visible,
+#CybotCookiebotDialog input[type="radio"]:focus-visible {
+  outline: 2px solid color-mix(in oklch, var(--cookiebot-primary) 72%, transparent) !important;
+  outline-offset: 2px !important;
 }
 
 #CybotCookiebotDialogDetailBodyContentCookieContainerTypes .CookieCard,
