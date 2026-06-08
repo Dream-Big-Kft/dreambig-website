@@ -2,7 +2,6 @@ import { Icon } from "@iconify/react";
 import linkedinIcon from "@iconify-icons/simple-icons/linkedin";
 import Image from "next/image";
 import Link from "next/link";
-import { CookieSettingsButton } from "@/components/CookieSettingsButton";
 
 export function Footer() {
   return (
@@ -47,10 +46,12 @@ export function Footer() {
             >
               Privacy Policy
             </Link>
-            <CookieSettingsButton
-              variant="link"
-              className="h-auto p-0 text-sm font-normal text-muted-foreground underline underline-offset-4 hover:text-foreground dark:text-foreground/72 dark:hover:text-foreground/92"
-            />
+            <Link
+              href="/website-cookies"
+              className="underline underline-offset-4 hover:text-foreground transition-colors dark:hover:text-foreground/92"
+            >
+              Website-cookies
+            </Link>
           </div>
         </div>
       </div>
