@@ -16,8 +16,8 @@ describe("cookie consent storage", () => {
     removeConsentCookie();
   });
 
-  it("returns an empty value when no consent cookie exists", () => {
-    expect(getCookieConsent()).toBe("");
+  it("returns undefined when no consent cookie exists", () => {
+    expect(getCookieConsent()).toBeUndefined();
     expect(hasConsent()).toBe(false);
   });
 
@@ -44,23 +44,54 @@ describe("cookie consent storage", () => {
     });
   });
 
-  it("reads malformed consent cookies as their raw value", () => {
-    document.cookie = `${COOKIE_CONSENT_COOKIE_NAME}=not-json; path=/`;
+  it("saves only known consent keys", () => {
+    saveConsent({
+      necessary: true,
+      preferences: true,
+      statistics: false,
+      marketing: false,
+      extra: true,
+    } as never);
 
-    expect(getCookieConsent()).toBe("not-json");
-    expect(hasConsent()).toBe(true);
+    expect(getCookieConsent()).toEqual({
+      necessary: true,
+      preferences: true,
+      statistics: false,
+      marketing: false,
+    });
   });
 
-  it("reads stored partial consent cookies", () => {
-    const partialConsent = {
+  it("ignores malformed consent cookies", () => {
+    document.cookie = `${COOKIE_CONSENT_COOKIE_NAME}=not-json; path=/`;
+
+    expect(getCookieConsent()).toBeUndefined();
+    expect(hasConsent()).toBe(false);
+  });
+
+  it("ignores partial consent cookies", () => {
+    writeConsentCookie({
       necessary: true,
       marketing: true,
-    };
+    });
 
-    writeConsentCookie(partialConsent);
+    expect(getCookieConsent()).toBeUndefined();
+    expect(hasConsent()).toBe(false);
+  });
 
-    expect(getCookieConsent()).toEqual(partialConsent);
-    expect(hasConsent()).toBe(true);
+  it("normalizes necessary consent to true when reading", () => {
+    writeConsentCookie({
+      necessary: false,
+      preferences: true,
+      statistics: true,
+      marketing: false,
+    });
+
+    expect(getCookieConsent()).toEqual({
+      necessary: true,
+      preferences: true,
+      statistics: true,
+      marketing: false,
+    });
   });
 });
 
