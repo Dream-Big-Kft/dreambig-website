@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import { ThemeProvider } from "next-themes";
-import config from "@/config";
+import { CookieConsentBanner } from "@/components/CookieConsentBanner";
 import "./globals.css";
 import "./cookiebot.css";
 import SegmentInitializer from '@/components/SegmentInitializer';
@@ -40,19 +39,8 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
         </ThemeProvider>
+        <CookieConsentBanner />
         <SegmentInitializer />
-        {/*
-                    Load Cookiebot after hydration so its injected banner cannot
-                    mutate server-rendered markup before React attaches. Analytics
-                    remains consent-gated in our own Segment wrapper, so we do not
-                    rely on Cookiebot's pre-hydration auto-blocking mode here.
-                */}
-        <Script
-          id="Cookiebot"
-          src="https://consent.cookiebot.com/uc.js"
-          data-cbid={config.thirdParty.cookiebot.id}
-          strategy="afterInteractive"
-        />
       </body>
     </html>
   );
