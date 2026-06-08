@@ -61,21 +61,31 @@ describe("cookie consent storage", () => {
     });
   });
 
-  it("ignores malformed consent cookies", () => {
+  it("treats malformed consent cookies as default false selections", () => {
     document.cookie = `${COOKIE_CONSENT_COOKIE_NAME}=not-json; path=/`;
 
-    expect(getCookieConsent()).toBeUndefined();
-    expect(hasConsent()).toBe(false);
+    expect(getCookieConsent()).toEqual({
+      necessary: true,
+      preferences: false,
+      statistics: false,
+      marketing: false,
+    });
+    expect(hasConsent()).toBe(true);
   });
 
-  it("ignores partial consent cookies", () => {
+  it("reads partial consent cookies with missing categories as false", () => {
     writeConsentCookie({
       necessary: true,
       marketing: true,
     });
 
-    expect(getCookieConsent()).toBeUndefined();
-    expect(hasConsent()).toBe(false);
+    expect(getCookieConsent()).toEqual({
+      necessary: true,
+      preferences: false,
+      statistics: false,
+      marketing: true,
+    });
+    expect(hasConsent()).toBe(true);
   });
 
   it("normalizes necessary consent to true when reading", () => {
