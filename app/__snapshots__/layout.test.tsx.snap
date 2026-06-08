@@ -13,7 +13,7 @@ exports[`RootLayout > matches the snapshot 1`] = `
       class="grid w-full gap-6 border border-border bg-card p-6 text-card-foreground shadow-[0_22px_70px_rgba(15,23,42,0.16)] md:grid-cols-[12rem_minmax(0,1fr)] lg:grid-cols-[12rem_minmax(0,1fr)_17rem] lg:items-center"
     >
       <div
-        class="flex items-center gap-8 md:min-h-48 md:flex-col md:items-center md:justify-center"
+        class="flex items-center gap-9 md:min-h-48 md:flex-col md:items-center md:justify-center"
       >
         <img
           alt="Dream Big Software logo"
@@ -143,20 +143,26 @@ exports[`RootLayout > matches the snapshot 1`] = `
               />
             </button>
           </label>
+          <a
+            class="text-muted-foreground underline underline-offset-4 transition-colors hover:text-foreground dark:text-foreground/72 dark:hover:text-foreground/92"
+            href="/website-cookies"
+          >
+            Website-cookies
+          </a>
         </div>
       </div>
       <div
         class="grid gap-3 md:col-span-2 lg:col-span-1"
       >
         <button
-          class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-base font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive cursor-pointer bg-primary text-primary-foreground shadow-sm hover:bg-primary hover:shadow-[0_10px_24px_rgba(15,23,42,0.16)] active:shadow-sm px-4 py-2 has-[>svg]:px-3 h-12"
+          class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-base font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive cursor-pointer bg-primary text-primary-foreground shadow-sm hover:bg-primary/80 hover:shadow-[0_10px_24px_rgba(15,23,42,0.16)] active:shadow-sm px-4 py-2 has-[>svg]:px-3 h-12"
           data-slot="button"
           type="button"
         >
           Allow all
         </button>
         <button
-          class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-base font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive cursor-pointer bg-primary text-primary-foreground shadow-sm hover:bg-primary hover:shadow-[0_10px_24px_rgba(15,23,42,0.16)] active:shadow-sm px-4 py-2 has-[>svg]:px-3 h-12"
+          class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-base font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive cursor-pointer border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 h-12"
           data-slot="button"
           type="button"
         >
@@ -167,7 +173,7 @@ exports[`RootLayout > matches the snapshot 1`] = `
           data-slot="button"
           type="button"
         >
-          Customize
+          Reject
         </button>
       </div>
     </div>
