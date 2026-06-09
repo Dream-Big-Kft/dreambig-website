@@ -45,6 +45,8 @@ export default defineConfig(
     rules: {
       // Warns when editor defaults drift from the repository's 2-space indentation.
       indent: ["warn", 2],
+      // Requires declarations to appear before use so files read top-down.
+      "@typescript-eslint/no-use-before-define": "error",
       // Warns about unused variables while allowing intentionally unused names prefixed with `_`.
       "@typescript-eslint/no-unused-vars": [
         // Makes unused variables a warning instead of a commit-blocking error.

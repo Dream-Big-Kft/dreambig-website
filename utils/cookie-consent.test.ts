@@ -10,6 +10,16 @@ const selectedConsent = {
   marketing: false,
 };
 
+const writeConsentCookie = (value: unknown): void => {
+  document.cookie = `${COOKIE_CONSENT_COOKIE_NAME}=${encodeURIComponent(
+    JSON.stringify(value),
+  )}; path=/`;
+};
+
+const removeConsentCookie = (): void => {
+  document.cookie = `${COOKIE_CONSENT_COOKIE_NAME}=; max-age=0; path=/`;
+};
+
 describe("cookie consent storage", () => {
   beforeEach(() => {
     vi.useRealTimers();
@@ -104,13 +114,3 @@ describe("cookie consent storage", () => {
     });
   });
 });
-
-const writeConsentCookie = (value: unknown): void => {
-  document.cookie = `${COOKIE_CONSENT_COOKIE_NAME}=${encodeURIComponent(
-    JSON.stringify(value),
-  )}; path=/`;
-};
-
-const removeConsentCookie = (): void => {
-  document.cookie = `${COOKIE_CONSENT_COOKIE_NAME}=; max-age=0; path=/`;
-};

@@ -46,12 +46,12 @@ export function Footer() {
             >
               Privacy Policy
             </Link>
-            <Link
+            {/* <Link
               href="/website-cookies"
               className="underline underline-offset-4 hover:text-foreground transition-colors dark:hover:text-foreground/92"
             >
               Website-cookies
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>

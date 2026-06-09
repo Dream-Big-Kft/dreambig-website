@@ -3,6 +3,23 @@ import { Footer } from "@/components/landing/footer";
 import { CookieSettingsButton } from "@/components/CookieSettingsButton";
 import { CompanyEmailLink } from "@/components/CompanyEmailLink";
 
+function Section({
+  title,
+  children,
+}: {
+  title: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <section className="mt-10">
+      <h2 className="text-xl font-semibold text-foreground">{title}</h2>
+      <div className="mt-3 text-base leading-relaxed text-muted-foreground">
+        {children}
+      </div>
+    </section>
+  );
+}
+
 export default function PrivacyPage() {
   return (
     <>
@@ -153,22 +170,5 @@ export default function PrivacyPage() {
       </main>
       <Footer />
     </>
-  );
-}
-
-function Section({
-  title,
-  children,
-}: {
-  title: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <section className="mt-10">
-      <h2 className="text-xl font-semibold text-foreground">{title}</h2>
-      <div className="mt-3 text-base leading-relaxed text-muted-foreground">
-        {children}
-      </div>
-    </section>
   );
 }
