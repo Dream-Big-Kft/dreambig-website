@@ -35,6 +35,11 @@ export const CookieConsentBanner = () => {
     }));
   };
 
+  const persistConsent = (consent: CookieConsent) => {
+    saveConsent(consent);
+    setVisible(false);
+  };
+
   const acceptAll = () => {
     persistConsent({
       necessary: true,
@@ -50,11 +55,6 @@ export const CookieConsentBanner = () => {
 
   const rejectAll = () => {
     persistConsent(DEFAULT_CONSENT);
-  };
-
-  const persistConsent = (consent: CookieConsent) => {
-    saveConsent(consent);
-    setVisible(false);
   };
 
   if (!visible) return null;
@@ -108,12 +108,12 @@ export const CookieConsentBanner = () => {
                 />
               </label>
             ))}
-            <Link
+            {/* <Link
               href="/website-cookies"
               className="text-muted-foreground underline underline-offset-4 transition-colors hover:text-foreground dark:text-foreground/72 dark:hover:text-foreground/92"
             >
               Website-cookies
-            </Link>
+            </Link> */}
           </div>
 
         </div>
