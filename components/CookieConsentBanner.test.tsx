@@ -6,6 +6,10 @@ import { getCookieConsent } from "@/utils/cookie-consent";
 
 const COOKIE_CONSENT_COOKIE_NAME = "dreambig_CC";
 
+const removeConsentCookie = (): void => {
+  document.cookie = `${COOKIE_CONSENT_COOKIE_NAME}=; max-age=0; path=/`;
+};
+
 describe("CookieConsentBanner", () => {
   beforeEach(() => {
     removeConsentCookie();
@@ -85,7 +89,3 @@ describe("CookieConsentBanner", () => {
     );
   });
 });
-
-const removeConsentCookie = (): void => {
-  document.cookie = `${COOKIE_CONSENT_COOKIE_NAME}=; max-age=0; path=/`;
-};

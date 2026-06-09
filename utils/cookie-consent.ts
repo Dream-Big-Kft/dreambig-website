@@ -23,38 +23,21 @@ export const DEFAULT_CONSENT: CookieConsent = {
   marketing: false,
 };
 
-export const getCookieConsent = (): CookieConsent | undefined => {
-  const storedCookie = cookies.get<CookieConsent | undefined>(COOKIE_CONSENT_COOKIE_NAME);
-  if(!storedCookie) return undefined;
-
-  return {
-    necessary: true,
-    preferences: !!storedCookie?.preferences,
-    statistics: !!storedCookie?.statistics,
-    marketing: !!storedCookie?.marketing,
-  };
+const cookieOptions: CookieSetOptions = {
+  path: "/",
+  maxAge: COOKIE_CONSENT_MAX_AGE_SECONDS,
+  sameSite: "strict",
+  secure: window.location.protocol === "https:",
 };
+
+export const getCookieConsent = () => cookies.get<CookieConsent | undefined>(COOKIE_CONSENT_COOKIE_NAME);
 
 export const saveConsent = (consent: CookieConsent): void => {
   cookies.set(
     COOKIE_CONSENT_COOKIE_NAME,
-    {
-      necessary: true,
-      preferences: consent.preferences,
-      statistics: consent.statistics,
-      marketing: consent.marketing,
-    },
-    getCookieOptions(),
+    consent,
+    cookieOptions,
   );
 };
 
 export const hasConsent = () => !!getCookieConsent();
-
-const getCookieOptions = (): CookieSetOptions => {
-  return {
-    path: "/",
-    maxAge: COOKIE_CONSENT_MAX_AGE_SECONDS,
-    sameSite: "strict",
-    secure: window.location.protocol === "https:",
-  };
-};
