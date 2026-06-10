@@ -143,12 +143,6 @@ exports[`RootLayout > matches the snapshot 1`] = `
               />
             </button>
           </label>
-          <a
-            class="text-muted-foreground underline underline-offset-4 transition-colors hover:text-foreground dark:text-foreground/72 dark:hover:text-foreground/92"
-            href="/website-cookies"
-          >
-            Website-cookies
-          </a>
         </div>
       </div>
       <div
