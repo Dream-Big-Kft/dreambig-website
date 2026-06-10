@@ -1,16 +1,8 @@
 import Cookies from "universal-cookie";
 import type { CookieSetOptions } from "universal-cookie";
-
-//TODO: labels should come later from localisation files, but for now we can keep them here
-export const cookieCategories = [
-  { key: "necessary", label: "Necessary", locked: true },
-  { key: "preferences", label: "Preferences", locked: false },
-  { key: "statistics", label: "Statistics", locked: false },
-  { key: "marketing", label: "Marketing", locked: false },
-] as const;
-
-export type CookieCategoryKey = (typeof cookieCategories)[number]["key"];
-export type CookieConsent = Record<CookieCategoryKey, boolean>;
+import type { CookieConsent } from "./cookie-categories";
+export { cookieCategories } from "./cookie-categories";
+export type { CookieCategoryKey, CookieConsent } from "./cookie-categories";
 
 const COOKIE_CONSENT_COOKIE_NAME = "dreambig_CC"; // TODO: Renaming!
 const COOKIE_CONSENT_MAX_AGE_SECONDS = 365 * 24 * 60 * 60;
