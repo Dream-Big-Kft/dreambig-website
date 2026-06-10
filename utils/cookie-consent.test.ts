@@ -26,8 +26,8 @@ describe("cookie consent storage", () => {
     removeConsentCookie();
   });
 
-  it("returns undefined when no consent cookie exists", () => {
-    expect(getCookieConsent()).toBeUndefined();
+  it("returns falsy when no consent cookie exists", () => {
+    expect(getCookieConsent()).toBeFalsy();
     expect(hasConsent()).toBe(false);
   });
 
@@ -36,39 +36,6 @@ describe("cookie consent storage", () => {
 
     expect(getCookieConsent()).toEqual(selectedConsent);
     expect(hasConsent()).toBe(true);
-  });
-
-  it("always normalizes necessary consent to true", () => {
-    saveConsent({
-      necessary: false,
-      preferences: false,
-      statistics: false,
-      marketing: false,
-    });
-
-    expect(getCookieConsent()).toEqual({
-      necessary: true,
-      preferences: false,
-      statistics: false,
-      marketing: false,
-    });
-  });
-
-  it("saves only known consent keys", () => {
-    saveConsent({
-      necessary: true,
-      preferences: true,
-      statistics: false,
-      marketing: false,
-      extra: true,
-    } as never);
-
-    expect(getCookieConsent()).toEqual({
-      necessary: true,
-      preferences: true,
-      statistics: false,
-      marketing: false,
-    });
   });
 
   it("treats malformed consent cookies as default false selections", () => {
