@@ -1,5 +1,4 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import { getCookieConsent, hasConsent, saveConsent } from "./cookie-consent";
 
 const COOKIE_CONSENT_COOKIE_NAME = "dreambig_CC";
 
@@ -20,52 +19,55 @@ const removeConsentCookie = (): void => {
   document.cookie = `${COOKIE_CONSENT_COOKIE_NAME}=; max-age=0; path=/`;
 };
 
+const importCookieConsentModule = async () => {
+  vi.resetModules();
+  return import("./cookie-consent");
+};
+
 describe("cookie consent storage", () => {
   beforeEach(() => {
     vi.useRealTimers();
     removeConsentCookie();
   });
 
-  it("returns falsy when no consent cookie exists", () => {
+  it("returns falsy when no consent cookie exists", async () => {
+    const { getCookieConsent, hasConsent } = await importCookieConsentModule();
+
     expect(getCookieConsent()).toBeFalsy();
     expect(hasConsent()).toBe(false);
   });
 
-  it("saves and reads consent", () => {
+  it("saves and reads consent", async () => {
+    const { getCookieConsent, hasConsent, saveConsent } = await importCookieConsentModule();
+
     saveConsent(selectedConsent);
 
     expect(getCookieConsent()).toEqual(selectedConsent);
     expect(hasConsent()).toBe(true);
   });
 
-  it("treats malformed consent cookies as default false selections", () => {
+  it("deletes malformed consent cookies on module import", async () => {
     document.cookie = `${COOKIE_CONSENT_COOKIE_NAME}=not-json; path=/`;
 
-    expect(getCookieConsent()).toEqual({
-      necessary: true,
-      preferences: false,
-      statistics: false,
-      marketing: false,
-    });
-    expect(hasConsent()).toBe(true);
+    const { getCookieConsent, hasConsent } = await importCookieConsentModule();
+
+    expect(getCookieConsent()).toBeFalsy();
+    expect(hasConsent()).toBe(false);
   });
 
-  it("reads partial consent cookies with missing categories as false", () => {
+  it("deletes partial consent cookies on module import", async () => {
     writeConsentCookie({
       necessary: true,
       marketing: true,
     });
 
-    expect(getCookieConsent()).toEqual({
-      necessary: true,
-      preferences: false,
-      statistics: false,
-      marketing: true,
-    });
-    expect(hasConsent()).toBe(true);
+    const { getCookieConsent, hasConsent } = await importCookieConsentModule();
+
+    expect(getCookieConsent()).toBeFalsy();
+    expect(hasConsent()).toBe(false);
   });
 
-  it("normalizes necessary consent to true when reading", () => {
+  it("deletes consent cookies where necessary is false on module import", async () => {
     writeConsentCookie({
       necessary: false,
       preferences: true,
@@ -73,11 +75,9 @@ describe("cookie consent storage", () => {
       marketing: false,
     });
 
-    expect(getCookieConsent()).toEqual({
-      necessary: true,
-      preferences: true,
-      statistics: true,
-      marketing: false,
-    });
+    const { getCookieConsent, hasConsent } = await importCookieConsentModule();
+
+    expect(getCookieConsent()).toBeFalsy();
+    expect(hasConsent()).toBe(false);
   });
 });
