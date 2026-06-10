@@ -67,12 +67,6 @@ exports[`Footer > matches the snapshot 1`] = `
           >
             Privacy Policy
           </a>
-          <a
-            class="underline underline-offset-4 hover:text-foreground transition-colors dark:hover:text-foreground/92"
-            href="/website-cookies"
-          >
-            Website-cookies
-          </a>
         </div>
       </div>
     </div>
