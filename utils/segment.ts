@@ -1,44 +1,17 @@
-import { AnalyticsBrowser } from "@segment/analytics-next";
 import config from "@/config";
+import { AnalyticsBrowser } from "@segment/analytics-next";
+import type { CookieConsent } from "./cookie-consent";
 
 // Instance created but NOT loaded — no network activity until initSegment() is called
 export const analytics = new AnalyticsBrowser();
 let loaded = false;
 
-export type AnalyticsConsent = {
-  statistics: boolean;
-  marketing: boolean;
-  necessary: boolean;
-  preferences: boolean;
-};
-
-export function getCookieConsent(): AnalyticsConsent {
-  if (typeof window === "undefined") {
-    return { 
-      statistics: false,
-      marketing: false,
-      necessary: false,
-      preferences: false
-    };
-  }
-
-  return {
-    statistics: window.Cookiebot?.consent?.statistics === true,
-    marketing: window.Cookiebot?.consent?.marketing === true,
-    necessary: window.Cookiebot?.consent?.necessary === true,
-    preferences: window.Cookiebot?.consent?.preferences === true,
-  };
-}
-
 export function isLoaded(): boolean {
   return loaded;
 }
 
-export async function initSegment(): Promise<void> {
-  if (loaded) return;
-
-  const consent = getCookieConsent();
-  if (!consent.statistics) return;
+export async function initSegment(consent: CookieConsent | undefined): Promise<void> {
+  if (loaded || !consent?.statistics) return;
 
   const writeKey = config.thirdParty.segment.writeKey;
   if (!writeKey) {

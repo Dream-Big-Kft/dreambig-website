@@ -1,7 +1,8 @@
-import { analytics, getCookieConsent, isLoaded } from "./segment";
+import { getCookieConsent } from "./cookie-consent";
+import { analytics, isLoaded } from "./segment";
 
 function isTrackingAllowed(): boolean {
-  return getCookieConsent().statistics && isLoaded();
+  return getCookieConsent()?.statistics === true && isLoaded();
 }
 
 export function trackPageView(): void {
