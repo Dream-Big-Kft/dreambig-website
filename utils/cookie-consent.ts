@@ -29,16 +29,16 @@ export const getCookieConsent = () => cookies.get<CookieConsent | undefined>(COO
 
 const deleteInvalidConsentCookie = (): void => {
   const value = getCookieConsent();
-  const consent = value as Partial<Record<string, unknown>> | undefined;
+  const consent = value as Record<string, unknown> | undefined;
 
   const isValidConsent =
     value !== undefined
     && typeof value === "object"
     && value !== null
     && consent?.necessary === true
-    && typeof consent.preferences === "boolean"
-    && typeof consent.statistics === "boolean"
-    && typeof consent.marketing === "boolean";
+    && typeof consent?.preferences === "boolean"
+    && typeof consent?.statistics === "boolean"
+    && typeof consent?.marketing === "boolean";
 
   if (value !== undefined && !isValidConsent) {
     cookies.remove(COOKIE_CONSENT_COOKIE_NAME, { path: "/" });
