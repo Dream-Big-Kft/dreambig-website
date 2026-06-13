@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
 import { CookieConsentBanner } from "@/components/CookieConsentBanner";
 import "./globals.css";
-import "./cookiebot.css";
 import SegmentInitializer from '@/components/SegmentInitializer';
 
 export const metadata: Metadata = {
