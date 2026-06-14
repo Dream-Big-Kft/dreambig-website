@@ -1,6 +1,7 @@
 import js from "@eslint/js";
 import { defineConfig } from "eslint/config";
 import globals from "globals";
+import reactHooks from "eslint-plugin-react-hooks";
 import tseslint from "typescript-eslint";
 
 // Exports the flat ESLint configuration used when running `eslint .`.
@@ -41,12 +42,19 @@ export default defineConfig(
         ...globals.node,
       },
     },
+    plugins: {
+      "react-hooks": reactHooks,
+    },
     // Project-specific rule choices that we can tighten or relax over time.
     rules: {
       // Warns when editor defaults drift from the repository's 2-space indentation.
       indent: ["warn", 2],
       // Requires declarations to appear before use so files read top-down.
       "@typescript-eslint/no-use-before-define": "error",
+      // Enforces React hook call ordering.
+      "react-hooks/rules-of-hooks": "error",
+      // Warns when effect dependencies do not match values used inside the effect.
+      "react-hooks/exhaustive-deps": "warn",
       // Warns about unused variables while allowing intentionally unused names prefixed with `_`.
       "@typescript-eslint/no-unused-vars": [
         // Makes unused variables a warning instead of a commit-blocking error.
