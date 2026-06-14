@@ -2,12 +2,55 @@ import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { beforeEach, describe, expect, it } from "vitest";
 import { CookieConsentBanner } from "./CookieConsentBanner";
-import { getCookieConsent } from "@/utils/cookie-consent";
+import {
+  DEFAULT_CONSENT,
+  getCookieConsent,
+  type CookieConsent,
+} from "@/utils/cookie-consent";
+import { AppContext } from "@/components/AppContext";
+import { type ReactNode, useState } from "react";
 
 const COOKIE_CONSENT_COOKIE_NAME = "dreambig_CC";
 
 const removeConsentCookie = (): void => {
   document.cookie = `${COOKIE_CONSENT_COOKIE_NAME}=; max-age=0; path=/`;
+};
+
+function CookieConsentTestProvider({
+  children,
+  initialConsent,
+}: {
+  children: ReactNode;
+  initialConsent?: CookieConsent;
+}) {
+  const [isBannerOpen, setIsBannerOpen] = useState(false);
+  const [consent, setConsent] = useState<CookieConsent | undefined>(
+    initialConsent,
+  );
+
+  return (
+    <AppContext.Provider
+      value={{
+        cookieConsent: {
+          isBannerOpen,
+          openBanner: () => setIsBannerOpen(true),
+          closeBanner: () => setIsBannerOpen(false),
+          consent,
+          setConsent,
+        },
+      }}
+    >
+      {children}
+    </AppContext.Provider>
+  );
+}
+
+const renderCookieConsentBanner = (initialConsent?: CookieConsent) => {
+  return render(
+    <CookieConsentTestProvider initialConsent={initialConsent}>
+      <CookieConsentBanner />
+    </CookieConsentTestProvider>,
+  );
 };
 
 describe("CookieConsentBanner", () => {
@@ -16,7 +59,7 @@ describe("CookieConsentBanner", () => {
   });
 
   it("shows the initial cookie choices and action buttons", async () => {
-    render(<CookieConsentBanner />);
+    renderCookieConsentBanner();
 
     expect(
       await screen.findByRole("heading", {
@@ -37,7 +80,7 @@ describe("CookieConsentBanner", () => {
   it("saves full consent when allowing all cookies", async () => {
     const user = userEvent.setup();
 
-    render(<CookieConsentBanner />);
+    renderCookieConsentBanner();
 
     await user.click(await screen.findByRole("button", { name: "Allow all" }));
 
@@ -57,7 +100,7 @@ describe("CookieConsentBanner", () => {
   it("saves the selected cookie categories", async () => {
     const user = userEvent.setup();
 
-    render(<CookieConsentBanner />);
+    renderCookieConsentBanner();
 
     await user.click(await screen.findByRole("switch", { name: "Statistics cookies" }));
     await user.click(screen.getByRole("button", { name: "Allow selection" }));
@@ -80,7 +123,7 @@ describe("CookieConsentBanner", () => {
       }),
     )}; path=/`;
 
-    render(<CookieConsentBanner />);
+    renderCookieConsentBanner(DEFAULT_CONSENT);
 
     await waitFor(() =>
       expect(

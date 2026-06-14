@@ -8,8 +8,6 @@ const COOKIE_CONSENT_COOKIE_NAME = "dreambig_CC"; // TODO: Renaming!
 const COOKIE_CONSENT_MAX_AGE_SECONDS = 365 * 24 * 60 * 60;
 const cookies = new Cookies();
 
-export const COOKIE_CONSENT_CHANGED_EVENT = "dreambig:cookie-consent-changed";
-
 export const DEFAULT_CONSENT: CookieConsent = {
   necessary: true,
   preferences: false,
@@ -30,35 +28,26 @@ const getCookieOptions = (): CookieSetOptions => {
 export const getCookieConsent = () => cookies.get<CookieConsent | undefined>(COOKIE_CONSENT_COOKIE_NAME);
 
 const deleteInvalidConsentCookie = (): void => {
-  const value = getCookieConsent();
-  const consent = value as Record<string, unknown> | undefined;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const consent = getCookieConsent() as any;
 
   const isValidConsent =
-    value !== undefined
-    && typeof value === "object"
-    && value !== null
-    && consent?.necessary === true
+    consent?.necessary === true
     && typeof consent?.preferences === "boolean"
     && typeof consent?.statistics === "boolean"
     && typeof consent?.marketing === "boolean";
 
-  if (value !== undefined && !isValidConsent) {
+  if (consent !== undefined && !isValidConsent) {
     cookies.remove(COOKIE_CONSENT_COOKIE_NAME, { path: "/" });
   }
 };
 
 deleteInvalidConsentCookie();
 
-export const saveConsent = (consent: CookieConsent): void => {
+export const saveConsentIntoCookie = (consent: CookieConsent): void => {
   cookies.set(
     COOKIE_CONSENT_COOKIE_NAME,
     consent,
     getCookieOptions(),
   );
 };
-
-export const notifyCookieConsentChanged = (): void => {
-  window.dispatchEvent(new Event(COOKIE_CONSENT_CHANGED_EVENT));
-};
-
-export const hasConsent = () => !!getCookieConsent();

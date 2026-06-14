@@ -173,7 +173,7 @@ export default function WebsiteCookiesPage() {
         </section>
 
         {cookieCategories.map((category) => (
-          <CookieCategorySection category={category} />
+          <CookieCategorySection category={category} key={`${category.key}-${category.label}`} />
         ))}
       </main>
       <Footer />
