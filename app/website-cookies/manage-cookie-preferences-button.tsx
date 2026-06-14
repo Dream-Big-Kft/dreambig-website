@@ -1,10 +1,13 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { useCookieConsent } from '../../hooks/useCookieConsent';
 
 export function ManageCookiePreferencesButton() {
+  const { openBanner } = useCookieConsent();
+
   const handleManageCookiePreferences = (): void => {
-    // TODO: Decide whether this should reopen the banner with the saved selection or reset consent first.
+    openBanner();
   };
 
   return (

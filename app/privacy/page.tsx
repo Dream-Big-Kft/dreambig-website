@@ -1,7 +1,7 @@
 import { Header } from "@/components/landing/header";
 import { Footer } from "@/components/landing/footer";
-import { CookieSettingsButton } from "@/components/CookieSettingsButton";
 import { CompanyEmailLink } from "@/components/CompanyEmailLink";
+import { ManageCookiePreferencesButton } from '../website-cookies/manage-cookie-preferences-button';
 
 function Section({
   title,
@@ -104,16 +104,10 @@ export default function PrivacyPage() {
             retention settings in Segment, Google Analytics 4, and Hotjar; these
             settings must be reviewed and documented before launch.
           </p>
-          <p className="mt-4">
+          <p className="mt-4 mb-4">
             You can withdraw or change your consent at any time:
           </p>
-          <CookieSettingsButton
-            variant="outline"
-            size="sm"
-            className="mt-2"
-          >
-            Manage cookie preferences
-          </CookieSettingsButton>
+          <ManageCookiePreferencesButton />
         </Section>
 
         <Section title="4. Recipients &amp; International Transfers">

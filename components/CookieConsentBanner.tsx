@@ -1,43 +1,53 @@
 "use client";
 
-import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useCookieConsent } from '@/hooks/useCookieConsent';
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 import {
-  DEFAULT_CONSENT,
-  hasConsent,
-  saveConsent,
   cookieCategories,
   CookieConsent,
+  DEFAULT_CONSENT,
+  saveConsentIntoCookie
 } from "@/utils/cookie-consent";
 import { cn } from "@/utils/utils";
+import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const bannerText =
   "Our site uses cookies to tailor content and ads, provide social media functionalities, and analyze our traffic. Information regarding your use of our website is also shared with our trusted social media, advertising, and analytics partners. They may integrate this data with other information you've shared with them or that they've collected through your use of their platforms.";
 
 export const CookieConsentBanner = () => {
-  const [visible, setVisible] = useState(false);
-  const [selection, setSelection] = useState<CookieConsent>(DEFAULT_CONSENT);
+  const { consent, setConsent, openBanner, closeBanner, isBannerOpen } = useCookieConsent();
+  const [localCookieSelection, setlocalCookieSelection] = useState<CookieConsent>(consent || DEFAULT_CONSENT);
 
   useEffect(() => {
-    setVisible(!hasConsent());
-  }, []);
+    if (!consent) {
+      openBanner();
+    }
+  }, [consent, openBanner]);
+
+  useEffect(() => {
+    if (!isBannerOpen) return;
+
+    setlocalCookieSelection(consent ?? DEFAULT_CONSENT);
+  }, [isBannerOpen, consent]);
+
 
   const updateSelection = (key: keyof CookieConsent, checked: boolean) => {
     if (key === "necessary") return;
 
-    setSelection((currentSelection) => ({
+    setlocalCookieSelection((currentSelection) => ({
       ...currentSelection,
       [key]: checked,
       necessary: true,
     }));
   };
 
-  const persistConsent = (consent: CookieConsent) => {
-    saveConsent(consent);
-    setVisible(false);
+  const persistConsent = (cookieSelection: CookieConsent) => {
+    saveConsentIntoCookie(cookieSelection);
+    setConsent(cookieSelection);
+    closeBanner();
   };
 
   const acceptAll = () => {
@@ -50,14 +60,14 @@ export const CookieConsentBanner = () => {
   };
 
   const acceptSelection = () => {
-    persistConsent(selection);
+    persistConsent(localCookieSelection);
   };
 
   const rejectAll = () => {
     persistConsent(DEFAULT_CONSENT);
   };
 
-  if (!visible) return null;
+  if (!isBannerOpen) return null;
 
   return (
     <section
@@ -99,7 +109,7 @@ export const CookieConsentBanner = () => {
               >
                 <span>{category.label}</span>
                 <Switch
-                  checked={selection[category.key]}
+                  checked={localCookieSelection[category.key]}
                   disabled={category.locked}
                   aria-label={`${category.label} cookies`}
                   onCheckedChange={(checked) => {
@@ -108,12 +118,12 @@ export const CookieConsentBanner = () => {
                 />
               </label>
             ))}
-            {/* <Link
+            <Link
               href="/website-cookies"
               className="text-muted-foreground underline underline-offset-4 transition-colors hover:text-foreground dark:text-foreground/72 dark:hover:text-foreground/92"
             >
               Website-cookies
-            </Link> */}
+            </Link>
           </div>
 
         </div>
