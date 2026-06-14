@@ -1,10 +1,19 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
+import { AppContextProvider } from "@/components/AppContext";
 import WebsiteCookiesPage from "./page";
+
+const renderWebsiteCookiesPage = () => {
+  return render(
+    <AppContextProvider>
+      <WebsiteCookiesPage />
+    </AppContextProvider>,
+  );
+};
 
 describe("WebsiteCookiesPage", () => {
   it("renders the cookie page content", () => {
-    render(<WebsiteCookiesPage />);
+    renderWebsiteCookiesPage();
 
     expect(
       screen.getByRole("heading", { name: "Website Cookies" }),
@@ -15,7 +24,7 @@ describe("WebsiteCookiesPage", () => {
   });
 
   it("renders all cookie category sections", () => {
-    render(<WebsiteCookiesPage />);
+    renderWebsiteCookiesPage();
 
     expect(screen.getByRole("heading", { name: "Necessary cookies" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "Preferences cookies" })).toBeInTheDocument();
@@ -24,7 +33,7 @@ describe("WebsiteCookiesPage", () => {
   });
 
   it("renders the necessary cookie details", () => {
-    render(<WebsiteCookiesPage />);
+    renderWebsiteCookiesPage();
 
     expect(screen.getByRole("heading", { name: "CookieConsent" })).toBeInTheDocument();
     expect(screen.getAllByText("dreambig.hu").length).toBeGreaterThan(0);
@@ -36,7 +45,7 @@ describe("WebsiteCookiesPage", () => {
   });
 
   it("renders the preferences empty state", () => {
-    render(<WebsiteCookiesPage />);
+    renderWebsiteCookiesPage();
 
     expect(
       screen.getByText("We do not use cookies of this type."),
@@ -44,7 +53,7 @@ describe("WebsiteCookiesPage", () => {
   });
 
   it("renders the statistics cookie details", () => {
-    render(<WebsiteCookiesPage />);
+    renderWebsiteCookiesPage();
 
     expect(screen.getByRole("heading", { name: "_ga" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "_ga_*" })).toBeInTheDocument();
@@ -55,7 +64,7 @@ describe("WebsiteCookiesPage", () => {
   });
 
   it("renders the marketing cookie details", () => {
-    render(<WebsiteCookiesPage />);
+    renderWebsiteCookiesPage();
 
     expect(screen.getByRole("heading", { name: "ajs_user_id" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "timezone" })).toBeInTheDocument();
