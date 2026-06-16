@@ -3,7 +3,7 @@ import { ThemeProvider } from "next-themes";
 import { CookieConsentBanner } from "@/components/CookieConsentBanner";
 import "./globals.css";
 import SegmentInitializer from '@/components/SegmentInitializer';
-import { AppContextProvider } from '@/components/AppContext';
+import { CookieContextProvider } from '@/components/CookieContext';
 
 export const metadata: Metadata = {
   title: "DreamBig Software | Custom Software Development & Consulting",
@@ -37,11 +37,11 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className="font-sans antialiased">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <AppContextProvider>
+          <CookieContextProvider>
             {children}
             <CookieConsentBanner />
             <SegmentInitializer />
-          </AppContextProvider>
+          </CookieContextProvider>
         </ThemeProvider>
       </body>
     </html>

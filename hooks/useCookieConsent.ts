@@ -1,14 +1,14 @@
 "use client";
 
 import { useContext } from "react";
-import { AppContext } from "@/components/AppContext";
+import { CookieContext } from "@/components/CookieContext";
 
 export function useCookieConsent() {
-  const context = useContext(AppContext);
+  const cookieContext = useContext(CookieContext);
 
-  if (!context) {
-    throw new Error("useCookieConsent must be used within AppContextProvider");
+  if (!cookieContext) {
+    throw new Error("useCookieConsent must be used within CookieContextProvider");
   }
 
-  return context.cookieConsent;
+  return cookieContext;
 }

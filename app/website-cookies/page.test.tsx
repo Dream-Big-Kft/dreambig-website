@@ -1,13 +1,13 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-import { AppContextProvider } from "@/components/AppContext";
+import { CookieContextProvider } from "@/components/CookieContext";
 import WebsiteCookiesPage from "./page";
 
 const renderWebsiteCookiesPage = () => {
   return render(
-    <AppContextProvider>
+    <CookieContextProvider>
       <WebsiteCookiesPage />
-    </AppContextProvider>,
+    </CookieContextProvider>,
   );
 };
 
