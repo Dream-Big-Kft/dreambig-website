@@ -19,7 +19,7 @@ const bannerText =
 
 export const CookieConsentBanner = () => {
   const { consent, setConsent, openBanner, closeBanner, isBannerOpen } = useCookieConsent();
-  const [localCookieSelection, setlocalCookieSelection] = useState<CookieConsent>(consent || DEFAULT_CONSENT);
+  const [localCookieSelection, setLocalCookieSelection] = useState<CookieConsent>(consent || DEFAULT_CONSENT);
 
   useEffect(() => {
     if (!consent) {
@@ -30,14 +30,14 @@ export const CookieConsentBanner = () => {
   useEffect(() => {
     if (!isBannerOpen) return;
 
-    setlocalCookieSelection(consent ?? DEFAULT_CONSENT);
+    setLocalCookieSelection(consent ?? DEFAULT_CONSENT);
   }, [isBannerOpen, consent]);
 
 
   const updateSelection = (key: keyof CookieConsent, checked: boolean) => {
     if (key === "necessary") return;
 
-    setlocalCookieSelection((currentSelection) => ({
+    setLocalCookieSelection((currentSelection) => ({
       ...currentSelection,
       [key]: checked,
       necessary: true,
