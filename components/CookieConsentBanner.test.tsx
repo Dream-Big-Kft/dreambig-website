@@ -5,9 +5,10 @@ import { CookieConsentBanner } from "./CookieConsentBanner";
 import {
   DEFAULT_CONSENT,
   getCookieConsent,
+  saveConsentIntoCookie,
   type CookieConsent,
 } from "@/utils/cookie-consent";
-import { AppContext } from "@/components/AppContext";
+import { CookieContext } from "@/components/CookieContext";
 import { type ReactNode, useState } from "react";
 
 const COOKIE_CONSENT_COOKIE_NAME = "dreambig_CC";
@@ -27,21 +28,23 @@ function CookieConsentTestProvider({
   const [consent, setConsent] = useState<CookieConsent | undefined>(
     initialConsent,
   );
+  const saveConsent = (value: CookieConsent): void => {
+    saveConsentIntoCookie(value);
+    setConsent(value);
+  };
 
   return (
-    <AppContext.Provider
+    <CookieContext.Provider
       value={{
-        cookieConsent: {
-          isBannerOpen,
-          openBanner: () => setIsBannerOpen(true),
-          closeBanner: () => setIsBannerOpen(false),
-          consent,
-          setConsent,
-        },
+        isBannerOpen,
+        openBanner: () => setIsBannerOpen(true),
+        closeBanner: () => setIsBannerOpen(false),
+        consent,
+        saveConsent,
       }}
     >
       {children}
-    </AppContext.Provider>
+    </CookieContext.Provider>
   );
 }
 

@@ -6,8 +6,7 @@ import { Switch } from "@/components/ui/switch";
 import {
   cookieCategories,
   CookieConsent,
-  DEFAULT_CONSENT,
-  saveConsentIntoCookie
+  DEFAULT_CONSENT
 } from "@/utils/cookie-consent";
 import { cn } from "@/utils/utils";
 import Image from "next/image";
@@ -18,7 +17,7 @@ const bannerText =
   "Our site uses cookies to tailor content and ads, provide social media functionalities, and analyze our traffic. Information regarding your use of our website is also shared with our trusted social media, advertising, and analytics partners. They may integrate this data with other information you've shared with them or that they've collected through your use of their platforms.";
 
 export const CookieConsentBanner = () => {
-  const { consent, setConsent, openBanner, closeBanner, isBannerOpen } = useCookieConsent();
+  const { consent, saveConsent, openBanner, closeBanner, isBannerOpen } = useCookieConsent();
   const [localCookieSelection, setLocalCookieSelection] = useState<CookieConsent>(consent || DEFAULT_CONSENT);
 
   useEffect(() => {
@@ -45,8 +44,7 @@ export const CookieConsentBanner = () => {
   };
 
   const persistConsent = (cookieSelection: CookieConsent) => {
-    saveConsentIntoCookie(cookieSelection);
-    setConsent(cookieSelection);
+    saveConsent(cookieSelection);
     closeBanner();
   };
 
