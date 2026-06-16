@@ -156,7 +156,7 @@ const WebsiteCookiesPage: FC = () => {
 
         {cookiesByCategory.map((category) => {
           return (
-            <section className="mt-10">
+            <section className="mt-10" key={category.label}>
               <h2 className="text-xl font-semibold text-foreground">
                 {category.label} cookies
               </h2>
