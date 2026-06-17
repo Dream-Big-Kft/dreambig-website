@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { useCookieConsent } from "@/hooks/useCookieConsent";
+import { useCookieConsent } from "@/components/CookieContext/useCookieConsent";
 
 export function ManageCookiePreferencesButton() {
   const { openBanner } = useCookieConsent();

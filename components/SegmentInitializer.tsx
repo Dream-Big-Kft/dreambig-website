@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { initSegment, isLoaded, resetSegment } from "@/utils/segment";
 import { trackPageView } from "@/utils/analytics";
 import type { CookieConsent } from "@/utils/cookie-consent";
-import { useCookieConsent } from '@/hooks/useCookieConsent';
+import { useCookieConsent } from "@/components/CookieContext/useCookieConsent";
 
 export default function SegmentInitializer() {
   const { consent } = useCookieConsent();
@@ -19,17 +19,21 @@ export default function SegmentInitializer() {
 
     if (!consent) return;
 
-    if ( // If Segment is already loaded (meaning statistics were previously allowed) and the new consent has statistics: false
-      isLoaded() && !consent.statistics) {
+    if (
+      // If Segment is already loaded (meaning statistics were previously allowed) and the new consent has statistics: false
+      isLoaded() &&
+      !consent.statistics
+    ) {
       resetSegment();
       window.location.reload();
       return;
     }
 
-    if ( //If Segment is already loaded and marketing changes while statistics is still enabled
-      isLoaded()
-      && previousConsent?.marketing !== undefined
-      && previousConsent.marketing !== consent.marketing
+    if (
+      //If Segment is already loaded and marketing changes while statistics is still enabled
+      isLoaded() &&
+      previousConsent?.marketing !== undefined &&
+      previousConsent.marketing !== consent.marketing
     ) {
       window.location.reload();
       return;
@@ -47,7 +51,6 @@ export default function SegmentInitializer() {
     };
 
     void initializeSegment();
-
   }, [consent]);
 
   return null;
