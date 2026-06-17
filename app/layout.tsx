@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
 import { CookieConsentBanner } from "@/components/CookieConsentBanner";
 import "./globals.css";
-import SegmentInitializer from '@/components/SegmentInitializer';
-import { CookieContextProvider } from '@/components/CookieContext';
+import SegmentInitializer from "@/components/SegmentInitializer";
+import { CookieContextProvider } from "@/components/CookieContext/CookieContext";
 
 export const metadata: Metadata = {
   title: "DreamBig Software | Custom Software Development & Consulting",

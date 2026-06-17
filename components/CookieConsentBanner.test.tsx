@@ -8,7 +8,7 @@ import {
   saveConsentIntoCookie,
   type CookieConsent,
 } from "@/utils/cookie-consent";
-import { CookieContext } from "@/components/CookieContext";
+import { CookieContext } from "@/components/CookieContext/CookieContext";
 import { type ReactNode, useState } from "react";
 
 const COOKIE_CONSENT_COOKIE_NAME = "dreambig_CC";
@@ -70,13 +70,27 @@ describe("CookieConsentBanner", () => {
       }),
     ).toBeInTheDocument();
 
-    expect(screen.getByRole("switch", { name: "Necessary cookies" })).toBeChecked();
-    expect(screen.getByRole("switch", { name: "Necessary cookies" })).toBeDisabled();
-    expect(screen.getByRole("switch", { name: "Preferences cookies" })).not.toBeChecked();
-    expect(screen.getByRole("switch", { name: "Statistics cookies" })).not.toBeChecked();
-    expect(screen.getByRole("switch", { name: "Marketing cookies" })).not.toBeChecked();
-    expect(screen.getByRole("button", { name: "Allow all" })).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "Allow selection" })).toBeInTheDocument();
+    expect(
+      screen.getByRole("switch", { name: "Necessary cookies" }),
+    ).toBeChecked();
+    expect(
+      screen.getByRole("switch", { name: "Necessary cookies" }),
+    ).toBeDisabled();
+    expect(
+      screen.getByRole("switch", { name: "Preferences cookies" }),
+    ).not.toBeChecked();
+    expect(
+      screen.getByRole("switch", { name: "Statistics cookies" }),
+    ).not.toBeChecked();
+    expect(
+      screen.getByRole("switch", { name: "Marketing cookies" }),
+    ).not.toBeChecked();
+    expect(
+      screen.getByRole("button", { name: "Allow all" }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: "Allow selection" }),
+    ).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Reject" })).toBeInTheDocument();
   });
 
@@ -105,7 +119,9 @@ describe("CookieConsentBanner", () => {
 
     renderCookieConsentBanner();
 
-    await user.click(await screen.findByRole("switch", { name: "Statistics cookies" }));
+    await user.click(
+      await screen.findByRole("switch", { name: "Statistics cookies" }),
+    );
     await user.click(screen.getByRole("button", { name: "Allow selection" }));
 
     expect(getCookieConsent()).toEqual({
