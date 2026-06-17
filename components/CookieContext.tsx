@@ -1,7 +1,16 @@
 "use client";
-import { getCookieConsent, saveConsentIntoCookie } from "@/utils/cookie-consent";
+import {
+  getCookieConsent,
+  saveConsentIntoCookie,
+} from "@/utils/cookie-consent";
 import type { CookieConsent } from "@/utils/cookie-consent";
-import { createContext, type ReactNode, useCallback, useMemo, useState } from "react";
+import {
+  createContext,
+  type ReactNode,
+  useCallback,
+  useMemo,
+  useState,
+} from "react";
 
 type CookieContextValue = {
   isBannerOpen: boolean;
@@ -13,25 +22,38 @@ type CookieContextValue = {
 
 const CookieContext = createContext<CookieContextValue | null>(null);
 
-const CookieContextProvider = ({ children }: { children: ReactNode; }) => {
-
-  const [isCookieConsentBannerOpen, setIsCookieConsentBannerOpen] = useState<boolean>(false);
-  const [consentCookieState, setConsentCookieState] = useState<CookieConsent | undefined>(() => getCookieConsent());
+const CookieContextProvider = ({ children }: { children: ReactNode }) => {
+  const [isCookieConsentBannerOpen, setIsCookieConsentBannerOpen] =
+    useState<boolean>(false);
+  const [consentCookieState, setConsentCookieState] = useState<
+    CookieConsent | undefined
+  >(() => getCookieConsent());
   const openBanner = useCallback(() => setIsCookieConsentBannerOpen(true), []);
-  const closeBanner = useCallback(() => setIsCookieConsentBannerOpen(false), []);
+  const closeBanner = useCallback(
+    () => setIsCookieConsentBannerOpen(false),
+    [],
+  );
   const saveConsent = useCallback((value: CookieConsent) => {
     saveConsentIntoCookie(value);
     setConsentCookieState(value);
   }, []);
 
-  const contextValue = useMemo(() => ({
-    isBannerOpen: isCookieConsentBannerOpen,
-    openBanner,
-    closeBanner,
-    consent: consentCookieState,
-    saveConsent,
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }), [isCookieConsentBannerOpen, consentCookieState]);
+  const contextValue = useMemo(
+    () => ({
+      isBannerOpen: isCookieConsentBannerOpen,
+      openBanner,
+      closeBanner,
+      consent: consentCookieState,
+      saveConsent,
+    }),
+    [
+      isCookieConsentBannerOpen,
+      openBanner,
+      closeBanner,
+      consentCookieState,
+      saveConsent,
+    ],
+  );
 
   return (
     <CookieContext.Provider value={contextValue}>

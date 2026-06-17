@@ -13,7 +13,6 @@ const removeConsentCookie = (): void => {
   document.cookie = `${COOKIE_CONSENT_COOKIE_NAME}=; max-age=0; path=/`;
 };
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const writeConsentCookie = (value: string): void => {
   document.cookie = `${COOKIE_CONSENT_COOKIE_NAME}=${encodeURIComponent(value)}; path=/`;
 };
