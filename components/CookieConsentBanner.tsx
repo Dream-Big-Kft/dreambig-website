@@ -1,12 +1,12 @@
 "use client";
 
-import { useCookieConsent } from '@/hooks/useCookieConsent';
+import { useCookieConsent } from "@/components/CookieContext/useCookieConsent";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 import {
   cookieCategories,
   CookieConsent,
-  DEFAULT_CONSENT
+  DEFAULT_CONSENT,
 } from "@/utils/cookie-consent";
 import { cn } from "@/utils/utils";
 import Image from "next/image";
@@ -17,8 +17,10 @@ const bannerText =
   "Our site uses cookies to tailor content and ads, provide social media functionalities, and analyze our traffic. Information regarding your use of our website is also shared with our trusted social media, advertising, and analytics partners. They may integrate this data with other information you've shared with them or that they've collected through your use of their platforms.";
 
 export const CookieConsentBanner = () => {
-  const { consent, saveConsent, openBanner, closeBanner, isBannerOpen } = useCookieConsent();
-  const [localCookieSelection, setLocalCookieSelection] = useState<CookieConsent>(consent || DEFAULT_CONSENT);
+  const { consent, saveConsent, openBanner, closeBanner, isBannerOpen } =
+    useCookieConsent();
+  const [localCookieSelection, setLocalCookieSelection] =
+    useState<CookieConsent>(consent || DEFAULT_CONSENT);
 
   useEffect(() => {
     if (!consent) {
@@ -31,7 +33,6 @@ export const CookieConsentBanner = () => {
 
     setLocalCookieSelection(consent ?? DEFAULT_CONSENT);
   }, [isBannerOpen, consent]);
-
 
   const updateSelection = (key: keyof CookieConsent, checked: boolean) => {
     if (key === "necessary") return;
@@ -123,17 +124,26 @@ export const CookieConsentBanner = () => {
               Website-cookies
             </Link>
           </div>
-
         </div>
 
         <div className="grid gap-3 md:col-span-2 lg:col-span-1">
           <Button type="button" className="h-12" onClick={acceptAll}>
             Allow all
           </Button>
-          <Button type="button" variant="outline" className="h-12" onClick={acceptSelection}>
+          <Button
+            type="button"
+            variant="outline"
+            className="h-12"
+            onClick={acceptSelection}
+          >
             Allow selection
           </Button>
-          <Button type="button" variant="outline" className="h-12" onClick={rejectAll}>
+          <Button
+            type="button"
+            variant="outline"
+            className="h-12"
+            onClick={rejectAll}
+          >
             Reject
           </Button>
         </div>
