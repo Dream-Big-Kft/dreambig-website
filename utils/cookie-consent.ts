@@ -6,6 +6,9 @@ export type { CookieCategoryKey, CookieConsent } from "./cookie-categories";
 
 const COOKIE_CONSENT_COOKIE_NAME = "dreambig_CC"; // TODO: Renaming!
 const COOKIE_CONSENT_MAX_AGE_SECONDS = 365 * 24 * 60 * 60;
+const STATISTICS_STORAGE_PREFIXES = ["_ga"];
+const MARKETING_STORAGE_PREFIXES = ["ajs_"];
+const PRODUCTION_COOKIE_DOMAIN = ".dreambig.hu";
 const cookies = new Cookies();
 
 export const DEFAULT_CONSENT: CookieConsent = {
@@ -50,4 +53,38 @@ export const saveConsentIntoCookie = (consent: CookieConsent): void => {
     consent,
     getCookieOptions(),
   );
+};
+
+const matchesPrefix = (name: string, prefixes: string[]): boolean => {
+  return prefixes.some((prefix) => name.startsWith(prefix));
+};
+
+const removeCookiesByPrefix = (prefixes: string[]): void => {
+  Object.keys(cookies.getAll<Record<string, unknown>>()).forEach((name) => {
+    if (matchesPrefix(name, prefixes)) {
+      cookies.remove(name, { path: "/" });
+      // Production analytics cookies are scoped to `.dreambig.hu`; path-only removal covers localhost and host-only cookies.
+      cookies.remove(name, { path: "/", domain: PRODUCTION_COOKIE_DOMAIN });
+    }
+  });
+};
+
+const removeStorageItemsByPrefix = (storage: Storage, prefixes: string[]): void => {
+  Object.keys(storage).forEach((key) => {
+    if (matchesPrefix(key, prefixes)) {
+      storage.removeItem(key);
+    }
+  });
+};
+
+export const cleanupStatisticsStorage = (): void => {
+  removeCookiesByPrefix(STATISTICS_STORAGE_PREFIXES);
+  removeStorageItemsByPrefix(window.localStorage, STATISTICS_STORAGE_PREFIXES);
+  removeStorageItemsByPrefix(window.sessionStorage, STATISTICS_STORAGE_PREFIXES);
+};
+
+export const cleanupMarketingStorage = (): void => {
+  removeCookiesByPrefix(MARKETING_STORAGE_PREFIXES);
+  removeStorageItemsByPrefix(window.localStorage, MARKETING_STORAGE_PREFIXES);
+  removeStorageItemsByPrefix(window.sessionStorage, MARKETING_STORAGE_PREFIXES);
 };
