@@ -4,6 +4,8 @@ name: Build and deploy to GitHub Pages
 # Run automatically on any branch, and allow manual runs from the UI.
 on:
   push:
+    branches-ignore:
+      - aws
   workflow_dispatch:
 
 # Minimum permissions needed to read the repo and publish to GitHub Pages.
