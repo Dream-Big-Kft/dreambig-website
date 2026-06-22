@@ -6,8 +6,6 @@ frontend:
         - npm install -g pnpm@10.15.0
         - pnpm install --frozen-lockfile
         - pnpm dlx audit-ci@^7 --config ./audit-ci.jsonc || true
-    test:
-      commands:
         - pnpm test
     build:
       commands:
