@@ -22,16 +22,24 @@ export default function SegmentInitializer() {
 
     if (!consent) return; // no choice made yet
 
-    // Marketing revoked: drop Segment identity storage (ajs_*). Transition-guarded
-    // so we don't re-wipe on every render while marketing stays off.
-    if (previousConsent?.marketing && !consent.marketing) {
+    // First run after a page load: no previous consent to compare against. We
+    // still clean up, so cookies/storage set in an earlier session (or another
+    // tab) are brought in line with the saved choice. A declined visitor re-runs
+    // this on every load, which is harmless: cleanup is a no-op when there's
+    // nothing to remove, and Segment isn't loaded yet so there's no reload.
+    // Don't switch this to "only run on change" — stale cookies would survive.
+    const isFirstRun = previousConsent === undefined;
+
+    // Marketing revoked (or already off on first load): drop Segment identity
+    // storage (ajs_*). Otherwise transition-guarded so we don't re-wipe per render.
+    if ((isFirstRun || previousConsent?.marketing) && !consent.marketing) {
       cleanupMarketingStorage();
     }
 
-    // Statistics revoked: drop GA cookies (_ga*) AND Segment identity (ajs_*).
-    // Segment only runs with statistics consent, so withdrawing it tears Segment
-    // down and orphans its ids regardless of the marketing flag. Transition-guarded.
-    if (previousConsent?.statistics && !consent.statistics) {
+    // Statistics revoked (or already off on first load): drop GA cookies (_ga*)
+    // AND Segment identity (ajs_*). Segment only runs with statistics consent, so
+    // withdrawing it tears Segment down and orphans its ids regardless of marketing.
+    if ((isFirstRun || previousConsent?.statistics) && !consent.statistics) {
       cleanupStatisticsStorage();
       cleanupMarketingStorage();
 
@@ -42,8 +50,8 @@ export default function SegmentInitializer() {
       }
     }
 
-    // Separate from the transition block so it also covers first mount
-    // (previousConsent undefined): never init Segment without statistics consent.
+    // Separate from the blocks above so it also covers first mount:
+    // never init Segment without statistics consent.
     if (!consent.statistics) {
       return;
     }
