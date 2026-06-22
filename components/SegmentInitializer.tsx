@@ -18,48 +18,39 @@ export default function SegmentInitializer() {
 
   useEffect(() => {
     const previousConsent = previousConsentRef.current;
-    // save current as to be previous consent for the next render
-    previousConsentRef.current = consent;
+    previousConsentRef.current = consent; // remember for the next render
 
-    // Consent has not been given yet (banner not interacted with); nothing to do.
-    if (!consent) return;
+    if (!consent) return; // no choice made yet
 
-    // Marketing consent was just revoked: remove Segment identity cookies and
-    // localStorage/sessionStorage keys (ajs_*) so no user-linked data persists.
-    // Guarded to transition only (true → false) so we don't wipe storage on
-    // every render when marketing is already off.
+    // Marketing revoked: drop Segment identity storage (ajs_*). Transition-guarded
+    // so we don't re-wipe on every render while marketing stays off.
     if (previousConsent?.marketing && !consent.marketing) {
       cleanupMarketingStorage();
     }
 
-    // Statistics consent was just revoked: remove GA cookies (_ga*) and any
-    // other statistics-scoped storage. If Segment is currently running we must
-    // also reset it and reload the page — there is no public Segment API to
-    // unload it without a full page cycle. Guarded to transition only (true →
-    // false) so cleanup doesn't run repeatedly while statistics stays off.
+    // Statistics revoked: drop GA cookies (_ga*) AND Segment identity (ajs_*).
+    // Segment only runs with statistics consent, so withdrawing it tears Segment
+    // down and orphans its ids regardless of the marketing flag. Transition-guarded.
     if (previousConsent?.statistics && !consent.statistics) {
       cleanupStatisticsStorage();
+      cleanupMarketingStorage();
 
       if (isLoaded()) {
-        // Segment has no unload API; a reload is the only reliable way to stop
-        // it from firing further events after consent is withdrawn.
+        // Segment has no unload API; reload is the only way to fully stop it.
         resetSegment();
         window.location.reload();
       }
     }
 
-    // Statistics consent is currently off: skip initialisation entirely.
-    // This is a separate guard from the transition block above so that it also
-    // applies on the very first mount when previousConsent is undefined.
+    // Separate from the transition block so it also covers first mount
+    // (previousConsent undefined): never init Segment without statistics consent.
     if (!consent.statistics) {
       return;
     }
 
     if (
-      // Marketing consent changed while statistics is still enabled. Segment's
-      // persistence mode (disableClientPersistence) depends on marketing
-      // consent, so a reload is the simplest way to re-initialise Segment with
-      // the correct options without reimplementing teardown logic ourselves.
+      // Marketing toggled while statistics stays on. Segment's persistence mode
+      // (disableClientPersistence) is fixed at load, so reload to re-init cleanly.
       isLoaded() &&
       previousConsent?.marketing !== undefined &&
       previousConsent.marketing !== consent.marketing
@@ -71,9 +62,7 @@ export default function SegmentInitializer() {
     const initializeSegment = async () => {
       await initSegment(consent);
 
-      // Track the initial page view once per mount, after Segment is ready.
-      // The ref prevents a double-fire if the effect runs again before the
-      // component unmounts (e.g. React Strict Mode double-invoke in development).
+      // One page view per mount; ref guards against a double-fire (e.g. Strict Mode).
       if (isLoaded() && !pageTrackedRef.current) {
         pageTrackedRef.current = true;
         trackPageView();
