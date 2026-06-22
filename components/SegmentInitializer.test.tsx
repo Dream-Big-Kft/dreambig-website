@@ -108,4 +108,20 @@ describe("SegmentInitializer", () => {
     expect(resetSegment).toHaveBeenCalledTimes(1);
     expect(window.location.reload).toHaveBeenCalledTimes(1);
   });
+
+  it("reconciles stale storage on a fresh load when statistics consent is already off", () => {
+    // Fresh mount (no previous consent) with statistics already declined, e.g.
+    // a returning visitor or consent withdrawn in another tab. Cleanup must still
+    // run so leftover _ga/ajs_ identifiers don't survive. Segment isn't loaded
+    // yet, so there's no reset/reload — just the storage sweep.
+    setConsent({ ...ALL_GRANTED, statistics: false });
+
+    render(<SegmentInitializer />);
+
+    expect(cleanupStatisticsStorage).toHaveBeenCalledTimes(1);
+    expect(cleanupMarketingStorage).toHaveBeenCalledTimes(1);
+    expect(resetSegment).not.toHaveBeenCalled();
+    expect(window.location.reload).not.toHaveBeenCalled();
+    expect(initSegment).not.toHaveBeenCalled();
+  });
 });
