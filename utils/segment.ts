@@ -38,8 +38,3 @@ export async function initSegment(consent: CookieConsent | undefined): Promise<v
     }
   }
 }
-
-export function resetSegment(): void {
-  analytics.reset();
-  loaded = false;
-}
