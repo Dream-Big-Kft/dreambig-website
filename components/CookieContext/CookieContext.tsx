@@ -1,5 +1,7 @@
 "use client";
 import {
+  cleanupMarketingStorage,
+  cleanupStatisticsStorage,
   getCookieConsent,
   saveConsentIntoCookie,
 } from "@/utils/cookie-consent";
@@ -22,21 +24,31 @@ type CookieContextValue = {
 
 const CookieContext = createContext<CookieContextValue | null>(null);
 
-const CookieContextProvider = ({ children }: { children: ReactNode }) => {
-  const [isCookieConsentBannerOpen, setIsCookieConsentBannerOpen] =
-    useState<boolean>(false);
-  const [consentCookieState, setConsentCookieState] = useState<
-    CookieConsent | undefined
-  >(() => getCookieConsent());
+const CookieContextProvider = ({ children }: { children: ReactNode; }) => {
+  const [isCookieConsentBannerOpen, setIsCookieConsentBannerOpen] = useState<boolean>(false);
+  const [consentCookieState, setConsentCookieState] = useState<CookieConsent | undefined>(() => getCookieConsent());
   const openBanner = useCallback(() => setIsCookieConsentBannerOpen(true), []);
-  const closeBanner = useCallback(
-    () => setIsCookieConsentBannerOpen(false),
-    [],
-  );
-  const saveConsent = useCallback((value: CookieConsent) => {
-    saveConsentIntoCookie(value);
-    setConsentCookieState(value);
-  }, []);
+  const closeBanner = useCallback(() => setIsCookieConsentBannerOpen(false), []);
+  const saveConsent = useCallback(
+    (newConsentValue: CookieConsent) => {
+      if (consentCookieState !== undefined) {
+        if (consentCookieState.statistics === true && newConsentValue.statistics === false) {
+          // Handle the case where statistics consent is revoked
+          cleanupStatisticsStorage();
+          cleanupMarketingStorage();
+        } else if (consentCookieState.marketing === true && newConsentValue.marketing === false) {
+          // Handle the case where marketing consent is revoked
+          cleanupMarketingStorage();
+        }
+        saveConsentIntoCookie(newConsentValue);
+        setConsentCookieState(newConsentValue);
+        window.location.reload();
+      } else {
+        // If there was no previous consent, just save the new consent value
+        saveConsentIntoCookie(newConsentValue);
+        setConsentCookieState(newConsentValue);
+      }
+    }, [consentCookieState]);
 
   const contextValue = useMemo(
     () => ({
