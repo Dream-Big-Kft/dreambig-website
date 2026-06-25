@@ -16,10 +16,10 @@ export default defineConfig({
       provider: "v8",
       reporter: ["text"],
       thresholds: {
-        statements: 87,
-        branches: 87,
-        functions: 84,
-        lines: 88,
+        statements: 92,
+        branches: 88,
+        functions: 88,
+        lines: 94,
       },
       include: [
         "app/**/*.ts",
