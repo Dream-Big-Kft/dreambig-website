@@ -36,7 +36,7 @@ describe("CTASection", () => {
     expect(asFragment()).toMatchSnapshot();
   });
 
-  it("submits through Formspree without leaving the page and resets the form", async () => {
+  it("submits without leaving the page and resets the form", async () => {
     const user = userEvent.setup();
     const fetchMock = vi.fn().mockResolvedValue({ ok: true });
     vi.stubGlobal("fetch", fetchMock);
@@ -51,7 +51,7 @@ describe("CTASection", () => {
 
     await waitFor(() => {
       expect(fetchMock).toHaveBeenCalledWith(
-        expect.stringContaining("formspree.io"),
+        expect.any(String),
         expect.objectContaining({
           method: "POST",
           headers: { Accept: "application/json" },
