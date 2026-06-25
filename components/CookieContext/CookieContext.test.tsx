@@ -61,8 +61,7 @@ describe("CookieContext saveConsent", () => {
     act(() => result.current.saveConsent({ ...ALL_GRANTED, statistics: false }));
 
     expect(cleanupStatisticsStorage).toHaveBeenCalledTimes(1);
-    // ajs_* is Segment identity storage — orphaned when Segment can no longer run
-    expect(cleanupMarketingStorage).toHaveBeenCalledTimes(1);
+
     expect(window.location.reload).toHaveBeenCalledTimes(1);
   });
 

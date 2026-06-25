@@ -31,12 +31,12 @@ const CookieContextProvider = ({ children }: { children: ReactNode; }) => {
   const closeBanner = useCallback(() => setIsCookieConsentBannerOpen(false), []);
   const saveConsent = useCallback(
     (newConsentValue: CookieConsent) => {
-      if (consentCookieState !== undefined) {
-        if (consentCookieState.statistics === true && newConsentValue.statistics === false) {
+      if (consentCookieState) {
+        if (consentCookieState.statistics && !newConsentValue.statistics) {
           // Handle the case where statistics consent is revoked
           cleanupStatisticsStorage();
-          cleanupMarketingStorage();
-        } else if (consentCookieState.marketing === true && newConsentValue.marketing === false) {
+        }
+        if (consentCookieState.marketing && !newConsentValue.marketing) {
           // Handle the case where marketing consent is revoked
           cleanupMarketingStorage();
         }
