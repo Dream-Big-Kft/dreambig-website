@@ -15,6 +15,12 @@ export default defineConfig({
     coverage: {
       provider: "v8",
       reporter: ["text"],
+      thresholds: {
+        statements: 87,
+        branches: 87,
+        functions: 84,
+        lines: 88,
+      },
       include: [
         "app/**/*.ts",
         "app/**/*.tsx",
