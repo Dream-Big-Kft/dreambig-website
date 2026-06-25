@@ -10,6 +10,7 @@ import {
   createContext,
   type ReactNode,
   useCallback,
+  useEffect,
   useMemo,
   useState,
 } from "react";
@@ -31,21 +32,13 @@ const CookieContextProvider = ({ children }: { children: ReactNode; }) => {
   const closeBanner = useCallback(() => setIsCookieConsentBannerOpen(false), []);
   const saveConsent = useCallback(
     (newConsentValue: CookieConsent) => {
+      saveConsentIntoCookie(newConsentValue);
       if (consentCookieState) {
-        if (consentCookieState.statistics && !newConsentValue.statistics) {
-          // Handle the case where statistics consent is revoked
-          cleanupStatisticsStorage();
-        }
-        if (consentCookieState.marketing && !newConsentValue.marketing) {
-          // Handle the case where marketing consent is revoked
-          cleanupMarketingStorage();
-        }
-        saveConsentIntoCookie(newConsentValue);
-        setConsentCookieState(newConsentValue);
+        // Changing an existing choice: reload so Segment/GA is fully reset before the
+        // cleanup effect runs on the fresh page (prevents deleted cookies from being rewritten).
         window.location.reload();
       } else {
-        // If there was no previous consent, just save the new consent value
-        saveConsentIntoCookie(newConsentValue);
+        // First-ever consent: nothing is loaded yet, so just update state without a jarring reload.
         setConsentCookieState(newConsentValue);
       }
     }, [consentCookieState]);
@@ -66,6 +59,15 @@ const CookieContextProvider = ({ children }: { children: ReactNode; }) => {
       saveConsent,
     ],
   );
+
+  useEffect(() => {
+    if (!consentCookieState?.statistics) {
+      cleanupStatisticsStorage();
+    }
+    if (!consentCookieState?.marketing) {
+      cleanupMarketingStorage();
+    }
+  }, [consentCookieState]);
 
   return (
     <CookieContext.Provider value={contextValue}>

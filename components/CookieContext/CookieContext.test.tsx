@@ -14,6 +14,7 @@ vi.mock("@/utils/cookie-consent", () => ({
 
 import {
   getCookieConsent,
+  saveConsentIntoCookie,
   cleanupMarketingStorage,
   cleanupStatisticsStorage,
 } from "@/utils/cookie-consent";
@@ -29,66 +30,80 @@ const wrapper = ({ children }: { children: ReactNode; }) => (
   <CookieContextProvider>{children}</CookieContextProvider>
 );
 
-describe("CookieContext saveConsent", () => {
-  beforeEach(() => {
-    vi.clearAllMocks();
-    Object.defineProperty(window, "location", {
-      configurable: true,
-      value: { reload: vi.fn() },
-    });
+beforeEach(() => {
+  vi.clearAllMocks();
+  Object.defineProperty(window, "location", {
+    configurable: true,
+    value: { reload: vi.fn() },
+  });
+});
+
+describe("CookieContext cleanup on mount", () => {
+  it("no saved consent: cleans up both statistics and marketing storage", () => {
+    vi.mocked(getCookieConsent).mockReturnValue(undefined);
+
+    renderHook(() => useCookieConsent(), { wrapper });
+
+    expect(cleanupStatisticsStorage).toHaveBeenCalledTimes(1);
+    expect(cleanupMarketingStorage).toHaveBeenCalledTimes(1);
   });
 
-  it("first save: updates state without reloading the page", () => {
-    // No saved cookie → first-time visitor
+  it("statistics denied (marketing granted): cleans up only statistics storage", () => {
+    vi.mocked(getCookieConsent).mockReturnValue({
+      ...ALL_GRANTED,
+      statistics: false,
+    });
+
+    renderHook(() => useCookieConsent(), { wrapper });
+
+    expect(cleanupStatisticsStorage).toHaveBeenCalledTimes(1);
+    expect(cleanupMarketingStorage).not.toHaveBeenCalled();
+  });
+
+  it("marketing denied (statistics granted): cleans up only marketing storage", () => {
+    vi.mocked(getCookieConsent).mockReturnValue({
+      ...ALL_GRANTED,
+      marketing: false,
+    });
+
+    renderHook(() => useCookieConsent(), { wrapper });
+
+    expect(cleanupMarketingStorage).toHaveBeenCalledTimes(1);
+    expect(cleanupStatisticsStorage).not.toHaveBeenCalled();
+  });
+
+  it("all granted: runs no cleanup", () => {
+    vi.mocked(getCookieConsent).mockReturnValue(ALL_GRANTED);
+
+    renderHook(() => useCookieConsent(), { wrapper });
+
+    expect(cleanupStatisticsStorage).not.toHaveBeenCalled();
+    expect(cleanupMarketingStorage).not.toHaveBeenCalled();
+  });
+});
+
+describe("CookieContext saveConsent", () => {
+  it("first save (no previous consent): persists and updates state without reloading", () => {
     vi.mocked(getCookieConsent).mockReturnValue(undefined);
 
     const { result } = renderHook(() => useCookieConsent(), { wrapper });
 
     act(() => result.current.saveConsent(ALL_GRANTED));
 
+    expect(saveConsentIntoCookie).toHaveBeenCalledWith(ALL_GRANTED);
     expect(result.current.consent).toEqual(ALL_GRANTED);
-    expect(cleanupStatisticsStorage).not.toHaveBeenCalled();
-    expect(cleanupMarketingStorage).not.toHaveBeenCalled();
     expect(window.location.reload).not.toHaveBeenCalled();
   });
 
-  it("statistics revoked: cleans up statistics + marketing storage then reloads", () => {
-    // Returning visitor who previously granted everything
+  it("changing an existing consent: persists then reloads", () => {
     vi.mocked(getCookieConsent).mockReturnValue(ALL_GRANTED);
 
     const { result } = renderHook(() => useCookieConsent(), { wrapper });
 
-    act(() => result.current.saveConsent({ ...ALL_GRANTED, statistics: false }));
+    const revoked = { ...ALL_GRANTED, statistics: false };
+    act(() => result.current.saveConsent(revoked));
 
-    expect(cleanupStatisticsStorage).toHaveBeenCalledTimes(1);
-
-    expect(window.location.reload).toHaveBeenCalledTimes(1);
-  });
-
-  it("marketing revoked while statistics stays on: cleans up marketing storage then reloads", () => {
-    vi.mocked(getCookieConsent).mockReturnValue(ALL_GRANTED);
-
-    const { result } = renderHook(() => useCookieConsent(), { wrapper });
-
-    act(() => result.current.saveConsent({ ...ALL_GRANTED, marketing: false }));
-
-    expect(cleanupMarketingStorage).toHaveBeenCalledTimes(1);
-    expect(cleanupStatisticsStorage).not.toHaveBeenCalled();
-    expect(window.location.reload).toHaveBeenCalledTimes(1);
-  });
-
-  it("any other change (e.g. upgrading statistics): reloads without running cleanup", () => {
-    vi.mocked(getCookieConsent).mockReturnValue({
-      ...ALL_GRANTED,
-      statistics: false,
-    });
-
-    const { result } = renderHook(() => useCookieConsent(), { wrapper });
-
-    act(() => result.current.saveConsent(ALL_GRANTED));
-
-    expect(cleanupStatisticsStorage).not.toHaveBeenCalled();
-    expect(cleanupMarketingStorage).not.toHaveBeenCalled();
+    expect(saveConsentIntoCookie).toHaveBeenCalledWith(revoked);
     expect(window.location.reload).toHaveBeenCalledTimes(1);
   });
 });
